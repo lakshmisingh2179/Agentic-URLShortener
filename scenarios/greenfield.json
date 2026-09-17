@@ -1,0 +1,4 @@
+{
+  "scenario": "greenfield",
+  "context": "Build a new C# URL shortener. Accept absolute HTTP(S) URLs without embedded credentials, optional unique case-sensitive aliases (4–32 URL-safe characters), and optional future expiry. Persist links and click counts. Return HTTP 302 for valid codes and 404 for absent/expired codes. Protect creation and statistics using operator credentials. Scope is a single process and local disk. Produce reviewable artifacts; release requires a human decision."
+}

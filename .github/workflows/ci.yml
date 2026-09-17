@@ -1,0 +1,20 @@
+name: build-and-test
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+      - run: sh scripts/test.sh
+      - name: Engineering changes, red-green regression and governed revision
+        run: |
+          export DOTNET_HOST_PATH="$(command -v dotnet)"
+          dotnet tools/EngineeringDemo/bin/Release/net10.0/EngineeringDemo.dll "$PWD" "$RUNNER_TEMP/engineering" "$RUNNER_TEMP/evidence" --auto-approve-offline
+      - uses: actions/upload-artifact@v4
+        with:
+          name: engineering-evidence
+          path: ${{ runner.temp }}/evidence
+      - run: docker build -t shortener:test .

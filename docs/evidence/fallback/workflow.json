@@ -1,0 +1,276 @@
+{
+  "Id": "9532b2e7e3134fa4bdcb58dead57d943",
+  "Scenario": "greenfield",
+  "Context": "Explicit fallback exercise: primary requirements provider unavailable; require approval before the alternate executes.",
+  "Status": "Completed",
+  "Revision": 1,
+  "Nodes": [
+    {
+      "Spec": {
+        "Id": "requirements",
+        "Role": "analyst",
+        "Task": "Specify HTTP URL shortening, expiry, redirects and abuse controls.",
+        "DependsOn": [],
+        "Approval": false,
+        "MaxAttempts": 3
+      },
+      "Status": "Succeeded",
+      "Attempts": 3,
+      "Approved": false,
+      "Output": "{\u0022Context\u0022:\u0022Explicit fallback exercise: primary requirements provider unavailable; require approval before the alternate executes.\u0022,\u0022Contract\u0022:{\u0022Scenario\u0022:\u0022greenfield\u0022,\u0022AcceptanceCriteria\u0022:{\u0022AC-URL\u0022:\u0022Reject non-HTTP(S), embedded credentials and control characters.\u0022,\u0022AC-REDIRECT\u0022:\u0022Persist links; return 302 with original destination and increment clicks.\u0022,\u0022AC-EXPIRY\u0022:\u0022Return 404 for missing/expired codes; reject past expiry on creation.\u0022,\u0022AC-ALIAS\u0022:\u0022Unique case-sensitive aliases; duplicate creation returns 409.\u0022,\u0022AC-AUTH\u0022:\u0022Operator may create; approver cannot create; only approver may approve gates.\u0022},\u0022Decisions\u0022:{\u0022creation\u0022:\u0022operator-only\u0022,\u0022retention\u0022:\u0022optional-expiry\u0022,\u0022aliases\u0022:\u0022case-sensitive\u0022}},\u0022requirementHash\u0022:\u0022a7f9e01da4e9523246b86a6337dc9becf207094a26e87016c968433bd09d2837\u0022,\u0022provenance\u0022:\u0022Deterministic offline scope artifact; decisions are supplied by the operator, not inferred\u0022}",
+      "Error": null,
+      "RetryAt": "2026-09-15T00:06:25.5128289+00:00",
+      "DurationMs": 95,
+      "ArtifactId": "be121246e7f744448f9272dd284198b0",
+      "RecoveryStartedAt": null,
+      "IncidentStartedAt": null,
+      "UseFallback": true,
+      "FallbackAttempts": 1,
+      "ApprovedFallback": {
+        "Agent": "DemoAgent",
+        "Model": "none"
+      }
+    },
+    {
+      "Spec": {
+        "Id": "design",
+        "Role": "architect",
+        "Task": "Produce architecture, persistence model and API contract.",
+        "DependsOn": [
+          "requirements"
+        ],
+        "Approval": false,
+        "MaxAttempts": 3
+      },
+      "Status": "Succeeded",
+      "Attempts": 1,
+      "Approved": false,
+      "Output": "# Offline demo: architect\nTask: Produce architecture, persistence model and API contract.\nContext: Explicit fallback exercise: primary requirements provider unavailable; require approval before the alternate executes.\nInputs: requirements\nDeterministic demonstration artifact. No model call, code execution, test execution, or deployment occurred.\nAcceptance checklist: validate HTTP(S) URLs; preserve codes; persist redirects; test expiry and concurrent writes; review release and rollback.",
+      "Error": null,
+      "RetryAt": "0001-01-01T00:00:00+00:00",
+      "DurationMs": 86,
+      "ArtifactId": "9ef3b174124c43ad931c1509bbdc98a3",
+      "RecoveryStartedAt": null,
+      "IncidentStartedAt": null,
+      "UseFallback": false,
+      "FallbackAttempts": 0,
+      "ApprovedFallback": null
+    },
+    {
+      "Spec": {
+        "Id": "implementation",
+        "Role": "developer",
+        "Task": "Produce a proposed C# implementation artifact against the approved contract.",
+        "DependsOn": [
+          "design"
+        ],
+        "Approval": false,
+        "MaxAttempts": 3
+      },
+      "Status": "Succeeded",
+      "Attempts": 1,
+      "Approved": false,
+      "Output": "# Offline demo: developer\nTask: Produce a proposed C# implementation artifact against the approved contract.\nContext: Explicit fallback exercise: primary requirements provider unavailable; require approval before the alternate executes.\nInputs: design\nDeterministic demonstration artifact. No model call, code execution, test execution, or deployment occurred.\nAcceptance checklist: validate HTTP(S) URLs; preserve codes; persist redirects; test expiry and concurrent writes; review release and rollback.",
+      "Error": null,
+      "RetryAt": "0001-01-01T00:00:00+00:00",
+      "DurationMs": 84,
+      "ArtifactId": "c0c9f236a95e40bebaca38e6a963707f",
+      "RecoveryStartedAt": null,
+      "IncidentStartedAt": null,
+      "UseFallback": false,
+      "FallbackAttempts": 0,
+      "ApprovedFallback": null
+    },
+    {
+      "Spec": {
+        "Id": "security",
+        "Role": "security-reviewer",
+        "Task": "Review URL validation, redirect abuse, authorization and persistence threats.",
+        "DependsOn": [
+          "design"
+        ],
+        "Approval": false,
+        "MaxAttempts": 3
+      },
+      "Status": "Succeeded",
+      "Attempts": 1,
+      "Approved": false,
+      "Output": "{\u0022RequirementHash\u0022:\u0022a7f9e01da4e9523246b86a6337dc9becf207094a26e87016c968433bd09d2837\u0022,\u0022Verdict\u0022:\u0022pass\u0022,\u0022Findings\u0022:[],\u0022RecommendedEngineering\u0022:null}",
+      "Error": null,
+      "RetryAt": "0001-01-01T00:00:00+00:00",
+      "DurationMs": 94,
+      "ArtifactId": "d360194ecaee47a7a00dc730e73032fb",
+      "RecoveryStartedAt": null,
+      "IncidentStartedAt": null,
+      "UseFallback": false,
+      "FallbackAttempts": 0,
+      "ApprovedFallback": null
+    },
+    {
+      "Spec": {
+        "Id": "tests",
+        "Role": "test-engineer",
+        "Task": "Produce test cases and identify validation gaps from implementation and security findings. Do not claim to have executed code.",
+        "DependsOn": [
+          "implementation",
+          "security"
+        ],
+        "Approval": false,
+        "MaxAttempts": 3
+      },
+      "Status": "Succeeded",
+      "Attempts": 1,
+      "Approved": false,
+      "Output": "# Offline demo: test-engineer\nTask: Produce test cases and identify validation gaps from implementation and security findings. Do not claim to have executed code.\nContext: Explicit fallback exercise: primary requirements provider unavailable; require approval before the alternate executes.\nInputs: implementation, security\nDeterministic demonstration artifact. No model call, code execution, test execution, or deployment occurred.\nAcceptance checklist: validate HTTP(S) URLs; preserve codes; persist redirects; test expiry and concurrent writes; review release and rollback.",
+      "Error": null,
+      "RetryAt": "0001-01-01T00:00:00+00:00",
+      "DurationMs": 85,
+      "ArtifactId": "106f7205adc142ee91e58d1fc6be7112",
+      "RecoveryStartedAt": null,
+      "IncidentStartedAt": null,
+      "UseFallback": false,
+      "FallbackAttempts": 0,
+      "ApprovedFallback": null
+    },
+    {
+      "Spec": {
+        "Id": "release",
+        "Role": "release-reviewer",
+        "Task": "Produce a release checklist and rollback plan. This artifact is a simulated release, not a deployment.",
+        "DependsOn": [
+          "tests"
+        ],
+        "Approval": true,
+        "MaxAttempts": 3
+      },
+      "Status": "Succeeded",
+      "Attempts": 1,
+      "Approved": true,
+      "Output": "# Offline demo: release-reviewer\nTask: Produce a release checklist and rollback plan. This artifact is a simulated release, not a deployment.\nContext: Explicit fallback exercise: primary requirements provider unavailable; require approval before the alternate executes.\nInputs: tests\nDeterministic demonstration artifact. No model call, code execution, test execution, or deployment occurred.\nAcceptance checklist: validate HTTP(S) URLs; preserve codes; persist redirects; test expiry and concurrent writes; review release and rollback.",
+      "Error": null,
+      "RetryAt": "0001-01-01T00:00:00+00:00",
+      "DurationMs": 98,
+      "ArtifactId": "f6dc162b7c68441da3856bcf5b6e75ef",
+      "RecoveryStartedAt": null,
+      "IncidentStartedAt": null,
+      "UseFallback": false,
+      "FallbackAttempts": 0,
+      "ApprovedFallback": null
+    }
+  ],
+  "Proposal": null,
+  "Engineering": null,
+  "RequirementProposal": null,
+  "Artifacts": [
+    {
+      "Id": "be121246e7f744448f9272dd284198b0",
+      "Revision": 1,
+      "RequirementHash": "a7f9e01da4e9523246b86a6337dc9becf207094a26e87016c968433bd09d2837",
+      "NodeId": "requirements",
+      "Agent": "DemoAgent",
+      "Model": "none",
+      "InputHashes": {},
+      "Sha256": "78493fc924bb1c239d292062128630c0490d962f0ec15c7bca1803ba3dcef58f",
+      "Content": "{\u0022Context\u0022:\u0022Explicit fallback exercise: primary requirements provider unavailable; require approval before the alternate executes.\u0022,\u0022Contract\u0022:{\u0022Scenario\u0022:\u0022greenfield\u0022,\u0022AcceptanceCriteria\u0022:{\u0022AC-URL\u0022:\u0022Reject non-HTTP(S), embedded credentials and control characters.\u0022,\u0022AC-REDIRECT\u0022:\u0022Persist links; return 302 with original destination and increment clicks.\u0022,\u0022AC-EXPIRY\u0022:\u0022Return 404 for missing/expired codes; reject past expiry on creation.\u0022,\u0022AC-ALIAS\u0022:\u0022Unique case-sensitive aliases; duplicate creation returns 409.\u0022,\u0022AC-AUTH\u0022:\u0022Operator may create; approver cannot create; only approver may approve gates.\u0022},\u0022Decisions\u0022:{\u0022creation\u0022:\u0022operator-only\u0022,\u0022retention\u0022:\u0022optional-expiry\u0022,\u0022aliases\u0022:\u0022case-sensitive\u0022}},\u0022requirementHash\u0022:\u0022a7f9e01da4e9523246b86a6337dc9becf207094a26e87016c968433bd09d2837\u0022,\u0022provenance\u0022:\u0022Deterministic offline scope artifact; decisions are supplied by the operator, not inferred\u0022}",
+      "At": "2026-09-15T00:06:25.9559758+00:00",
+      "Success": true
+    },
+    {
+      "Id": "9ef3b174124c43ad931c1509bbdc98a3",
+      "Revision": 1,
+      "RequirementHash": "a7f9e01da4e9523246b86a6337dc9becf207094a26e87016c968433bd09d2837",
+      "NodeId": "design",
+      "Agent": "PrimaryOutageAgent",
+      "Model": "none",
+      "InputHashes": {
+        "requirements": "78493fc924bb1c239d292062128630c0490d962f0ec15c7bca1803ba3dcef58f"
+      },
+      "Sha256": "9a5fbaf25be7685c0381849768b673d30933972a443870d0b60123f89d52942b",
+      "Content": "# Offline demo: architect\nTask: Produce architecture, persistence model and API contract.\nContext: Explicit fallback exercise: primary requirements provider unavailable; require approval before the alternate executes.\nInputs: requirements\nDeterministic demonstration artifact. No model call, code execution, test execution, or deployment occurred.\nAcceptance checklist: validate HTTP(S) URLs; preserve codes; persist redirects; test expiry and concurrent writes; review release and rollback.",
+      "At": "2026-09-15T00:06:26.2190006+00:00",
+      "Success": true
+    },
+    {
+      "Id": "c0c9f236a95e40bebaca38e6a963707f",
+      "Revision": 1,
+      "RequirementHash": "a7f9e01da4e9523246b86a6337dc9becf207094a26e87016c968433bd09d2837",
+      "NodeId": "implementation",
+      "Agent": "PrimaryOutageAgent",
+      "Model": "none",
+      "InputHashes": {
+        "design": "9a5fbaf25be7685c0381849768b673d30933972a443870d0b60123f89d52942b"
+      },
+      "Sha256": "411c611563f3132520df00b9bffb06414d7865409e65b3586f9ecd68fa0aa3cf",
+      "Content": "# Offline demo: developer\nTask: Produce a proposed C# implementation artifact against the approved contract.\nContext: Explicit fallback exercise: primary requirements provider unavailable; require approval before the alternate executes.\nInputs: design\nDeterministic demonstration artifact. No model call, code execution, test execution, or deployment occurred.\nAcceptance checklist: validate HTTP(S) URLs; preserve codes; persist redirects; test expiry and concurrent writes; review release and rollback.",
+      "At": "2026-09-15T00:06:26.4720791+00:00",
+      "Success": true
+    },
+    {
+      "Id": "d360194ecaee47a7a00dc730e73032fb",
+      "Revision": 1,
+      "RequirementHash": "a7f9e01da4e9523246b86a6337dc9becf207094a26e87016c968433bd09d2837",
+      "NodeId": "security",
+      "Agent": "PrimaryOutageAgent",
+      "Model": "none",
+      "InputHashes": {
+        "design": "9a5fbaf25be7685c0381849768b673d30933972a443870d0b60123f89d52942b"
+      },
+      "Sha256": "692c61c9a12679f56ba3438b176fb7a321c9ce025856e159b89552cec960133e",
+      "Content": "{\u0022RequirementHash\u0022:\u0022a7f9e01da4e9523246b86a6337dc9becf207094a26e87016c968433bd09d2837\u0022,\u0022Verdict\u0022:\u0022pass\u0022,\u0022Findings\u0022:[],\u0022RecommendedEngineering\u0022:null}",
+      "At": "2026-09-15T00:06:26.4817205+00:00",
+      "Success": true
+    },
+    {
+      "Id": "106f7205adc142ee91e58d1fc6be7112",
+      "Revision": 1,
+      "RequirementHash": "a7f9e01da4e9523246b86a6337dc9becf207094a26e87016c968433bd09d2837",
+      "NodeId": "tests",
+      "Agent": "PrimaryOutageAgent",
+      "Model": "none",
+      "InputHashes": {
+        "implementation": "411c611563f3132520df00b9bffb06414d7865409e65b3586f9ecd68fa0aa3cf",
+        "security": "692c61c9a12679f56ba3438b176fb7a321c9ce025856e159b89552cec960133e"
+      },
+      "Sha256": "838a3032876bf1c022e90995bd0ae8b3100f55b4ed3543f709390875285b8774",
+      "Content": "# Offline demo: test-engineer\nTask: Produce test cases and identify validation gaps from implementation and security findings. Do not claim to have executed code.\nContext: Explicit fallback exercise: primary requirements provider unavailable; require approval before the alternate executes.\nInputs: implementation, security\nDeterministic demonstration artifact. No model call, code execution, test execution, or deployment occurred.\nAcceptance checklist: validate HTTP(S) URLs; preserve codes; persist redirects; test expiry and concurrent writes; review release and rollback.",
+      "At": "2026-09-15T00:06:26.7385047+00:00",
+      "Success": true
+    },
+    {
+      "Id": "f6dc162b7c68441da3856bcf5b6e75ef",
+      "Revision": 1,
+      "RequirementHash": "a7f9e01da4e9523246b86a6337dc9becf207094a26e87016c968433bd09d2837",
+      "NodeId": "release",
+      "Agent": "PrimaryOutageAgent",
+      "Model": "none",
+      "InputHashes": {
+        "tests": "838a3032876bf1c022e90995bd0ae8b3100f55b4ed3543f709390875285b8774"
+      },
+      "Sha256": "90bec5cba186ddde1096fb8eb9e56c35b8ca0ff71c2bc62404bd3ba41893faa1",
+      "Content": "# Offline demo: release-reviewer\nTask: Produce a release checklist and rollback plan. This artifact is a simulated release, not a deployment.\nContext: Explicit fallback exercise: primary requirements provider unavailable; require approval before the alternate executes.\nInputs: tests\nDeterministic demonstration artifact. No model call, code execution, test execution, or deployment occurred.\nAcceptance checklist: validate HTTP(S) URLs; preserve codes; persist redirects; test expiry and concurrent writes; review release and rollback.",
+      "At": "2026-09-15T00:06:27.0271093+00:00",
+      "Success": true
+    }
+  ],
+  "History": [],
+  "CleanupRevisions": [],
+  "CreatedAt": "2026-09-15T00:06:22.363657+00:00",
+  "Contract": {
+    "Scenario": "greenfield",
+    "AcceptanceCriteria": {
+      "AC-URL": "Reject non-HTTP(S), embedded credentials and control characters.",
+      "AC-REDIRECT": "Persist links; return 302 with original destination and increment clicks.",
+      "AC-EXPIRY": "Return 404 for missing/expired codes; reject past expiry on creation.",
+      "AC-ALIAS": "Unique case-sensitive aliases; duplicate creation returns 409.",
+      "AC-AUTH": "Operator may create; approver cannot create; only approver may approve gates."
+    },
+    "Decisions": {
+      "creation": "operator-only",
+      "retention": "optional-expiry",
+      "aliases": "case-sensitive"
+    }
+  },
+  "ValidateBaseline": false,
+  "FindingsProposal": null,
+  "FallbackProposal": null
+}

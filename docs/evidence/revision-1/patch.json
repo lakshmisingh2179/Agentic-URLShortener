@@ -1,0 +1,18 @@
+{
+  "RequirementId": "REQ-ALIAS-001",
+  "BaselineHash": "68509b279a88d917bbfc5af3d7485d8b5ec8cdef5cfb8ae7ed3713eb08d0c3d2",
+  "Edits": [
+    {
+      "Path": "src/Shortener.Core/LinkService.cs",
+      "BeforeSha256": "8d6dd694e2caf805e99d862b33f71c39624610d11b5bcf2d41e5bffcab9b1787",
+      "Search": "        return store.Change(db =\u003E",
+      "Replacement": "        if (alias is not null \u0026\u0026 new[] { \u0022admin\u0022 }.Contains(alias, StringComparer.OrdinalIgnoreCase))\n            throw new ArgumentException(\u0022Alias is reserved\u0022);\n        return store.Change(db =\u003E"
+    },
+    {
+      "Path": "tests/Shortener.Tests/Program.cs",
+      "BeforeSha256": "37bace5a34264fbf95e9540f881ce972fd62e91b3d7761a4a4960a14abc5a124",
+      "Search": "// ENGINEERING_REGRESSION_INSERTION_POINT",
+      "Replacement": "Test(\u0022Brownfield reserved-alias regression\u0022, () =\u003E\n{\n    using var f = new Fixture();\n    foreach (var alias in new[] { \u0022admin\u0022 })\n    {\n        Throws\u003CArgumentException\u003E(() =\u003E f.Links.Create(\u0022https://example.com\u0022, alias));\n        Throws\u003CArgumentException\u003E(() =\u003E f.Links.Create(\u0022https://example.com\u0022, alias.ToUpperInvariant()));\n    }\n    // Existing persisted aliases, including newly reserved names, must still resolve.\n    f.Store.Change(db =\u003E { db.Links.Add(\u0022admin\u0022, new Link {\n        Code = \u0022admin\u0022, Url = \u0022https://example.com/legacy\u0022, Clicks = 7 }); return true; });\n    Check(f.Links.Resolve(\u0022admin\u0022)?.Clicks == 8);\n    Check(f.Links.Create(\u0022https://example.com\u0022, \u0022public\u0022).Code == \u0022public\u0022);\n});\n// ENGINEERING_REGRESSION_INSERTION_POINT"
+    }
+  ]
+}

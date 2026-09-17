@@ -1,0 +1,21 @@
+{
+  "Directory.Build.props": "bf23a5a89d4da1f7b12145f025d86ee88aa6f6f6b2dbb7d2fa4bc042fff5fe50",
+  "NuGet.Config": "2142cfb2dfa2c7feefbe40fabcc68b0dfecadafa99a1db9b70239d977cf2a7ef",
+  "src/Shortener.Api/Program.cs": "813a06cd95a25a66a7a82fbc21cb990b7eeb0d9e8d2f08560d589d71ff345fb8",
+  "src/Shortener.Api/Shortener.Api.csproj": "3f812851887fd6fd7cbcc33bfb618781d9f27883b0e1ffbf6e414989704bf84f",
+  "src/Shortener.Core/Agents.cs": "530aad3ef96bc4d15d29c69955317f9a3fbc0f3e8914dca03a400f7b996edfd4",
+  "src/Shortener.Core/Engine.cs": "76ba2378d6b45c510be9825c76ab2c2e592d75753a976969311408481f2cb90e",
+  "src/Shortener.Core/EngineeringAgent.cs": "2293188710f825fed3ba7f16539fdd91113029c45c2f7b8fd155a0fff72f8ebe",
+  "src/Shortener.Core/JsonStore.cs": "bc3a8de20b2662e59fd3ada33cdfda7d8bd26d6d9d808303f5ed9b185aec23d2",
+  "src/Shortener.Core/LinkService.cs": "8d6dd694e2caf805e99d862b33f71c39624610d11b5bcf2d41e5bffcab9b1787",
+  "src/Shortener.Core/Models.cs": "57e37d1108f0fac48171c8793c56ba2ad57a20598552bef5ebc65fbab053a945",
+  "src/Shortener.Core/PatchPolicy.cs": "d77e0b3e895882d751a36aeb9f09bbaba3ffda995157c80fb57657884ed1350e",
+  "src/Shortener.Core/Quality.cs": "1991b495e378f22e84cf7686f30fb0643c331326956ff0a8a48a948caa37b313",
+  "src/Shortener.Core/Reliability.cs": "493c1e619d3c677a6f3509fb9bcc6696408c11a762058578c1976a1e715cc2a2",
+  "src/Shortener.Core/Scenarios.cs": "ef491f41215cb6b75d9e65d32fa7eddbf4fedb4082606f16083b8db04ba63984",
+  "src/Shortener.Core/Shortener.Core.csproj": "8d654c44b7bebb6b31a9f2f606927f45b5072193adc4eef8cce3f3cf3b278df3",
+  "src/Shortener.Core/Trace.cs": "037fae402e1e805a21881a733add74b644dddd22de588c33de9442820148bc7d",
+  "src/Shortener.Core/WorkflowService.cs": "d76d8005594eb7591e35ab2f72d46838b3249f64b48b06ea1bfea9969f1f2913",
+  "tests/Shortener.Tests/Program.cs": "37bace5a34264fbf95e9540f881ce972fd62e91b3d7761a4a4960a14abc5a124",
+  "tests/Shortener.Tests/Shortener.Tests.csproj": "a48aa8d3450ece7f5a24f58eba053c230d6c0fb6d07d71a078352e7fd72d7737"
+}

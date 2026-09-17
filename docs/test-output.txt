@@ -1,0 +1,53 @@
+PASS HTTP URL validation rejects credentials and unsafe schemes
+PASS Alias conflict and invalid alias are rejected atomically
+PASS Expiry and unknown codes do not redirect or count clicks
+PASS Persistence survives reopen and counts clicks
+PASS Second writer is refused
+PASS Failed transaction cannot leak partial mutations
+PASS Corrupt state fails closed
+PASS Concurrent short-code creation retains every link
+PASS Graph validator rejects cycles, dangling and duplicate IDs
+PASS Graph cannot remove release approval or bypass it
+PASS greenfield completes only after explicit human gates
+PASS brownfield completes only after explicit human gates
+PASS ambiguous completes only after explicit human gates
+PASS Approval rejects stale revision and unready gate
+PASS Parallel fan-out runs independent nodes and joins before tests
+PASS Transient failures consume bounded attempts and roll back
+PASS Retry backoff prevents immediate redispatch
+PASS Permanent provider failures are not retried
+PASS Execution timeout is bounded and retryable
+PASS Safe-stop discards in-flight output and prevents further dispatch
+PASS Crash recovery preserves consumed attempt budget
+PASS Gate rejection compensates in reverse dependency order
+PASS Governed replan pauses execution and requires explicit decision
+PASS Rejected replan retains original graph
+PASS Replanning cannot reset attempts or mutate completed work
+PASS Replan budget is capped at three accepted revisions
+PASS Audit sequences and actor decisions persist
+PASS Pending proposal survives restart and blocks dispatch
+PASS Explicit rollback after stop retains compensated evidence
+PASS Null plan input is rejected without changing run state
+PASS Live adapter sends authenticated request and parses text output
+PASS HTTP: authorization, redirects, gates, audit and metrics
+PASS Patch capability rejects traversal, arbitrary C# and stale baseline
+PASS Requirement revision invalidates approved outputs and re-executes behind fresh gates
+PASS Rejected requirement change preserves approvals and completion
+PASS Tampered audit fails integrity verification and reopen
+PASS Artifact trace links requirement, identity, dependencies and hashes
+PASS Reliability denominators and recovery measurement are explicit
+PASS Critical finding overrides pass verdict and generates approval-required plan
+PASS Rejecting security remediation cannot waive the blocker
+PASS Malformed security output fails closed
+PASS Graph edits cannot bypass security before tests
+PASS Findings proposal and source hash survive restart
+PASS Fallback is separately approved, bounded and attributed
+PASS Fallback failure does not loop or reset primary budget
+PASS Ambiguous scope requires concrete supported answers before approval
+PASS Restart blocks fallback identity change: model
+PASS Restart blocks fallback identity change: agent
+PASS Restart blocks fallback identity change: missing
+PASS Restart blocks fallback identity change: legacy-unbound
+PASS Restart permits the exact persisted approved fallback identity
+PASS Approval after restart binds the original proposal, not new configuration
+RESULT: 52/52 passed; 0 failed

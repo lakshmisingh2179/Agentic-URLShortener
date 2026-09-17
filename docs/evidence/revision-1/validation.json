@@ -1,0 +1,147 @@
+{
+  "RunId": "6e9663b15a9448ceba7f745f7606dac9",
+  "Revision": 1,
+  "RequirementId": "REQ-ALIAS-001",
+  "PatchHash": "0eb6075b8fa7d1bfe66ecf12368b6dc8c0630dc9e49c08fc34786d8de0555184",
+  "BaselineHash": "68509b279a88d917bbfc5af3d7485d8b5ec8cdef5cfb8ae7ed3713eb08d0c3d2",
+  "Success": true,
+  "Commands": [
+    {
+      "Arguments": [
+        "restore",
+        "src/Shortener.Api/Shortener.Api.csproj",
+        "--configfile",
+        "NuGet.Config",
+        "--disable-parallel",
+        "-m:1"
+      ],
+      "ExitCode": 0,
+      "DurationMs": 1294,
+      "Output": "  Determining projects to restore...\r\n  Restored C:\\Users\\vigne\\Documents\\Codex\\2026-09-14\\build-the-url-shortener-assignment-from\\work\\fallback-bound-final\\candidates\\6e9663b15a9448ceba7f745f7606dac9\\r1\\src\\Shortener.Api\\Shortener.Api.csproj (in 111 ms).\r\n  Restored C:\\Users\\vigne\\Documents\\Codex\\2026-09-14\\build-the-url-shortener-assignment-from\\work\\fallback-bound-final\\candidates\\6e9663b15a9448ceba7f745f7606dac9\\r1\\src\\Shortener.Core\\Shortener.Core.csproj (in 2 ms).\r\n",
+      "OutputHash": "9a20607b5d2a4a8a5506b512445ca74e369a380a31fbc9e4a74410bf4c2c493e"
+    },
+    {
+      "Arguments": [
+        "restore",
+        "tests/Shortener.Tests/Shortener.Tests.csproj",
+        "--configfile",
+        "NuGet.Config",
+        "--disable-parallel",
+        "-m:1"
+      ],
+      "ExitCode": 0,
+      "DurationMs": 1079,
+      "Output": "  Determining projects to restore...\r\n  Restored C:\\Users\\vigne\\Documents\\Codex\\2026-09-14\\build-the-url-shortener-assignment-from\\work\\fallback-bound-final\\candidates\\6e9663b15a9448ceba7f745f7606dac9\\r1\\tests\\Shortener.Tests\\Shortener.Tests.csproj (in 79 ms).\r\n  1 of 2 projects are up-to-date for restore.\r\n",
+      "OutputHash": "f492bfd4d2c29c630b8f5930df7b01bf1cacbde96725c3386f689ab273345719"
+    },
+    {
+      "Arguments": [
+        "build",
+        "src/Shortener.Api/Shortener.Api.csproj",
+        "-c",
+        "Release",
+        "--no-restore",
+        "-m:1",
+        "/p:UseSharedCompilation=false"
+      ],
+      "ExitCode": 0,
+      "DurationMs": 8045,
+      "Output": "  Shortener.Core -\u003E C:\\Users\\vigne\\Documents\\Codex\\2026-09-14\\build-the-url-shortener-assignment-from\\work\\fallback-bound-final\\candidates\\6e9663b15a9448ceba7f745f7606dac9\\r1\\src\\Shortener.Core\\bin\\Release\\net10.0\\Shortener.Core.dll\r\n  Shortener.Api -\u003E C:\\Users\\vigne\\Documents\\Codex\\2026-09-14\\build-the-url-shortener-assignment-from\\work\\fallback-bound-final\\candidates\\6e9663b15a9448ceba7f745f7606dac9\\r1\\src\\Shortener.Api\\bin\\Release\\net10.0\\Shortener.Api.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:07.80\r\n",
+      "OutputHash": "428a9fe8b5c3e59a2cdf40ce250b39857175277355d841c3651d3e044acbc7a2"
+    },
+    {
+      "Arguments": [
+        "build",
+        "tests/Shortener.Tests/Shortener.Tests.csproj",
+        "-c",
+        "Release",
+        "--no-restore",
+        "-m:1",
+        "/p:UseSharedCompilation=false"
+      ],
+      "ExitCode": 0,
+      "DurationMs": 3627,
+      "Output": "  Shortener.Core -\u003E C:\\Users\\vigne\\Documents\\Codex\\2026-09-14\\build-the-url-shortener-assignment-from\\work\\fallback-bound-final\\candidates\\6e9663b15a9448ceba7f745f7606dac9\\r1\\src\\Shortener.Core\\bin\\Release\\net10.0\\Shortener.Core.dll\r\n  Shortener.Tests -\u003E C:\\Users\\vigne\\Documents\\Codex\\2026-09-14\\build-the-url-shortener-assignment-from\\work\\fallback-bound-final\\candidates\\6e9663b15a9448ceba7f745f7606dac9\\r1\\tests\\Shortener.Tests\\bin\\Release\\net10.0\\Shortener.Tests.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:03.38\r\n",
+      "OutputHash": "d26d9dbf725f1dada5bcb363cd790ed9018a3d88eb092c9b334af5d635bdf6e9"
+    },
+    {
+      "Arguments": [
+        "tests/Shortener.Tests/bin/Release/net10.0/Shortener.Tests.dll",
+        "--integration"
+      ],
+      "ExitCode": 0,
+      "DurationMs": 10033,
+      "Output": "PASS HTTP URL validation rejects credentials and unsafe schemes\r\nPASS Alias conflict and invalid alias are rejected atomically\r\nPASS Expiry and unknown codes do not redirect or count clicks\r\nPASS Persistence survives reopen and counts clicks\r\nPASS Second writer is refused\r\nPASS Failed transaction cannot leak partial mutations\r\nPASS Corrupt state fails closed\r\nPASS Concurrent short-code creation retains every link\r\nPASS Graph validator rejects cycles, dangling and duplicate IDs\r\nPASS Graph cannot remove release approval or bypass it\r\nPASS greenfield completes only after explicit human gates\r\nPASS brownfield completes only after explicit human gates\r\nPASS ambiguous completes only after explicit human gates\r\nPASS Approval rejects stale revision and unready gate\r\nPASS Parallel fan-out runs independent nodes and joins before tests\r\nPASS Transient failures consume bounded attempts and roll back\r\nPASS Retry backoff prevents immediate redispatch\r\nPASS Permanent provider failures are not retried\r\nPASS Execution timeout is bounded and retryable\r\nPASS Safe-stop discards in-flight output and prevents further dispatch\r\nPASS Crash recovery preserves consumed attempt budget\r\nPASS Gate rejection compensates in reverse dependency order\r\nPASS Governed replan pauses execution and requires explicit decision\r\nPASS Rejected replan retains original graph\r\nPASS Replanning cannot reset attempts or mutate completed work\r\nPASS Replan budget is capped at three accepted revisions\r\nPASS Audit sequences and actor decisions persist\r\nPASS Pending proposal survives restart and blocks dispatch\r\nPASS Explicit rollback after stop retains compensated evidence\r\nPASS Null plan input is rejected without changing run state\r\nPASS Live adapter sends authenticated request and parses text output\r\nPASS HTTP: authorization, redirects, gates, audit and metrics\r\nPASS Patch capability rejects traversal, arbitrary C# and stale baseline\r\nPASS Requirement revision invalidates approved outputs and re-executes behind fresh gates\r\nPASS Rejected requirement change preserves approvals and completion\r\nPASS Tampered audit fails integrity verification and reopen\r\nPASS Artifact trace links requirement, identity, dependencies and hashes\r\nPASS Reliability denominators and recovery measurement are explicit\r\nPASS Critical finding overrides pass verdict and generates approval-required plan\r\nPASS Rejecting security remediation cannot waive the blocker\r\nPASS Malformed security output fails closed\r\nPASS Graph edits cannot bypass security before tests\r\nPASS Findings proposal and source hash survive restart\r\nPASS Fallback is separately approved, bounded and attributed\r\nPASS Fallback failure does not loop or reset primary budget\r\nPASS Ambiguous scope requires concrete supported answers before approval\r\nPASS Restart blocks fallback identity change: model\r\nPASS Restart blocks fallback identity change: agent\r\nPASS Restart blocks fallback identity change: missing\r\nPASS Restart blocks fallback identity change: legacy-unbound\r\nPASS Restart permits the exact persisted approved fallback identity\r\nPASS Approval after restart binds the original proposal, not new configuration\r\nRESULT: 52/52 passed; 0 failed\r\n",
+      "OutputHash": "78a35eaad5f19f40697361356a288cd4ad0c66654a96d27df655603875492abd"
+    },
+    {
+      "Arguments": [
+        "build",
+        "tests/Shortener.Tests/Shortener.Tests.csproj",
+        "-c",
+        "Release",
+        "--no-restore",
+        "-m:1",
+        "/p:UseSharedCompilation=false"
+      ],
+      "ExitCode": 0,
+      "DurationMs": 3629,
+      "Output": "  Shortener.Core -\u003E C:\\Users\\vigne\\Documents\\Codex\\2026-09-14\\build-the-url-shortener-assignment-from\\work\\fallback-bound-final\\candidates\\6e9663b15a9448ceba7f745f7606dac9\\r1\\src\\Shortener.Core\\bin\\Release\\net10.0\\Shortener.Core.dll\r\n  Shortener.Tests -\u003E C:\\Users\\vigne\\Documents\\Codex\\2026-09-14\\build-the-url-shortener-assignment-from\\work\\fallback-bound-final\\candidates\\6e9663b15a9448ceba7f745f7606dac9\\r1\\tests\\Shortener.Tests\\bin\\Release\\net10.0\\Shortener.Tests.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:03.37\r\n",
+      "OutputHash": "2e4712474c1fe1acbe42d63d2bc0c87178d83fef55e56295fca06f104c3bbd98"
+    },
+    {
+      "Arguments": [
+        "tests/Shortener.Tests/bin/Release/net10.0/Shortener.Tests.dll",
+        "--integration"
+      ],
+      "ExitCode": 1,
+      "DurationMs": 10297,
+      "Output": "PASS HTTP URL validation rejects credentials and unsafe schemes\r\nPASS Alias conflict and invalid alias are rejected atomically\r\nPASS Expiry and unknown codes do not redirect or count clicks\r\nPASS Persistence survives reopen and counts clicks\r\nPASS Second writer is refused\r\nPASS Failed transaction cannot leak partial mutations\r\nPASS Corrupt state fails closed\r\nPASS Concurrent short-code creation retains every link\r\nPASS Graph validator rejects cycles, dangling and duplicate IDs\r\nPASS Graph cannot remove release approval or bypass it\r\nPASS greenfield completes only after explicit human gates\r\nPASS brownfield completes only after explicit human gates\r\nPASS ambiguous completes only after explicit human gates\r\nPASS Approval rejects stale revision and unready gate\r\nPASS Parallel fan-out runs independent nodes and joins before tests\r\nPASS Transient failures consume bounded attempts and roll back\r\nPASS Retry backoff prevents immediate redispatch\r\nPASS Permanent provider failures are not retried\r\nPASS Execution timeout is bounded and retryable\r\nPASS Safe-stop discards in-flight output and prevents further dispatch\r\nPASS Crash recovery preserves consumed attempt budget\r\nPASS Gate rejection compensates in reverse dependency order\r\nPASS Governed replan pauses execution and requires explicit decision\r\nPASS Rejected replan retains original graph\r\nPASS Replanning cannot reset attempts or mutate completed work\r\nPASS Replan budget is capped at three accepted revisions\r\nPASS Audit sequences and actor decisions persist\r\nPASS Pending proposal survives restart and blocks dispatch\r\nPASS Explicit rollback after stop retains compensated evidence\r\nPASS Null plan input is rejected without changing run state\r\nPASS Live adapter sends authenticated request and parses text output\r\nPASS HTTP: authorization, redirects, gates, audit and metrics\r\nPASS Patch capability rejects traversal, arbitrary C# and stale baseline\r\nPASS Requirement revision invalidates approved outputs and re-executes behind fresh gates\r\nPASS Rejected requirement change preserves approvals and completion\r\nPASS Tampered audit fails integrity verification and reopen\r\nPASS Artifact trace links requirement, identity, dependencies and hashes\r\nPASS Reliability denominators and recovery measurement are explicit\r\nPASS Critical finding overrides pass verdict and generates approval-required plan\r\nPASS Rejecting security remediation cannot waive the blocker\r\nPASS Malformed security output fails closed\r\nPASS Graph edits cannot bypass security before tests\r\nPASS Findings proposal and source hash survive restart\r\nPASS Fallback is separately approved, bounded and attributed\r\nPASS Fallback failure does not loop or reset primary budget\r\nPASS Ambiguous scope requires concrete supported answers before approval\r\nPASS Restart blocks fallback identity change: model\r\nPASS Restart blocks fallback identity change: agent\r\nPASS Restart blocks fallback identity change: missing\r\nPASS Restart blocks fallback identity change: legacy-unbound\r\nPASS Restart permits the exact persisted approved fallback identity\r\nPASS Approval after restart binds the original proposal, not new configuration\r\nFAIL Brownfield reserved-alias regression\nSystem.Exception: Expected ArgumentException\r\n   at Program.\u003C\u003CMain\u003E$\u003Eg__Throws|0_3[T](Action action) in C:\\Users\\vigne\\Documents\\Codex\\2026-09-14\\build-the-url-shortener-assignment-from\\work\\fallback-bound-final\\candidates\\6e9663b15a9448ceba7f745f7606dac9\\r1\\tests\\Shortener.Tests\\Program.cs:line 16\r\n   at Program.\u003C\u003Ec.\u003C\u003CMain\u003E$\u003Eb__0_49() in C:\\Users\\vigne\\Documents\\Codex\\2026-09-14\\build-the-url-shortener-assignment-from\\work\\fallback-bound-final\\candidates\\6e9663b15a9448ceba7f745f7606dac9\\r1\\tests\\Shortener.Tests\\Program.cs:line 533\r\n   at Program.\u003C\u003Ec__DisplayClass0_1.\u003C\u003CMain\u003E$\u003Eb__50() in C:\\Users\\vigne\\Documents\\Codex\\2026-09-14\\build-the-url-shortener-assignment-from\\work\\fallback-bound-final\\candidates\\6e9663b15a9448ceba7f745f7606dac9\\r1\\tests\\Shortener.Tests\\Program.cs:line 10\r\n   at Program.\u003CMain\u003E$(String[] args) in C:\\Users\\vigne\\Documents\\Codex\\2026-09-14\\build-the-url-shortener-assignment-from\\work\\fallback-bound-final\\candidates\\6e9663b15a9448ceba7f745f7606dac9\\r1\\tests\\Shortener.Tests\\Program.cs:line 546\r\nRESULT: 52/53 passed; 1 failed\r\n",
+      "OutputHash": "1fb5ce164be1de27a1daa9ea1a63e4c52917d27e9effad6c63dc7a1fbfd5ccff"
+    },
+    {
+      "Arguments": [
+        "build",
+        "src/Shortener.Api/Shortener.Api.csproj",
+        "-c",
+        "Release",
+        "--no-restore",
+        "-m:1",
+        "/p:UseSharedCompilation=false"
+      ],
+      "ExitCode": 0,
+      "DurationMs": 9595,
+      "Output": "  Shortener.Core -\u003E C:\\Users\\vigne\\Documents\\Codex\\2026-09-14\\build-the-url-shortener-assignment-from\\work\\fallback-bound-final\\candidates\\6e9663b15a9448ceba7f745f7606dac9\\r1\\src\\Shortener.Core\\bin\\Release\\net10.0\\Shortener.Core.dll\r\n  Shortener.Api -\u003E C:\\Users\\vigne\\Documents\\Codex\\2026-09-14\\build-the-url-shortener-assignment-from\\work\\fallback-bound-final\\candidates\\6e9663b15a9448ceba7f745f7606dac9\\r1\\src\\Shortener.Api\\bin\\Release\\net10.0\\Shortener.Api.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:09.30\r\n",
+      "OutputHash": "26c3e6df6f482636b8963c8cab1b41952129112784f9673ccf21d09c61a0d486"
+    },
+    {
+      "Arguments": [
+        "build",
+        "tests/Shortener.Tests/Shortener.Tests.csproj",
+        "-c",
+        "Release",
+        "--no-restore",
+        "-m:1",
+        "/p:UseSharedCompilation=false"
+      ],
+      "ExitCode": 0,
+      "DurationMs": 279632,
+      "Output": "  Shortener.Core -\u003E C:\\Users\\vigne\\Documents\\Codex\\2026-09-14\\build-the-url-shortener-assignment-from\\work\\fallback-bound-final\\candidates\\6e9663b15a9448ceba7f745f7606dac9\\r1\\src\\Shortener.Core\\bin\\Release\\net10.0\\Shortener.Core.dll\r\n  Shortener.Tests -\u003E C:\\Users\\vigne\\Documents\\Codex\\2026-09-14\\build-the-url-shortener-assignment-from\\work\\fallback-bound-final\\candidates\\6e9663b15a9448ceba7f745f7606dac9\\r1\\tests\\Shortener.Tests\\bin\\Release\\net10.0\\Shortener.Tests.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:04:39.40\r\n",
+      "OutputHash": "66db67c10886230ad2a5c6c470de15bdaa57d6fc59c234ff7a1e02886481514b"
+    },
+    {
+      "Arguments": [
+        "tests/Shortener.Tests/bin/Release/net10.0/Shortener.Tests.dll",
+        "--integration"
+      ],
+      "ExitCode": 0,
+      "DurationMs": 9890,
+      "Output": "PASS HTTP URL validation rejects credentials and unsafe schemes\r\nPASS Alias conflict and invalid alias are rejected atomically\r\nPASS Expiry and unknown codes do not redirect or count clicks\r\nPASS Persistence survives reopen and counts clicks\r\nPASS Second writer is refused\r\nPASS Failed transaction cannot leak partial mutations\r\nPASS Corrupt state fails closed\r\nPASS Concurrent short-code creation retains every link\r\nPASS Graph validator rejects cycles, dangling and duplicate IDs\r\nPASS Graph cannot remove release approval or bypass it\r\nPASS greenfield completes only after explicit human gates\r\nPASS brownfield completes only after explicit human gates\r\nPASS ambiguous completes only after explicit human gates\r\nPASS Approval rejects stale revision and unready gate\r\nPASS Parallel fan-out runs independent nodes and joins before tests\r\nPASS Transient failures consume bounded attempts and roll back\r\nPASS Retry backoff prevents immediate redispatch\r\nPASS Permanent provider failures are not retried\r\nPASS Execution timeout is bounded and retryable\r\nPASS Safe-stop discards in-flight output and prevents further dispatch\r\nPASS Crash recovery preserves consumed attempt budget\r\nPASS Gate rejection compensates in reverse dependency order\r\nPASS Governed replan pauses execution and requires explicit decision\r\nPASS Rejected replan retains original graph\r\nPASS Replanning cannot reset attempts or mutate completed work\r\nPASS Replan budget is capped at three accepted revisions\r\nPASS Audit sequences and actor decisions persist\r\nPASS Pending proposal survives restart and blocks dispatch\r\nPASS Explicit rollback after stop retains compensated evidence\r\nPASS Null plan input is rejected without changing run state\r\nPASS Live adapter sends authenticated request and parses text output\r\nPASS HTTP: authorization, redirects, gates, audit and metrics\r\nPASS Patch capability rejects traversal, arbitrary C# and stale baseline\r\nPASS Requirement revision invalidates approved outputs and re-executes behind fresh gates\r\nPASS Rejected requirement change preserves approvals and completion\r\nPASS Tampered audit fails integrity verification and reopen\r\nPASS Artifact trace links requirement, identity, dependencies and hashes\r\nPASS Reliability denominators and recovery measurement are explicit\r\nPASS Critical finding overrides pass verdict and generates approval-required plan\r\nPASS Rejecting security remediation cannot waive the blocker\r\nPASS Malformed security output fails closed\r\nPASS Graph edits cannot bypass security before tests\r\nPASS Findings proposal and source hash survive restart\r\nPASS Fallback is separately approved, bounded and attributed\r\nPASS Fallback failure does not loop or reset primary budget\r\nPASS Ambiguous scope requires concrete supported answers before approval\r\nPASS Restart blocks fallback identity change: model\r\nPASS Restart blocks fallback identity change: agent\r\nPASS Restart blocks fallback identity change: missing\r\nPASS Restart blocks fallback identity change: legacy-unbound\r\nPASS Restart permits the exact persisted approved fallback identity\r\nPASS Approval after restart binds the original proposal, not new configuration\r\nPASS Brownfield reserved-alias regression\r\nRESULT: 53/53 passed; 0 failed\r\n",
+      "OutputHash": "66f8aa625d0b67131cb1ca0d34d14babcdf640f9213e1711a50d2d0eda4d0eb9"
+    }
+  ],
+  "FileHashes": {
+    "src/Shortener.Core/LinkService.cs": "3bddad11327c86bd7a42f52c22027b0d62bd71f57d461d8ef053f25d30e86c52",
+    "tests/Shortener.Tests/Program.cs": "821da58399e5376523b8d30a7fe10763d3b0437fc1f1a38d59b6e9cb9c0b8b11"
+  }
+}

@@ -1,0 +1,4 @@
+{
+  "scenario": "ambiguous",
+  "context": "Initial request: make links short and track usage. Unresolved questions: public versus private creation, retention duration, account ownership, custom alias rules and expected traffic. Candidate assumption for this demo: operator-only creation, no account model, optional expiry, case-sensitive aliases, one process, aggregate click counts only. A human must explicitly accept these assumptions or reject/stop the run before any agent executes. Never represent the assumptions as user-confirmed requirements without gate approval."
+}

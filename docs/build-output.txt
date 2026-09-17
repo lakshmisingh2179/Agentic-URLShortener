@@ -1,0 +1,10 @@
+  Shortener.Core -> C:\Users\vigne\Documents\Codex\2026-09-14\build-the-url-shortener-assignment-from\outputs\UrlShortener\src\Shortener.Core\bin\Release\net10.0\Shortener.Core.dll
+  Shortener.Api -> C:\Users\vigne\Documents\Codex\2026-09-14\build-the-url-shortener-assignment-from\outputs\UrlShortener\src\Shortener.Api\bin\Release\net10.0\Shortener.Api.dll
+  Shortener.Tests -> C:\Users\vigne\Documents\Codex\2026-09-14\build-the-url-shortener-assignment-from\outputs\UrlShortener\tests\Shortener.Tests\bin\Release\net10.0\Shortener.Tests.dll
+  EngineeringDemo -> C:\Users\vigne\Documents\Codex\2026-09-14\build-the-url-shortener-assignment-from\outputs\UrlShortener\tools\EngineeringDemo\bin\Release\net10.0\EngineeringDemo.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:01.25

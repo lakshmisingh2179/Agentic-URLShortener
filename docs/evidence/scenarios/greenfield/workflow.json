@@ -1,0 +1,273 @@
+{
+  "Id": "81bed72eb1b349d08ee940b66cbcce42",
+  "Scenario": "greenfield",
+  "Context": "Deliver the included from-scratch C# API: operator-created links, optional expiry, unique aliases, 302 redirects and persistent counts; validate every acceptance criterion.",
+  "Status": "Completed",
+  "Revision": 1,
+  "Nodes": [
+    {
+      "Spec": {
+        "Id": "requirements",
+        "Role": "analyst",
+        "Task": "Specify HTTP URL shortening, expiry, redirects and abuse controls.",
+        "DependsOn": [],
+        "Approval": false,
+        "MaxAttempts": 3
+      },
+      "Status": "Succeeded",
+      "Attempts": 1,
+      "Approved": false,
+      "Output": "{\u0022Context\u0022:\u0022Deliver the included from-scratch C# API: operator-created links, optional expiry, unique aliases, 302 redirects and persistent counts; validate every acceptance criterion.\u0022,\u0022Contract\u0022:{\u0022Scenario\u0022:\u0022greenfield\u0022,\u0022AcceptanceCriteria\u0022:{\u0022AC-URL\u0022:\u0022Reject non-HTTP(S), embedded credentials and control characters.\u0022,\u0022AC-REDIRECT\u0022:\u0022Persist links; return 302 with original destination and increment clicks.\u0022,\u0022AC-EXPIRY\u0022:\u0022Return 404 for missing/expired codes; reject past expiry on creation.\u0022,\u0022AC-ALIAS\u0022:\u0022Unique case-sensitive aliases; duplicate creation returns 409.\u0022,\u0022AC-AUTH\u0022:\u0022Operator may create; approver cannot create; only approver may approve gates.\u0022},\u0022Decisions\u0022:{\u0022creation\u0022:\u0022operator-only\u0022,\u0022retention\u0022:\u0022optional-expiry\u0022,\u0022aliases\u0022:\u0022case-sensitive\u0022}},\u0022requirementHash\u0022:\u0022a6d6493a6d76f605733dbeaa1bf8790f15866b73928e7517b6d0e2215bc82647\u0022,\u0022provenance\u0022:\u0022Deterministic offline scope artifact; decisions are supplied by the operator, not inferred\u0022}",
+      "Error": null,
+      "RetryAt": "0001-01-01T00:00:00+00:00",
+      "DurationMs": 86,
+      "ArtifactId": "cb65a99515ec477795fca7704d94c32d",
+      "RecoveryStartedAt": null,
+      "IncidentStartedAt": null,
+      "UseFallback": false,
+      "FallbackAttempts": 0,
+      "ApprovedFallback": null
+    },
+    {
+      "Spec": {
+        "Id": "design",
+        "Role": "architect",
+        "Task": "Produce architecture, persistence model and API contract.",
+        "DependsOn": [
+          "requirements"
+        ],
+        "Approval": false,
+        "MaxAttempts": 3
+      },
+      "Status": "Succeeded",
+      "Attempts": 1,
+      "Approved": false,
+      "Output": "# Offline demo: architect\nTask: Produce architecture, persistence model and API contract.\nContext: Deliver the included from-scratch C# API: operator-created links, optional expiry, unique aliases, 302 redirects and persistent counts; validate every acceptance criterion.\nInputs: requirements\nDeterministic demonstration artifact. No model call, code execution, test execution, or deployment occurred.\nAcceptance checklist: validate HTTP(S) URLs; preserve codes; persist redirects; test expiry and concurrent writes; review release and rollback.",
+      "Error": null,
+      "RetryAt": "0001-01-01T00:00:00+00:00",
+      "DurationMs": 93,
+      "ArtifactId": "a5ba06886fc74d34b891c541b583ba9f",
+      "RecoveryStartedAt": null,
+      "IncidentStartedAt": null,
+      "UseFallback": false,
+      "FallbackAttempts": 0,
+      "ApprovedFallback": null
+    },
+    {
+      "Spec": {
+        "Id": "implementation",
+        "Role": "developer",
+        "Task": "Produce a proposed C# implementation artifact against the approved contract.",
+        "DependsOn": [
+          "design"
+        ],
+        "Approval": false,
+        "MaxAttempts": 3
+      },
+      "Status": "Succeeded",
+      "Attempts": 1,
+      "Approved": false,
+      "Output": "# Offline demo: developer\nTask: Produce a proposed C# implementation artifact against the approved contract.\nContext: Deliver the included from-scratch C# API: operator-created links, optional expiry, unique aliases, 302 redirects and persistent counts; validate every acceptance criterion.\nInputs: design\nDeterministic demonstration artifact. No model call, code execution, test execution, or deployment occurred.\nAcceptance checklist: validate HTTP(S) URLs; preserve codes; persist redirects; test expiry and concurrent writes; review release and rollback.",
+      "Error": null,
+      "RetryAt": "0001-01-01T00:00:00+00:00",
+      "DurationMs": 95,
+      "ArtifactId": "a39b8d22b30f41899886e78817a00609",
+      "RecoveryStartedAt": null,
+      "IncidentStartedAt": null,
+      "UseFallback": false,
+      "FallbackAttempts": 0,
+      "ApprovedFallback": null
+    },
+    {
+      "Spec": {
+        "Id": "security",
+        "Role": "security-reviewer",
+        "Task": "Review URL validation, redirect abuse, authorization and persistence threats.",
+        "DependsOn": [
+          "design"
+        ],
+        "Approval": false,
+        "MaxAttempts": 3
+      },
+      "Status": "Succeeded",
+      "Attempts": 1,
+      "Approved": false,
+      "Output": "{\u0022RequirementHash\u0022:\u0022a6d6493a6d76f605733dbeaa1bf8790f15866b73928e7517b6d0e2215bc82647\u0022,\u0022Verdict\u0022:\u0022pass\u0022,\u0022Findings\u0022:[],\u0022RecommendedEngineering\u0022:null}",
+      "Error": null,
+      "RetryAt": "0001-01-01T00:00:00+00:00",
+      "DurationMs": 103,
+      "ArtifactId": "77b40b38285b4095a66aed1eb6f3f47e",
+      "RecoveryStartedAt": null,
+      "IncidentStartedAt": null,
+      "UseFallback": false,
+      "FallbackAttempts": 0,
+      "ApprovedFallback": null
+    },
+    {
+      "Spec": {
+        "Id": "tests",
+        "Role": "test-engineer",
+        "Task": "Review the implementation patch, then build and run baseline, red regression and green regression in the constrained workspace.",
+        "DependsOn": [
+          "implementation",
+          "security"
+        ],
+        "Approval": true,
+        "MaxAttempts": 3
+      },
+      "Status": "Succeeded",
+      "Attempts": 1,
+      "Approved": true,
+      "Output": "{\r\n  \u0022RunId\u0022: \u002281bed72eb1b349d08ee940b66cbcce42\u0022,\r\n  \u0022Revision\u0022: 1,\r\n  \u0022requirementHash\u0022: \u0022a6d6493a6d76f605733dbeaa1bf8790f15866b73928e7517b6d0e2215bc82647\u0022,\r\n  \u0022Contract\u0022: {\r\n    \u0022Scenario\u0022: \u0022greenfield\u0022,\r\n    \u0022AcceptanceCriteria\u0022: {\r\n      \u0022AC-URL\u0022: \u0022Reject non-HTTP(S), embedded credentials and control characters.\u0022,\r\n      \u0022AC-REDIRECT\u0022: \u0022Persist links; return 302 with original destination and increment clicks.\u0022,\r\n      \u0022AC-EXPIRY\u0022: \u0022Return 404 for missing/expired codes; reject past expiry on creation.\u0022,\r\n      \u0022AC-ALIAS\u0022: \u0022Unique case-sensitive aliases; duplicate creation returns 409.\u0022,\r\n      \u0022AC-AUTH\u0022: \u0022Operator may create; approver cannot create; only approver may approve gates.\u0022\r\n    },\r\n    \u0022Decisions\u0022: {\r\n      \u0022creation\u0022: \u0022operator-only\u0022,\r\n      \u0022retention\u0022: \u0022optional-expiry\u0022,\r\n      \u0022aliases\u0022: \u0022case-sensitive\u0022\r\n    }\r\n  },\r\n  \u0022success\u0022: true,\r\n  \u0022commands\u0022: [\r\n    {\r\n      \u0022Arguments\u0022: [\r\n        \u0022restore\u0022,\r\n        \u0022src/Shortener.Api/Shortener.Api.csproj\u0022,\r\n        \u0022--configfile\u0022,\r\n        \u0022NuGet.Config\u0022,\r\n        \u0022--disable-parallel\u0022,\r\n        \u0022-m:1\u0022\r\n      ],\r\n      \u0022ExitCode\u0022: 0,\r\n      \u0022DurationMs\u0022: 1136,\r\n      \u0022Output\u0022: \u0022  Determining projects to restore...\\r\\n  Restored C:\\\\Users\\\\vigne\\\\Documents\\\\Codex\\\\2026-09-14\\\\build-the-url-shortener-assignment-from\\\\work\\\\fallback-bound-final\\\\candidates\\\\81bed72eb1b349d08ee940b66cbcce42\\\\r1\\\\src\\\\Shortener.Core\\\\Shortener.Core.csproj (in 82 ms).\\r\\n  Restored C:\\\\Users\\\\vigne\\\\Documents\\\\Codex\\\\2026-09-14\\\\build-the-url-shortener-assignment-from\\\\work\\\\fallback-bound-final\\\\candidates\\\\81bed72eb1b349d08ee940b66cbcce42\\\\r1\\\\src\\\\Shortener.Api\\\\Shortener.Api.csproj (in 28 ms).\\r\\n\u0022,\r\n      \u0022OutputHash\u0022: \u0022bf58608952ca5ffd68dc41d00d8908ac927de84de4e1019079c299c256a44ef1\u0022\r\n    },\r\n    {\r\n      \u0022Arguments\u0022: [\r\n        \u0022restore\u0022,\r\n        \u0022tests/Shortener.Tests/Shortener.Tests.csproj\u0022,\r\n        \u0022--configfile\u0022,\r\n        \u0022NuGet.Config\u0022,\r\n        \u0022--disable-parallel\u0022,\r\n        \u0022-m:1\u0022\r\n      ],\r\n      \u0022ExitCode\u0022: 0,\r\n      \u0022DurationMs\u0022: 994,\r\n      \u0022Output\u0022: \u0022  Determining projects to restore...\\r\\n  Restored C:\\\\Users\\\\vigne\\\\Documents\\\\Codex\\\\2026-09-14\\\\build-the-url-shortener-assignment-from\\\\work\\\\fallback-bound-final\\\\candidates\\\\81bed72eb1b349d08ee940b66cbcce42\\\\r1\\\\tests\\\\Shortener.Tests\\\\Shortener.Tests.csproj (in 100 ms).\\r\\n  1 of 2 projects are up-to-date for restore.\\r\\n\u0022,\r\n      \u0022OutputHash\u0022: \u0022937ac53e72ab29fdbf1cd64e5ce96dfab62fda36728c9310bf86f0439f3a7778\u0022\r\n    },\r\n    {\r\n      \u0022Arguments\u0022: [\r\n        \u0022build\u0022,\r\n        \u0022src/Shortener.Api/Shortener.Api.csproj\u0022,\r\n        \u0022-c\u0022,\r\n        \u0022Release\u0022,\r\n        \u0022--no-restore\u0022,\r\n        \u0022-m:1\u0022,\r\n        \u0022/p:UseSharedCompilation=false\u0022\r\n      ],\r\n      \u0022ExitCode\u0022: 0,\r\n      \u0022DurationMs\u0022: 8825,\r\n      \u0022Output\u0022: \u0022  Shortener.Core -\\u003E C:\\\\Users\\\\vigne\\\\Documents\\\\Codex\\\\2026-09-14\\\\build-the-url-shortener-assignment-from\\\\work\\\\fallback-bound-final\\\\candidates\\\\81bed72eb1b349d08ee940b66cbcce42\\\\r1\\\\src\\\\Shortener.Core\\\\bin\\\\Release\\\\net10.0\\\\Shortener.Core.dll\\r\\n  Shortener.Api -\\u003E C:\\\\Users\\\\vigne\\\\Documents\\\\Codex\\\\2026-09-14\\\\build-the-url-shortener-assignment-from\\\\work\\\\fallback-bound-final\\\\candidates\\\\81bed72eb1b349d08ee940b66cbcce42\\\\r1\\\\src\\\\Shortener.Api\\\\bin\\\\Release\\\\net10.0\\\\Shortener.Api.dll\\r\\n\\r\\nBuild succeeded.\\r\\n    0 Warning(s)\\r\\n    0 Error(s)\\r\\n\\r\\nTime Elapsed 00:00:08.57\\r\\n\u0022,\r\n      \u0022OutputHash\u0022: \u0022543ae3f98d3e7ae29e4663b56b1a31a7e801b772d8e9d8edf78c0e4af956dbf3\u0022\r\n    },\r\n    {\r\n      \u0022Arguments\u0022: [\r\n        \u0022build\u0022,\r\n        \u0022tests/Shortener.Tests/Shortener.Tests.csproj\u0022,\r\n        \u0022-c\u0022,\r\n        \u0022Release\u0022,\r\n        \u0022--no-restore\u0022,\r\n        \u0022-m:1\u0022,\r\n        \u0022/p:UseSharedCompilation=false\u0022\r\n      ],\r\n      \u0022ExitCode\u0022: 0,\r\n      \u0022DurationMs\u0022: 3416,\r\n      \u0022Output\u0022: \u0022  Shortener.Core -\\u003E C:\\\\Users\\\\vigne\\\\Documents\\\\Codex\\\\2026-09-14\\\\build-the-url-shortener-assignment-from\\\\work\\\\fallback-bound-final\\\\candidates\\\\81bed72eb1b349d08ee940b66cbcce42\\\\r1\\\\src\\\\Shortener.Core\\\\bin\\\\Release\\\\net10.0\\\\Shortener.Core.dll\\r\\n  Shortener.Tests -\\u003E C:\\\\Users\\\\vigne\\\\Documents\\\\Codex\\\\2026-09-14\\\\build-the-url-shortener-assignment-from\\\\work\\\\fallback-bound-final\\\\candidates\\\\81bed72eb1b349d08ee940b66cbcce42\\\\r1\\\\tests\\\\Shortener.Tests\\\\bin\\\\Release\\\\net10.0\\\\Shortener.Tests.dll\\r\\n\\r\\nBuild succeeded.\\r\\n    0 Warning(s)\\r\\n    0 Error(s)\\r\\n\\r\\nTime Elapsed 00:00:03.17\\r\\n\u0022,\r\n      \u0022OutputHash\u0022: \u00227cc1a47368d397e3d1f34b616204b52559c8d955cd38bde547cca95b96ff90cc\u0022\r\n    },\r\n    {\r\n      \u0022Arguments\u0022: [\r\n        \u0022tests/Shortener.Tests/bin/Release/net10.0/Shortener.Tests.dll\u0022,\r\n        \u0022--integration\u0022\r\n      ],\r\n      \u0022ExitCode\u0022: 0,\r\n      \u0022DurationMs\u0022: 9931,\r\n      \u0022Output\u0022: \u0022PASS HTTP URL validation rejects credentials and unsafe schemes\\r\\nPASS Alias conflict and invalid alias are rejected atomically\\r\\nPASS Expiry and unknown codes do not redirect or count clicks\\r\\nPASS Persistence survives reopen and counts clicks\\r\\nPASS Second writer is refused\\r\\nPASS Failed transaction cannot leak partial mutations\\r\\nPASS Corrupt state fails closed\\r\\nPASS Concurrent short-code creation retains every link\\r\\nPASS Graph validator rejects cycles, dangling and duplicate IDs\\r\\nPASS Graph cannot remove release approval or bypass it\\r\\nPASS greenfield completes only after explicit human gates\\r\\nPASS brownfield completes only after explicit human gates\\r\\nPASS ambiguous completes only after explicit human gates\\r\\nPASS Approval rejects stale revision and unready gate\\r\\nPASS Parallel fan-out runs independent nodes and joins before tests\\r\\nPASS Transient failures consume bounded attempts and roll back\\r\\nPASS Retry backoff prevents immediate redispatch\\r\\nPASS Permanent provider failures are not retried\\r\\nPASS Execution timeout is bounded and retryable\\r\\nPASS Safe-stop discards in-flight output and prevents further dispatch\\r\\nPASS Crash recovery preserves consumed attempt budget\\r\\nPASS Gate rejection compensates in reverse dependency order\\r\\nPASS Governed replan pauses execution and requires explicit decision\\r\\nPASS Rejected replan retains original graph\\r\\nPASS Replanning cannot reset attempts or mutate completed work\\r\\nPASS Replan budget is capped at three accepted revisions\\r\\nPASS Audit sequences and actor decisions persist\\r\\nPASS Pending proposal survives restart and blocks dispatch\\r\\nPASS Explicit rollback after stop retains compensated evidence\\r\\nPASS Null plan input is rejected without changing run state\\r\\nPASS Live adapter sends authenticated request and parses text output\\r\\nPASS HTTP: authorization, redirects, gates, audit and metrics\\r\\nPASS Patch capability rejects traversal, arbitrary C# and stale baseline\\r\\nPASS Requirement revision invalidates approved outputs and re-executes behind fresh gates\\r\\nPASS Rejected requirement change preserves approvals and completion\\r\\nPASS Tampered audit fails integrity verification and reopen\\r\\nPASS Artifact trace links requirement, identity, dependencies and hashes\\r\\nPASS Reliability denominators and recovery measurement are explicit\\r\\nPASS Critical finding overrides pass verdict and generates approval-required plan\\r\\nPASS Rejecting security remediation cannot waive the blocker\\r\\nPASS Malformed security output fails closed\\r\\nPASS Graph edits cannot bypass security before tests\\r\\nPASS Findings proposal and source hash survive restart\\r\\nPASS Fallback is separately approved, bounded and attributed\\r\\nPASS Fallback failure does not loop or reset primary budget\\r\\nPASS Ambiguous scope requires concrete supported answers before approval\\r\\nPASS Restart blocks fallback identity change: model\\r\\nPASS Restart blocks fallback identity change: agent\\r\\nPASS Restart blocks fallback identity change: missing\\r\\nPASS Restart blocks fallback identity change: legacy-unbound\\r\\nPASS Restart permits the exact persisted approved fallback identity\\r\\nPASS Approval after restart binds the original proposal, not new configuration\\r\\nRESULT: 52/52 passed; 0 failed\\r\\n\u0022,\r\n      \u0022OutputHash\u0022: \u002278a35eaad5f19f40697361356a288cd4ad0c66654a96d27df655603875492abd\u0022\r\n    }\r\n  ],\r\n  \u0022baselineHash\u0022: \u002268509b279a88d917bbfc5af3d7485d8b5ec8cdef5cfb8ae7ed3713eb08d0c3d2\u0022,\r\n  \u0022scope\u0022: \u0022Actual validation of the included from-scratch implementation; no claim of model-generated greenfield source\u0022,\r\n  \u0022acceptanceMapping\u0022: {\r\n    \u0022AC-URL\u0022: \u0022HTTP URL validation rejects credentials and unsafe schemes\u0022,\r\n    \u0022AC-REDIRECT\u0022: \u0022HTTP: authorization, redirects, gates, audit and metrics\u0022,\r\n    \u0022AC-EXPIRY\u0022: \u0022Expiry and unknown codes do not redirect or count clicks\u0022,\r\n    \u0022AC-ALIAS\u0022: \u0022Alias conflict and invalid alias are rejected atomically\u0022,\r\n    \u0022AC-AUTH\u0022: \u0022HTTP: authorization, redirects, gates, audit and metrics\u0022\r\n  }\r\n}",
+      "Error": null,
+      "RetryAt": "0001-01-01T00:00:00+00:00",
+      "DurationMs": 24414,
+      "ArtifactId": "e9f5a7facd1446af90bc1c6b482da95e",
+      "RecoveryStartedAt": null,
+      "IncidentStartedAt": null,
+      "UseFallback": false,
+      "FallbackAttempts": 0,
+      "ApprovedFallback": null
+    },
+    {
+      "Spec": {
+        "Id": "release",
+        "Role": "release-reviewer",
+        "Task": "Produce a release checklist and rollback plan. This artifact is a simulated release, not a deployment.",
+        "DependsOn": [
+          "tests"
+        ],
+        "Approval": true,
+        "MaxAttempts": 3
+      },
+      "Status": "Succeeded",
+      "Attempts": 1,
+      "Approved": true,
+      "Output": "# Offline demo: release-reviewer\nTask: Produce a release checklist and rollback plan. This artifact is a simulated release, not a deployment.\nContext: Deliver the included from-scratch C# API: operator-created links, optional expiry, unique aliases, 302 redirects and persistent counts; validate every acceptance criterion.\nInputs: tests\nDeterministic demonstration artifact. No model call, code execution, test execution, or deployment occurred.\nAcceptance checklist: validate HTTP(S) URLs; preserve codes; persist redirects; test expiry and concurrent writes; review release and rollback.",
+      "Error": null,
+      "RetryAt": "0001-01-01T00:00:00+00:00",
+      "DurationMs": 83,
+      "ArtifactId": "c64b76331cfb4bd7b7907d7817f02582",
+      "RecoveryStartedAt": null,
+      "IncidentStartedAt": null,
+      "UseFallback": false,
+      "FallbackAttempts": 0,
+      "ApprovedFallback": null
+    }
+  ],
+  "Proposal": null,
+  "Engineering": null,
+  "RequirementProposal": null,
+  "Artifacts": [
+    {
+      "Id": "cb65a99515ec477795fca7704d94c32d",
+      "Revision": 1,
+      "RequirementHash": "a6d6493a6d76f605733dbeaa1bf8790f15866b73928e7517b6d0e2215bc82647",
+      "NodeId": "requirements",
+      "Agent": "EngineeringAgent/DemoAgent",
+      "Model": "none",
+      "InputHashes": {},
+      "Sha256": "d1e649f03be9d85d4ec98c31b2db0636488184d618f6d170895dccaf47097ad3",
+      "Content": "{\u0022Context\u0022:\u0022Deliver the included from-scratch C# API: operator-created links, optional expiry, unique aliases, 302 redirects and persistent counts; validate every acceptance criterion.\u0022,\u0022Contract\u0022:{\u0022Scenario\u0022:\u0022greenfield\u0022,\u0022AcceptanceCriteria\u0022:{\u0022AC-URL\u0022:\u0022Reject non-HTTP(S), embedded credentials and control characters.\u0022,\u0022AC-REDIRECT\u0022:\u0022Persist links; return 302 with original destination and increment clicks.\u0022,\u0022AC-EXPIRY\u0022:\u0022Return 404 for missing/expired codes; reject past expiry on creation.\u0022,\u0022AC-ALIAS\u0022:\u0022Unique case-sensitive aliases; duplicate creation returns 409.\u0022,\u0022AC-AUTH\u0022:\u0022Operator may create; approver cannot create; only approver may approve gates.\u0022},\u0022Decisions\u0022:{\u0022creation\u0022:\u0022operator-only\u0022,\u0022retention\u0022:\u0022optional-expiry\u0022,\u0022aliases\u0022:\u0022case-sensitive\u0022}},\u0022requirementHash\u0022:\u0022a6d6493a6d76f605733dbeaa1bf8790f15866b73928e7517b6d0e2215bc82647\u0022,\u0022provenance\u0022:\u0022Deterministic offline scope artifact; decisions are supplied by the operator, not inferred\u0022}",
+      "At": "2026-09-15T00:04:29.1991739+00:00",
+      "Success": true
+    },
+    {
+      "Id": "a5ba06886fc74d34b891c541b583ba9f",
+      "Revision": 1,
+      "RequirementHash": "a6d6493a6d76f605733dbeaa1bf8790f15866b73928e7517b6d0e2215bc82647",
+      "NodeId": "design",
+      "Agent": "EngineeringAgent/DemoAgent",
+      "Model": "none",
+      "InputHashes": {
+        "requirements": "d1e649f03be9d85d4ec98c31b2db0636488184d618f6d170895dccaf47097ad3"
+      },
+      "Sha256": "a28d7c87fca6b172097cbf65473dd45e28493311c3191deb680e0389bfa269ed",
+      "Content": "# Offline demo: architect\nTask: Produce architecture, persistence model and API contract.\nContext: Deliver the included from-scratch C# API: operator-created links, optional expiry, unique aliases, 302 redirects and persistent counts; validate every acceptance criterion.\nInputs: requirements\nDeterministic demonstration artifact. No model call, code execution, test execution, or deployment occurred.\nAcceptance checklist: validate HTTP(S) URLs; preserve codes; persist redirects; test expiry and concurrent writes; review release and rollback.",
+      "At": "2026-09-15T00:04:29.4476896+00:00",
+      "Success": true
+    },
+    {
+      "Id": "a39b8d22b30f41899886e78817a00609",
+      "Revision": 1,
+      "RequirementHash": "a6d6493a6d76f605733dbeaa1bf8790f15866b73928e7517b6d0e2215bc82647",
+      "NodeId": "implementation",
+      "Agent": "EngineeringAgent/DemoAgent",
+      "Model": "none",
+      "InputHashes": {
+        "design": "a28d7c87fca6b172097cbf65473dd45e28493311c3191deb680e0389bfa269ed"
+      },
+      "Sha256": "b4cf01fd4024757f407d6d46a4c90ec1e0bd97c9f9789d2a8ebebfc1d83621d3",
+      "Content": "# Offline demo: developer\nTask: Produce a proposed C# implementation artifact against the approved contract.\nContext: Deliver the included from-scratch C# API: operator-created links, optional expiry, unique aliases, 302 redirects and persistent counts; validate every acceptance criterion.\nInputs: design\nDeterministic demonstration artifact. No model call, code execution, test execution, or deployment occurred.\nAcceptance checklist: validate HTTP(S) URLs; preserve codes; persist redirects; test expiry and concurrent writes; review release and rollback.",
+      "At": "2026-09-15T00:04:29.7003802+00:00",
+      "Success": true
+    },
+    {
+      "Id": "77b40b38285b4095a66aed1eb6f3f47e",
+      "Revision": 1,
+      "RequirementHash": "a6d6493a6d76f605733dbeaa1bf8790f15866b73928e7517b6d0e2215bc82647",
+      "NodeId": "security",
+      "Agent": "EngineeringAgent/DemoAgent",
+      "Model": "none",
+      "InputHashes": {
+        "design": "a28d7c87fca6b172097cbf65473dd45e28493311c3191deb680e0389bfa269ed"
+      },
+      "Sha256": "9304b1e97d40f21c73ef0ee3a9d289aef7644895d40f56ef75ea7e0d60b03769",
+      "Content": "{\u0022RequirementHash\u0022:\u0022a6d6493a6d76f605733dbeaa1bf8790f15866b73928e7517b6d0e2215bc82647\u0022,\u0022Verdict\u0022:\u0022pass\u0022,\u0022Findings\u0022:[],\u0022RecommendedEngineering\u0022:null}",
+      "At": "2026-09-15T00:04:29.7080343+00:00",
+      "Success": true
+    },
+    {
+      "Id": "e9f5a7facd1446af90bc1c6b482da95e",
+      "Revision": 1,
+      "RequirementHash": "a6d6493a6d76f605733dbeaa1bf8790f15866b73928e7517b6d0e2215bc82647",
+      "NodeId": "tests",
+      "Agent": "EngineeringAgent/DemoAgent",
+      "Model": "none",
+      "InputHashes": {
+        "implementation": "b4cf01fd4024757f407d6d46a4c90ec1e0bd97c9f9789d2a8ebebfc1d83621d3",
+        "security": "9304b1e97d40f21c73ef0ee3a9d289aef7644895d40f56ef75ea7e0d60b03769"
+      },
+      "Sha256": "a84d9785a6859ab626519f286f92341c51deaf9ff7a9822f06deca0e8f240841",
+      "Content": "{\r\n  \u0022RunId\u0022: \u002281bed72eb1b349d08ee940b66cbcce42\u0022,\r\n  \u0022Revision\u0022: 1,\r\n  \u0022requirementHash\u0022: \u0022a6d6493a6d76f605733dbeaa1bf8790f15866b73928e7517b6d0e2215bc82647\u0022,\r\n  \u0022Contract\u0022: {\r\n    \u0022Scenario\u0022: \u0022greenfield\u0022,\r\n    \u0022AcceptanceCriteria\u0022: {\r\n      \u0022AC-URL\u0022: \u0022Reject non-HTTP(S), embedded credentials and control characters.\u0022,\r\n      \u0022AC-REDIRECT\u0022: \u0022Persist links; return 302 with original destination and increment clicks.\u0022,\r\n      \u0022AC-EXPIRY\u0022: \u0022Return 404 for missing/expired codes; reject past expiry on creation.\u0022,\r\n      \u0022AC-ALIAS\u0022: \u0022Unique case-sensitive aliases; duplicate creation returns 409.\u0022,\r\n      \u0022AC-AUTH\u0022: \u0022Operator may create; approver cannot create; only approver may approve gates.\u0022\r\n    },\r\n    \u0022Decisions\u0022: {\r\n      \u0022creation\u0022: \u0022operator-only\u0022,\r\n      \u0022retention\u0022: \u0022optional-expiry\u0022,\r\n      \u0022aliases\u0022: \u0022case-sensitive\u0022\r\n    }\r\n  },\r\n  \u0022success\u0022: true,\r\n  \u0022commands\u0022: [\r\n    {\r\n      \u0022Arguments\u0022: [\r\n        \u0022restore\u0022,\r\n        \u0022src/Shortener.Api/Shortener.Api.csproj\u0022,\r\n        \u0022--configfile\u0022,\r\n        \u0022NuGet.Config\u0022,\r\n        \u0022--disable-parallel\u0022,\r\n        \u0022-m:1\u0022\r\n      ],\r\n      \u0022ExitCode\u0022: 0,\r\n      \u0022DurationMs\u0022: 1136,\r\n      \u0022Output\u0022: \u0022  Determining projects to restore...\\r\\n  Restored C:\\\\Users\\\\vigne\\\\Documents\\\\Codex\\\\2026-09-14\\\\build-the-url-shortener-assignment-from\\\\work\\\\fallback-bound-final\\\\candidates\\\\81bed72eb1b349d08ee940b66cbcce42\\\\r1\\\\src\\\\Shortener.Core\\\\Shortener.Core.csproj (in 82 ms).\\r\\n  Restored C:\\\\Users\\\\vigne\\\\Documents\\\\Codex\\\\2026-09-14\\\\build-the-url-shortener-assignment-from\\\\work\\\\fallback-bound-final\\\\candidates\\\\81bed72eb1b349d08ee940b66cbcce42\\\\r1\\\\src\\\\Shortener.Api\\\\Shortener.Api.csproj (in 28 ms).\\r\\n\u0022,\r\n      \u0022OutputHash\u0022: \u0022bf58608952ca5ffd68dc41d00d8908ac927de84de4e1019079c299c256a44ef1\u0022\r\n    },\r\n    {\r\n      \u0022Arguments\u0022: [\r\n        \u0022restore\u0022,\r\n        \u0022tests/Shortener.Tests/Shortener.Tests.csproj\u0022,\r\n        \u0022--configfile\u0022,\r\n        \u0022NuGet.Config\u0022,\r\n        \u0022--disable-parallel\u0022,\r\n        \u0022-m:1\u0022\r\n      ],\r\n      \u0022ExitCode\u0022: 0,\r\n      \u0022DurationMs\u0022: 994,\r\n      \u0022Output\u0022: \u0022  Determining projects to restore...\\r\\n  Restored C:\\\\Users\\\\vigne\\\\Documents\\\\Codex\\\\2026-09-14\\\\build-the-url-shortener-assignment-from\\\\work\\\\fallback-bound-final\\\\candidates\\\\81bed72eb1b349d08ee940b66cbcce42\\\\r1\\\\tests\\\\Shortener.Tests\\\\Shortener.Tests.csproj (in 100 ms).\\r\\n  1 of 2 projects are up-to-date for restore.\\r\\n\u0022,\r\n      \u0022OutputHash\u0022: \u0022937ac53e72ab29fdbf1cd64e5ce96dfab62fda36728c9310bf86f0439f3a7778\u0022\r\n    },\r\n    {\r\n      \u0022Arguments\u0022: [\r\n        \u0022build\u0022,\r\n        \u0022src/Shortener.Api/Shortener.Api.csproj\u0022,\r\n        \u0022-c\u0022,\r\n        \u0022Release\u0022,\r\n        \u0022--no-restore\u0022,\r\n        \u0022-m:1\u0022,\r\n        \u0022/p:UseSharedCompilation=false\u0022\r\n      ],\r\n      \u0022ExitCode\u0022: 0,\r\n      \u0022DurationMs\u0022: 8825,\r\n      \u0022Output\u0022: \u0022  Shortener.Core -\\u003E C:\\\\Users\\\\vigne\\\\Documents\\\\Codex\\\\2026-09-14\\\\build-the-url-shortener-assignment-from\\\\work\\\\fallback-bound-final\\\\candidates\\\\81bed72eb1b349d08ee940b66cbcce42\\\\r1\\\\src\\\\Shortener.Core\\\\bin\\\\Release\\\\net10.0\\\\Shortener.Core.dll\\r\\n  Shortener.Api -\\u003E C:\\\\Users\\\\vigne\\\\Documents\\\\Codex\\\\2026-09-14\\\\build-the-url-shortener-assignment-from\\\\work\\\\fallback-bound-final\\\\candidates\\\\81bed72eb1b349d08ee940b66cbcce42\\\\r1\\\\src\\\\Shortener.Api\\\\bin\\\\Release\\\\net10.0\\\\Shortener.Api.dll\\r\\n\\r\\nBuild succeeded.\\r\\n    0 Warning(s)\\r\\n    0 Error(s)\\r\\n\\r\\nTime Elapsed 00:00:08.57\\r\\n\u0022,\r\n      \u0022OutputHash\u0022: \u0022543ae3f98d3e7ae29e4663b56b1a31a7e801b772d8e9d8edf78c0e4af956dbf3\u0022\r\n    },\r\n    {\r\n      \u0022Arguments\u0022: [\r\n        \u0022build\u0022,\r\n        \u0022tests/Shortener.Tests/Shortener.Tests.csproj\u0022,\r\n        \u0022-c\u0022,\r\n        \u0022Release\u0022,\r\n        \u0022--no-restore\u0022,\r\n        \u0022-m:1\u0022,\r\n        \u0022/p:UseSharedCompilation=false\u0022\r\n      ],\r\n      \u0022ExitCode\u0022: 0,\r\n      \u0022DurationMs\u0022: 3416,\r\n      \u0022Output\u0022: \u0022  Shortener.Core -\\u003E C:\\\\Users\\\\vigne\\\\Documents\\\\Codex\\\\2026-09-14\\\\build-the-url-shortener-assignment-from\\\\work\\\\fallback-bound-final\\\\candidates\\\\81bed72eb1b349d08ee940b66cbcce42\\\\r1\\\\src\\\\Shortener.Core\\\\bin\\\\Release\\\\net10.0\\\\Shortener.Core.dll\\r\\n  Shortener.Tests -\\u003E C:\\\\Users\\\\vigne\\\\Documents\\\\Codex\\\\2026-09-14\\\\build-the-url-shortener-assignment-from\\\\work\\\\fallback-bound-final\\\\candidates\\\\81bed72eb1b349d08ee940b66cbcce42\\\\r1\\\\tests\\\\Shortener.Tests\\\\bin\\\\Release\\\\net10.0\\\\Shortener.Tests.dll\\r\\n\\r\\nBuild succeeded.\\r\\n    0 Warning(s)\\r\\n    0 Error(s)\\r\\n\\r\\nTime Elapsed 00:00:03.17\\r\\n\u0022,\r\n      \u0022OutputHash\u0022: \u00227cc1a47368d397e3d1f34b616204b52559c8d955cd38bde547cca95b96ff90cc\u0022\r\n    },\r\n    {\r\n      \u0022Arguments\u0022: [\r\n        \u0022tests/Shortener.Tests/bin/Release/net10.0/Shortener.Tests.dll\u0022,\r\n        \u0022--integration\u0022\r\n      ],\r\n      \u0022ExitCode\u0022: 0,\r\n      \u0022DurationMs\u0022: 9931,\r\n      \u0022Output\u0022: \u0022PASS HTTP URL validation rejects credentials and unsafe schemes\\r\\nPASS Alias conflict and invalid alias are rejected atomically\\r\\nPASS Expiry and unknown codes do not redirect or count clicks\\r\\nPASS Persistence survives reopen and counts clicks\\r\\nPASS Second writer is refused\\r\\nPASS Failed transaction cannot leak partial mutations\\r\\nPASS Corrupt state fails closed\\r\\nPASS Concurrent short-code creation retains every link\\r\\nPASS Graph validator rejects cycles, dangling and duplicate IDs\\r\\nPASS Graph cannot remove release approval or bypass it\\r\\nPASS greenfield completes only after explicit human gates\\r\\nPASS brownfield completes only after explicit human gates\\r\\nPASS ambiguous completes only after explicit human gates\\r\\nPASS Approval rejects stale revision and unready gate\\r\\nPASS Parallel fan-out runs independent nodes and joins before tests\\r\\nPASS Transient failures consume bounded attempts and roll back\\r\\nPASS Retry backoff prevents immediate redispatch\\r\\nPASS Permanent provider failures are not retried\\r\\nPASS Execution timeout is bounded and retryable\\r\\nPASS Safe-stop discards in-flight output and prevents further dispatch\\r\\nPASS Crash recovery preserves consumed attempt budget\\r\\nPASS Gate rejection compensates in reverse dependency order\\r\\nPASS Governed replan pauses execution and requires explicit decision\\r\\nPASS Rejected replan retains original graph\\r\\nPASS Replanning cannot reset attempts or mutate completed work\\r\\nPASS Replan budget is capped at three accepted revisions\\r\\nPASS Audit sequences and actor decisions persist\\r\\nPASS Pending proposal survives restart and blocks dispatch\\r\\nPASS Explicit rollback after stop retains compensated evidence\\r\\nPASS Null plan input is rejected without changing run state\\r\\nPASS Live adapter sends authenticated request and parses text output\\r\\nPASS HTTP: authorization, redirects, gates, audit and metrics\\r\\nPASS Patch capability rejects traversal, arbitrary C# and stale baseline\\r\\nPASS Requirement revision invalidates approved outputs and re-executes behind fresh gates\\r\\nPASS Rejected requirement change preserves approvals and completion\\r\\nPASS Tampered audit fails integrity verification and reopen\\r\\nPASS Artifact trace links requirement, identity, dependencies and hashes\\r\\nPASS Reliability denominators and recovery measurement are explicit\\r\\nPASS Critical finding overrides pass verdict and generates approval-required plan\\r\\nPASS Rejecting security remediation cannot waive the blocker\\r\\nPASS Malformed security output fails closed\\r\\nPASS Graph edits cannot bypass security before tests\\r\\nPASS Findings proposal and source hash survive restart\\r\\nPASS Fallback is separately approved, bounded and attributed\\r\\nPASS Fallback failure does not loop or reset primary budget\\r\\nPASS Ambiguous scope requires concrete supported answers before approval\\r\\nPASS Restart blocks fallback identity change: model\\r\\nPASS Restart blocks fallback identity change: agent\\r\\nPASS Restart blocks fallback identity change: missing\\r\\nPASS Restart blocks fallback identity change: legacy-unbound\\r\\nPASS Restart permits the exact persisted approved fallback identity\\r\\nPASS Approval after restart binds the original proposal, not new configuration\\r\\nRESULT: 52/52 passed; 0 failed\\r\\n\u0022,\r\n      \u0022OutputHash\u0022: \u002278a35eaad5f19f40697361356a288cd4ad0c66654a96d27df655603875492abd\u0022\r\n    }\r\n  ],\r\n  \u0022baselineHash\u0022: \u002268509b279a88d917bbfc5af3d7485d8b5ec8cdef5cfb8ae7ed3713eb08d0c3d2\u0022,\r\n  \u0022scope\u0022: \u0022Actual validation of the included from-scratch implementation; no claim of model-generated greenfield source\u0022,\r\n  \u0022acceptanceMapping\u0022: {\r\n    \u0022AC-URL\u0022: \u0022HTTP URL validation rejects credentials and unsafe schemes\u0022,\r\n    \u0022AC-REDIRECT\u0022: \u0022HTTP: authorization, redirects, gates, audit and metrics\u0022,\r\n    \u0022AC-EXPIRY\u0022: \u0022Expiry and unknown codes do not redirect or count clicks\u0022,\r\n    \u0022AC-ALIAS\u0022: \u0022Alias conflict and invalid alias are rejected atomically\u0022,\r\n    \u0022AC-AUTH\u0022: \u0022HTTP: authorization, redirects, gates, audit and metrics\u0022\r\n  }\r\n}",
+      "At": "2026-09-15T00:04:54.3176653+00:00",
+      "Success": true
+    },
+    {
+      "Id": "c64b76331cfb4bd7b7907d7817f02582",
+      "Revision": 1,
+      "RequirementHash": "a6d6493a6d76f605733dbeaa1bf8790f15866b73928e7517b6d0e2215bc82647",
+      "NodeId": "release",
+      "Agent": "EngineeringAgent/DemoAgent",
+      "Model": "none",
+      "InputHashes": {
+        "tests": "a84d9785a6859ab626519f286f92341c51deaf9ff7a9822f06deca0e8f240841"
+      },
+      "Sha256": "04c314c93291ba129906087a08aa4627f30d0941e0e4e938214866bbafee3f88",
+      "Content": "# Offline demo: release-reviewer\nTask: Produce a release checklist and rollback plan. This artifact is a simulated release, not a deployment.\nContext: Deliver the included from-scratch C# API: operator-created links, optional expiry, unique aliases, 302 redirects and persistent counts; validate every acceptance criterion.\nInputs: tests\nDeterministic demonstration artifact. No model call, code execution, test execution, or deployment occurred.\nAcceptance checklist: validate HTTP(S) URLs; preserve codes; persist redirects; test expiry and concurrent writes; review release and rollback.",
+      "At": "2026-09-15T00:04:54.5776462+00:00",
+      "Success": true
+    }
+  ],
+  "History": [],
+  "CleanupRevisions": [],
+  "CreatedAt": "2026-09-15T00:04:29.1049073+00:00",
+  "Contract": {
+    "Scenario": "greenfield",
+    "AcceptanceCriteria": {
+      "AC-URL": "Reject non-HTTP(S), embedded credentials and control characters.",
+      "AC-REDIRECT": "Persist links; return 302 with original destination and increment clicks.",
+      "AC-EXPIRY": "Return 404 for missing/expired codes; reject past expiry on creation.",
+      "AC-ALIAS": "Unique case-sensitive aliases; duplicate creation returns 409.",
+      "AC-AUTH": "Operator may create; approver cannot create; only approver may approve gates."
+    },
+    "Decisions": {
+      "creation": "operator-only",
+      "retention": "optional-expiry",
+      "aliases": "case-sensitive"
+    }
+  },
+  "ValidateBaseline": true,
+  "FindingsProposal": null,
+  "FallbackProposal": null
+}

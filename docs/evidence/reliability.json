@@ -1,0 +1,14 @@
+{
+  "Runs": 7,
+  "TerminalRuns": 7,
+  "SuccessRate": 0.8571428571428571,
+  "RetryFrequency": 0.2857142857142857,
+  "RollbackFrequency": 0.14285714285714285,
+  "RecoverySamples": 1,
+  "MeanRecoveryMs": 2271.4253,
+  "CompletionSamples": 7,
+  "MeanEndToEndMs": 74355.53872857142,
+  "IncidentRecoverySamples": 2,
+  "MeanObservedRecoveryMs": 2913.78535,
+  "FallbackExecutions": 1
+}

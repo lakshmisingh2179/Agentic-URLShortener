@@ -1,0 +1,7 @@
+{
+  "Revision": 1,
+  "NodeId": "requirements",
+  "Agent": "DemoAgent",
+  "Model": "none",
+  "Reason": "Primary retry budget exhausted; one fallback attempt requires approval"
+}

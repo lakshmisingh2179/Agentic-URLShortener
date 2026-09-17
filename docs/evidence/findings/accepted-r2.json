@@ -1,0 +1,440 @@
+{
+  "Id": "c4726b7f52e04573977251b622e8634a",
+  "Scenario": "brownfield",
+  "Context": "Security exercise: reserve admin; a review may discover a missing protected operational alias.\nApproved security remediation: protected-alias",
+  "Status": "Active",
+  "Revision": 2,
+  "Nodes": [
+    {
+      "Spec": {
+        "Id": "requirements",
+        "Role": "analyst",
+        "Task": "Assess the supplied legacy contract and migration risks. Preserve existing short codes and redirect behavior; propose characterization tests before changes.",
+        "DependsOn": [],
+        "Approval": true,
+        "MaxAttempts": 3
+      },
+      "Status": "Pending",
+      "Attempts": 0,
+      "Approved": false,
+      "Output": null,
+      "Error": null,
+      "RetryAt": "0001-01-01T00:00:00+00:00",
+      "DurationMs": 0,
+      "ArtifactId": null,
+      "RecoveryStartedAt": null,
+      "IncidentStartedAt": null,
+      "UseFallback": false,
+      "FallbackAttempts": 0,
+      "ApprovedFallback": null
+    },
+    {
+      "Spec": {
+        "Id": "design",
+        "Role": "architect",
+        "Task": "Produce architecture, persistence model and API contract.",
+        "DependsOn": [
+          "requirements"
+        ],
+        "Approval": false,
+        "MaxAttempts": 3
+      },
+      "Status": "Pending",
+      "Attempts": 0,
+      "Approved": false,
+      "Output": null,
+      "Error": null,
+      "RetryAt": "0001-01-01T00:00:00+00:00",
+      "DurationMs": 0,
+      "ArtifactId": null,
+      "RecoveryStartedAt": null,
+      "IncidentStartedAt": null,
+      "UseFallback": false,
+      "FallbackAttempts": 0,
+      "ApprovedFallback": null
+    },
+    {
+      "Spec": {
+        "Id": "implementation",
+        "Role": "developer",
+        "Task": "Produce a proposed C# implementation artifact against the approved contract.",
+        "DependsOn": [
+          "design",
+          "remediate-protected-alias"
+        ],
+        "Approval": false,
+        "MaxAttempts": 3
+      },
+      "Status": "Pending",
+      "Attempts": 0,
+      "Approved": false,
+      "Output": null,
+      "Error": null,
+      "RetryAt": "0001-01-01T00:00:00+00:00",
+      "DurationMs": 0,
+      "ArtifactId": null,
+      "RecoveryStartedAt": null,
+      "IncidentStartedAt": null,
+      "UseFallback": false,
+      "FallbackAttempts": 0,
+      "ApprovedFallback": null
+    },
+    {
+      "Spec": {
+        "Id": "security",
+        "Role": "security-reviewer",
+        "Task": "Review URL validation, redirect abuse, authorization and persistence threats.",
+        "DependsOn": [
+          "design",
+          "remediate-protected-alias"
+        ],
+        "Approval": false,
+        "MaxAttempts": 3
+      },
+      "Status": "Pending",
+      "Attempts": 0,
+      "Approved": false,
+      "Output": null,
+      "Error": null,
+      "RetryAt": "0001-01-01T00:00:00+00:00",
+      "DurationMs": 0,
+      "ArtifactId": null,
+      "RecoveryStartedAt": null,
+      "IncidentStartedAt": null,
+      "UseFallback": false,
+      "FallbackAttempts": 0,
+      "ApprovedFallback": null
+    },
+    {
+      "Spec": {
+        "Id": "tests",
+        "Role": "test-engineer",
+        "Task": "Review the implementation patch, then build and run baseline, red regression and green regression in the constrained workspace.",
+        "DependsOn": [
+          "implementation",
+          "security"
+        ],
+        "Approval": true,
+        "MaxAttempts": 3
+      },
+      "Status": "Pending",
+      "Attempts": 0,
+      "Approved": false,
+      "Output": null,
+      "Error": null,
+      "RetryAt": "0001-01-01T00:00:00+00:00",
+      "DurationMs": 0,
+      "ArtifactId": null,
+      "RecoveryStartedAt": null,
+      "IncidentStartedAt": null,
+      "UseFallback": false,
+      "FallbackAttempts": 0,
+      "ApprovedFallback": null
+    },
+    {
+      "Spec": {
+        "Id": "release",
+        "Role": "release-reviewer",
+        "Task": "Produce a release checklist and rollback plan. This artifact is a simulated release, not a deployment.",
+        "DependsOn": [
+          "tests"
+        ],
+        "Approval": true,
+        "MaxAttempts": 3
+      },
+      "Status": "Pending",
+      "Attempts": 0,
+      "Approved": false,
+      "Output": null,
+      "Error": null,
+      "RetryAt": "0001-01-01T00:00:00+00:00",
+      "DurationMs": 0,
+      "ArtifactId": null,
+      "RecoveryStartedAt": null,
+      "IncidentStartedAt": null,
+      "UseFallback": false,
+      "FallbackAttempts": 0,
+      "ApprovedFallback": null
+    },
+    {
+      "Spec": {
+        "Id": "remediate-protected-alias",
+        "Role": "remediation-planner",
+        "Task": "Resolve finding protected-alias: The operational health alias is not protected from new user allocation.\nRequired work: Reserve health alongside admin, preserve existing stored aliases, and run case-insensitive rejection and backward-compatibility regressions.\nExplain validation evidence and remaining limitations.",
+        "DependsOn": [
+          "design"
+        ],
+        "Approval": false,
+        "MaxAttempts": 3
+      },
+      "Status": "Pending",
+      "Attempts": 0,
+      "Approved": false,
+      "Output": null,
+      "Error": null,
+      "RetryAt": "0001-01-01T00:00:00+00:00",
+      "DurationMs": 0,
+      "ArtifactId": null,
+      "RecoveryStartedAt": null,
+      "IncidentStartedAt": null,
+      "UseFallback": false,
+      "FallbackAttempts": 0,
+      "ApprovedFallback": null
+    }
+  ],
+  "Proposal": null,
+  "Engineering": {
+    "Id": "REQ-ALIAS-SEC",
+    "ReservedAliases": [
+      "admin",
+      "health"
+    ]
+  },
+  "RequirementProposal": null,
+  "Artifacts": [
+    {
+      "Id": "a43a9fb7f7034222aea248957dd7b2fc",
+      "Revision": 1,
+      "RequirementHash": "a8d4d0226172d368fcff74b6775f87cf74e1e6bb3ce4ef4b21e81d12994d96bd",
+      "NodeId": "requirements",
+      "Agent": "EngineeringAgent/FindingDrivenAgent",
+      "Model": "none",
+      "InputHashes": {},
+      "Sha256": "8ddbfec6028862ed5826331528db46e8e46e341b27ad5f9f33b2dce32e4c2ffc",
+      "Content": "{\u0022Context\u0022:\u0022Security exercise: reserve admin; a review may discover a missing protected operational alias.\u0022,\u0022Contract\u0022:{\u0022Scenario\u0022:\u0022brownfield\u0022,\u0022AcceptanceCriteria\u0022:{\u0022AC-URL\u0022:\u0022Reject non-HTTP(S), embedded credentials and control characters.\u0022,\u0022AC-REDIRECT\u0022:\u0022Persist links; return 302 with original destination and increment clicks.\u0022,\u0022AC-EXPIRY\u0022:\u0022Return 404 for missing/expired codes; reject past expiry on creation.\u0022,\u0022AC-ALIAS\u0022:\u0022Unique case-sensitive aliases; duplicate creation returns 409.\u0022,\u0022AC-AUTH\u0022:\u0022Operator may create; approver cannot create; only approver may approve gates.\u0022},\u0022Decisions\u0022:{\u0022creation\u0022:\u0022operator-only\u0022,\u0022retention\u0022:\u0022optional-expiry\u0022,\u0022aliases\u0022:\u0022case-sensitive\u0022}},\u0022requirementHash\u0022:\u0022a8d4d0226172d368fcff74b6775f87cf74e1e6bb3ce4ef4b21e81d12994d96bd\u0022,\u0022provenance\u0022:\u0022Deterministic offline scope artifact; decisions are supplied by the operator, not inferred\u0022}",
+      "At": "2026-09-15T00:05:21.0559383+00:00",
+      "Success": true
+    },
+    {
+      "Id": "0299abdc276d45d79ad93df9e43a45b0",
+      "Revision": 1,
+      "RequirementHash": "a8d4d0226172d368fcff74b6775f87cf74e1e6bb3ce4ef4b21e81d12994d96bd",
+      "NodeId": "design",
+      "Agent": "EngineeringAgent/FindingDrivenAgent",
+      "Model": "none",
+      "InputHashes": {
+        "requirements": "8ddbfec6028862ed5826331528db46e8e46e341b27ad5f9f33b2dce32e4c2ffc"
+      },
+      "Sha256": "d280c20f0432fa6c33acee8facba805cec3607f8db2f26be3c80821a95fbbb50",
+      "Content": "# Offline demo: architect\nTask: Produce architecture, persistence model and API contract.\nContext: Security exercise: reserve admin; a review may discover a missing protected operational alias.\nInputs: requirements\nThis role produced deterministic review text. Actual engineering execution is recorded in implementation/tests evidence. No model call or deployment occurred.\nAcceptance checklist: validate HTTP(S) URLs; preserve codes; persist redirects; test expiry and concurrent writes; review release and rollback.",
+      "At": "2026-09-15T00:05:21.3228996+00:00",
+      "Success": true
+    },
+    {
+      "Id": "41303379f5ba47ca9176d728ef9cac33",
+      "Revision": 1,
+      "RequirementHash": "a8d4d0226172d368fcff74b6775f87cf74e1e6bb3ce4ef4b21e81d12994d96bd",
+      "NodeId": "implementation",
+      "Agent": "EngineeringAgent/FindingDrivenAgent",
+      "Model": "none",
+      "InputHashes": {
+        "design": "d280c20f0432fa6c33acee8facba805cec3607f8db2f26be3c80821a95fbbb50"
+      },
+      "Sha256": "cb2c443f03b431795d6e473aa421be34f50c0807ca98df0f91b390b17362f162",
+      "Content": "{\u0022RequirementId\u0022:\u0022REQ-ALIAS-SEC\u0022,\u0022BaselineHash\u0022:\u002268509b279a88d917bbfc5af3d7485d8b5ec8cdef5cfb8ae7ed3713eb08d0c3d2\u0022,\u0022Edits\u0022:[{\u0022Path\u0022:\u0022src/Shortener.Core/LinkService.cs\u0022,\u0022BeforeSha256\u0022:\u00228d6dd694e2caf805e99d862b33f71c39624610d11b5bcf2d41e5bffcab9b1787\u0022,\u0022Search\u0022:\u0022        return store.Change(db =\\u003E\u0022,\u0022Replacement\u0022:\u0022        if (alias is not null \\u0026\\u0026 new[] { \\u0022admin\\u0022 }.Contains(alias, StringComparer.OrdinalIgnoreCase))\\n            throw new ArgumentException(\\u0022Alias is reserved\\u0022);\\n        return store.Change(db =\\u003E\u0022},{\u0022Path\u0022:\u0022tests/Shortener.Tests/Program.cs\u0022,\u0022BeforeSha256\u0022:\u002237bace5a34264fbf95e9540f881ce972fd62e91b3d7761a4a4960a14abc5a124\u0022,\u0022Search\u0022:\u0022// ENGINEERING_REGRESSION_INSERTION_POINT\u0022,\u0022Replacement\u0022:\u0022Test(\\u0022Brownfield reserved-alias regression\\u0022, () =\\u003E\\n{\\n    using var f = new Fixture();\\n    foreach (var alias in new[] { \\u0022admin\\u0022 })\\n    {\\n        Throws\\u003CArgumentException\\u003E(() =\\u003E f.Links.Create(\\u0022https://example.com\\u0022, alias));\\n        Throws\\u003CArgumentException\\u003E(() =\\u003E f.Links.Create(\\u0022https://example.com\\u0022, alias.ToUpperInvariant()));\\n    }\\n    // Existing persisted aliases, including newly reserved names, must still resolve.\\n    f.Store.Change(db =\\u003E { db.Links.Add(\\u0022admin\\u0022, new Link {\\n        Code = \\u0022admin\\u0022, Url = \\u0022https://example.com/legacy\\u0022, Clicks = 7 }); return true; });\\n    Check(f.Links.Resolve(\\u0022admin\\u0022)?.Clicks == 8);\\n    Check(f.Links.Create(\\u0022https://example.com\\u0022, \\u0022public\\u0022).Code == \\u0022public\\u0022);\\n});\\n// ENGINEERING_REGRESSION_INSERTION_POINT\u0022}]}",
+      "At": "2026-09-15T00:05:21.5713842+00:00",
+      "Success": true
+    },
+    {
+      "Id": "a0e9e0a307f34a7886bdada738a3288f",
+      "Revision": 1,
+      "RequirementHash": "a8d4d0226172d368fcff74b6775f87cf74e1e6bb3ce4ef4b21e81d12994d96bd",
+      "NodeId": "security",
+      "Agent": "EngineeringAgent/FindingDrivenAgent",
+      "Model": "none",
+      "InputHashes": {
+        "design": "d280c20f0432fa6c33acee8facba805cec3607f8db2f26be3c80821a95fbbb50"
+      },
+      "Sha256": "31a59baccfb4e42d59603642c8ce77fdf217d79c30a8dd90a2fcffd1ce335276",
+      "Content": "{\u0022RequirementHash\u0022:\u0022a8d4d0226172d368fcff74b6775f87cf74e1e6bb3ce4ef4b21e81d12994d96bd\u0022,\u0022Verdict\u0022:\u0022fail\u0022,\u0022Findings\u0022:[{\u0022Id\u0022:\u0022protected-alias\u0022,\u0022Severity\u0022:\u0022high\u0022,\u0022Status\u0022:\u0022open\u0022,\u0022Evidence\u0022:\u0022The operational health alias is not protected from new user allocation.\u0022,\u0022Remediation\u0022:\u0022Reserve health alongside admin, preserve existing stored aliases, and run case-insensitive rejection and backward-compatibility regressions.\u0022}],\u0022RecommendedEngineering\u0022:{\u0022Id\u0022:\u0022REQ-ALIAS-SEC\u0022,\u0022ReservedAliases\u0022:[\u0022admin\u0022,\u0022health\u0022]}}",
+      "At": "2026-09-15T00:05:21.5797145+00:00",
+      "Success": false
+    }
+  ],
+  "History": [
+    {
+      "Revision": 1,
+      "Context": "Security exercise: reserve admin; a review may discover a missing protected operational alias.",
+      "Engineering": {
+        "Id": "REQ-ALIAS-SEC",
+        "ReservedAliases": [
+          "admin"
+        ]
+      },
+      "Nodes": [
+        {
+          "Spec": {
+            "Id": "requirements",
+            "Role": "analyst",
+            "Task": "Assess the supplied legacy contract and migration risks. Preserve existing short codes and redirect behavior; propose characterization tests before changes.",
+            "DependsOn": [],
+            "Approval": true,
+            "MaxAttempts": 3
+          },
+          "Status": "Succeeded",
+          "Attempts": 1,
+          "Approved": true,
+          "Output": "{\u0022Context\u0022:\u0022Security exercise: reserve admin; a review may discover a missing protected operational alias.\u0022,\u0022Contract\u0022:{\u0022Scenario\u0022:\u0022brownfield\u0022,\u0022AcceptanceCriteria\u0022:{\u0022AC-URL\u0022:\u0022Reject non-HTTP(S), embedded credentials and control characters.\u0022,\u0022AC-REDIRECT\u0022:\u0022Persist links; return 302 with original destination and increment clicks.\u0022,\u0022AC-EXPIRY\u0022:\u0022Return 404 for missing/expired codes; reject past expiry on creation.\u0022,\u0022AC-ALIAS\u0022:\u0022Unique case-sensitive aliases; duplicate creation returns 409.\u0022,\u0022AC-AUTH\u0022:\u0022Operator may create; approver cannot create; only approver may approve gates.\u0022},\u0022Decisions\u0022:{\u0022creation\u0022:\u0022operator-only\u0022,\u0022retention\u0022:\u0022optional-expiry\u0022,\u0022aliases\u0022:\u0022case-sensitive\u0022}},\u0022requirementHash\u0022:\u0022a8d4d0226172d368fcff74b6775f87cf74e1e6bb3ce4ef4b21e81d12994d96bd\u0022,\u0022provenance\u0022:\u0022Deterministic offline scope artifact; decisions are supplied by the operator, not inferred\u0022}",
+          "Error": null,
+          "RetryAt": "0001-01-01T00:00:00+00:00",
+          "DurationMs": 99,
+          "ArtifactId": "a43a9fb7f7034222aea248957dd7b2fc",
+          "RecoveryStartedAt": null,
+          "IncidentStartedAt": null,
+          "UseFallback": false,
+          "FallbackAttempts": 0,
+          "ApprovedFallback": null
+        },
+        {
+          "Spec": {
+            "Id": "design",
+            "Role": "architect",
+            "Task": "Produce architecture, persistence model and API contract.",
+            "DependsOn": [
+              "requirements"
+            ],
+            "Approval": false,
+            "MaxAttempts": 3
+          },
+          "Status": "Succeeded",
+          "Attempts": 1,
+          "Approved": false,
+          "Output": "# Offline demo: architect\nTask: Produce architecture, persistence model and API contract.\nContext: Security exercise: reserve admin; a review may discover a missing protected operational alias.\nInputs: requirements\nThis role produced deterministic review text. Actual engineering execution is recorded in implementation/tests evidence. No model call or deployment occurred.\nAcceptance checklist: validate HTTP(S) URLs; preserve codes; persist redirects; test expiry and concurrent writes; review release and rollback.",
+          "Error": null,
+          "RetryAt": "0001-01-01T00:00:00+00:00",
+          "DurationMs": 92,
+          "ArtifactId": "0299abdc276d45d79ad93df9e43a45b0",
+          "RecoveryStartedAt": null,
+          "IncidentStartedAt": null,
+          "UseFallback": false,
+          "FallbackAttempts": 0,
+          "ApprovedFallback": null
+        },
+        {
+          "Spec": {
+            "Id": "implementation",
+            "Role": "developer",
+            "Task": "Produce a proposed C# implementation artifact against the approved contract.",
+            "DependsOn": [
+              "design"
+            ],
+            "Approval": false,
+            "MaxAttempts": 3
+          },
+          "Status": "Succeeded",
+          "Attempts": 1,
+          "Approved": false,
+          "Output": "{\u0022RequirementId\u0022:\u0022REQ-ALIAS-SEC\u0022,\u0022BaselineHash\u0022:\u002268509b279a88d917bbfc5af3d7485d8b5ec8cdef5cfb8ae7ed3713eb08d0c3d2\u0022,\u0022Edits\u0022:[{\u0022Path\u0022:\u0022src/Shortener.Core/LinkService.cs\u0022,\u0022BeforeSha256\u0022:\u00228d6dd694e2caf805e99d862b33f71c39624610d11b5bcf2d41e5bffcab9b1787\u0022,\u0022Search\u0022:\u0022        return store.Change(db =\\u003E\u0022,\u0022Replacement\u0022:\u0022        if (alias is not null \\u0026\\u0026 new[] { \\u0022admin\\u0022 }.Contains(alias, StringComparer.OrdinalIgnoreCase))\\n            throw new ArgumentException(\\u0022Alias is reserved\\u0022);\\n        return store.Change(db =\\u003E\u0022},{\u0022Path\u0022:\u0022tests/Shortener.Tests/Program.cs\u0022,\u0022BeforeSha256\u0022:\u002237bace5a34264fbf95e9540f881ce972fd62e91b3d7761a4a4960a14abc5a124\u0022,\u0022Search\u0022:\u0022// ENGINEERING_REGRESSION_INSERTION_POINT\u0022,\u0022Replacement\u0022:\u0022Test(\\u0022Brownfield reserved-alias regression\\u0022, () =\\u003E\\n{\\n    using var f = new Fixture();\\n    foreach (var alias in new[] { \\u0022admin\\u0022 })\\n    {\\n        Throws\\u003CArgumentException\\u003E(() =\\u003E f.Links.Create(\\u0022https://example.com\\u0022, alias));\\n        Throws\\u003CArgumentException\\u003E(() =\\u003E f.Links.Create(\\u0022https://example.com\\u0022, alias.ToUpperInvariant()));\\n    }\\n    // Existing persisted aliases, including newly reserved names, must still resolve.\\n    f.Store.Change(db =\\u003E { db.Links.Add(\\u0022admin\\u0022, new Link {\\n        Code = \\u0022admin\\u0022, Url = \\u0022https://example.com/legacy\\u0022, Clicks = 7 }); return true; });\\n    Check(f.Links.Resolve(\\u0022admin\\u0022)?.Clicks == 8);\\n    Check(f.Links.Create(\\u0022https://example.com\\u0022, \\u0022public\\u0022).Code == \\u0022public\\u0022);\\n});\\n// ENGINEERING_REGRESSION_INSERTION_POINT\u0022}]}",
+          "Error": null,
+          "RetryAt": "0001-01-01T00:00:00+00:00",
+          "DurationMs": 71,
+          "ArtifactId": "41303379f5ba47ca9176d728ef9cac33",
+          "RecoveryStartedAt": null,
+          "IncidentStartedAt": null,
+          "UseFallback": false,
+          "FallbackAttempts": 0,
+          "ApprovedFallback": null
+        },
+        {
+          "Spec": {
+            "Id": "security",
+            "Role": "security-reviewer",
+            "Task": "Review URL validation, redirect abuse, authorization and persistence threats.",
+            "DependsOn": [
+              "design"
+            ],
+            "Approval": false,
+            "MaxAttempts": 3
+          },
+          "Status": "Succeeded",
+          "Attempts": 1,
+          "Approved": false,
+          "Output": "{\u0022RequirementHash\u0022:\u0022a8d4d0226172d368fcff74b6775f87cf74e1e6bb3ce4ef4b21e81d12994d96bd\u0022,\u0022Verdict\u0022:\u0022fail\u0022,\u0022Findings\u0022:[{\u0022Id\u0022:\u0022protected-alias\u0022,\u0022Severity\u0022:\u0022high\u0022,\u0022Status\u0022:\u0022open\u0022,\u0022Evidence\u0022:\u0022The operational health alias is not protected from new user allocation.\u0022,\u0022Remediation\u0022:\u0022Reserve health alongside admin, preserve existing stored aliases, and run case-insensitive rejection and backward-compatibility regressions.\u0022}],\u0022RecommendedEngineering\u0022:{\u0022Id\u0022:\u0022REQ-ALIAS-SEC\u0022,\u0022ReservedAliases\u0022:[\u0022admin\u0022,\u0022health\u0022]}}",
+          "Error": null,
+          "RetryAt": "0001-01-01T00:00:00+00:00",
+          "DurationMs": 4,
+          "ArtifactId": "a0e9e0a307f34a7886bdada738a3288f",
+          "RecoveryStartedAt": null,
+          "IncidentStartedAt": null,
+          "UseFallback": false,
+          "FallbackAttempts": 0,
+          "ApprovedFallback": null
+        },
+        {
+          "Spec": {
+            "Id": "tests",
+            "Role": "test-engineer",
+            "Task": "Review the implementation patch, then build and run baseline, red regression and green regression in the constrained workspace.",
+            "DependsOn": [
+              "implementation",
+              "security"
+            ],
+            "Approval": true,
+            "MaxAttempts": 3
+          },
+          "Status": "Pending",
+          "Attempts": 0,
+          "Approved": false,
+          "Output": null,
+          "Error": null,
+          "RetryAt": "0001-01-01T00:00:00+00:00",
+          "DurationMs": 0,
+          "ArtifactId": null,
+          "RecoveryStartedAt": null,
+          "IncidentStartedAt": null,
+          "UseFallback": false,
+          "FallbackAttempts": 0,
+          "ApprovedFallback": null
+        },
+        {
+          "Spec": {
+            "Id": "release",
+            "Role": "release-reviewer",
+            "Task": "Produce a release checklist and rollback plan. This artifact is a simulated release, not a deployment.",
+            "DependsOn": [
+              "tests"
+            ],
+            "Approval": true,
+            "MaxAttempts": 3
+          },
+          "Status": "Pending",
+          "Attempts": 0,
+          "Approved": false,
+          "Output": null,
+          "Error": null,
+          "RetryAt": "0001-01-01T00:00:00+00:00",
+          "DurationMs": 0,
+          "ArtifactId": null,
+          "RecoveryStartedAt": null,
+          "IncidentStartedAt": null,
+          "UseFallback": false,
+          "FallbackAttempts": 0,
+          "ApprovedFallback": null
+        }
+      ],
+      "Status": "Paused"
+    }
+  ],
+  "CleanupRevisions": [
+    1
+  ],
+  "CreatedAt": "2026-09-15T00:05:20.9091679+00:00",
+  "Contract": {
+    "Scenario": "brownfield",
+    "AcceptanceCriteria": {
+      "AC-URL": "Reject non-HTTP(S), embedded credentials and control characters.",
+      "AC-REDIRECT": "Persist links; return 302 with original destination and increment clicks.",
+      "AC-EXPIRY": "Return 404 for missing/expired codes; reject past expiry on creation.",
+      "AC-ALIAS": "Unique case-sensitive aliases; duplicate creation returns 409.",
+      "AC-AUTH": "Operator may create; approver cannot create; only approver may approve gates."
+    },
+    "Decisions": {
+      "creation": "operator-only",
+      "retention": "optional-expiry",
+      "aliases": "case-sensitive"
+    }
+  },
+  "ValidateBaseline": false,
+  "FindingsProposal": null,
+  "FallbackProposal": null
+}

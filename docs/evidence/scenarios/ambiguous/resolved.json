@@ -1,0 +1,183 @@
+{
+  "Id": "35024a937fb74b868074694958d4de4e",
+  "Scenario": "ambiguous",
+  "Context": "Make links short and track usage. Creation policy, expiry and alias semantics must be resolved before any agent executes.",
+  "Status": "Active",
+  "Revision": 1,
+  "Nodes": [
+    {
+      "Spec": {
+        "Id": "requirements",
+        "Role": "analyst",
+        "Task": "List unresolved retention, identity, custom alias and traffic requirements. Use only the human-approved context and explicitly label remaining assumptions.",
+        "DependsOn": [],
+        "Approval": true,
+        "MaxAttempts": 3
+      },
+      "Status": "Pending",
+      "Attempts": 0,
+      "Approved": false,
+      "Output": null,
+      "Error": null,
+      "RetryAt": "0001-01-01T00:00:00+00:00",
+      "DurationMs": 0,
+      "ArtifactId": null,
+      "RecoveryStartedAt": null,
+      "IncidentStartedAt": null,
+      "UseFallback": false,
+      "FallbackAttempts": 0,
+      "ApprovedFallback": null
+    },
+    {
+      "Spec": {
+        "Id": "design",
+        "Role": "architect",
+        "Task": "Produce architecture, persistence model and API contract.",
+        "DependsOn": [
+          "requirements"
+        ],
+        "Approval": false,
+        "MaxAttempts": 3
+      },
+      "Status": "Pending",
+      "Attempts": 0,
+      "Approved": false,
+      "Output": null,
+      "Error": null,
+      "RetryAt": "0001-01-01T00:00:00+00:00",
+      "DurationMs": 0,
+      "ArtifactId": null,
+      "RecoveryStartedAt": null,
+      "IncidentStartedAt": null,
+      "UseFallback": false,
+      "FallbackAttempts": 0,
+      "ApprovedFallback": null
+    },
+    {
+      "Spec": {
+        "Id": "implementation",
+        "Role": "developer",
+        "Task": "Produce a proposed C# implementation artifact against the approved contract.",
+        "DependsOn": [
+          "design"
+        ],
+        "Approval": false,
+        "MaxAttempts": 3
+      },
+      "Status": "Pending",
+      "Attempts": 0,
+      "Approved": false,
+      "Output": null,
+      "Error": null,
+      "RetryAt": "0001-01-01T00:00:00+00:00",
+      "DurationMs": 0,
+      "ArtifactId": null,
+      "RecoveryStartedAt": null,
+      "IncidentStartedAt": null,
+      "UseFallback": false,
+      "FallbackAttempts": 0,
+      "ApprovedFallback": null
+    },
+    {
+      "Spec": {
+        "Id": "security",
+        "Role": "security-reviewer",
+        "Task": "Review URL validation, redirect abuse, authorization and persistence threats.",
+        "DependsOn": [
+          "design"
+        ],
+        "Approval": false,
+        "MaxAttempts": 3
+      },
+      "Status": "Pending",
+      "Attempts": 0,
+      "Approved": false,
+      "Output": null,
+      "Error": null,
+      "RetryAt": "0001-01-01T00:00:00+00:00",
+      "DurationMs": 0,
+      "ArtifactId": null,
+      "RecoveryStartedAt": null,
+      "IncidentStartedAt": null,
+      "UseFallback": false,
+      "FallbackAttempts": 0,
+      "ApprovedFallback": null
+    },
+    {
+      "Spec": {
+        "Id": "tests",
+        "Role": "test-engineer",
+        "Task": "Review the implementation patch, then build and run baseline, red regression and green regression in the constrained workspace.",
+        "DependsOn": [
+          "implementation",
+          "security"
+        ],
+        "Approval": true,
+        "MaxAttempts": 3
+      },
+      "Status": "Pending",
+      "Attempts": 0,
+      "Approved": false,
+      "Output": null,
+      "Error": null,
+      "RetryAt": "0001-01-01T00:00:00+00:00",
+      "DurationMs": 0,
+      "ArtifactId": null,
+      "RecoveryStartedAt": null,
+      "IncidentStartedAt": null,
+      "UseFallback": false,
+      "FallbackAttempts": 0,
+      "ApprovedFallback": null
+    },
+    {
+      "Spec": {
+        "Id": "release",
+        "Role": "release-reviewer",
+        "Task": "Produce a release checklist and rollback plan. This artifact is a simulated release, not a deployment.",
+        "DependsOn": [
+          "tests"
+        ],
+        "Approval": true,
+        "MaxAttempts": 3
+      },
+      "Status": "Pending",
+      "Attempts": 0,
+      "Approved": false,
+      "Output": null,
+      "Error": null,
+      "RetryAt": "0001-01-01T00:00:00+00:00",
+      "DurationMs": 0,
+      "ArtifactId": null,
+      "RecoveryStartedAt": null,
+      "IncidentStartedAt": null,
+      "UseFallback": false,
+      "FallbackAttempts": 0,
+      "ApprovedFallback": null
+    }
+  ],
+  "Proposal": null,
+  "Engineering": null,
+  "RequirementProposal": null,
+  "Artifacts": [],
+  "History": [],
+  "CleanupRevisions": [],
+  "CreatedAt": "2026-09-15T00:04:54.9233778+00:00",
+  "Contract": {
+    "Scenario": "ambiguous",
+    "AcceptanceCriteria": {
+      "AC-URL": "Reject non-HTTP(S), embedded credentials and control characters.",
+      "AC-REDIRECT": "Persist links; return 302 with original destination and increment clicks.",
+      "AC-EXPIRY": "Return 404 for missing/expired codes; reject past expiry on creation.",
+      "AC-ALIAS": "Unique case-sensitive aliases; duplicate creation returns 409.",
+      "AC-AUTH": "Operator may create; approver cannot create; only approver may approve gates."
+    },
+    "Decisions": {
+      "creation": "operator-only",
+      "retention": "optional-expiry",
+      "aliases": "case-sensitive"
+    }
+  },
+  "ValidateBaseline": true,
+  "FindingsProposal": null,
+  "FallbackProposal": null
+}

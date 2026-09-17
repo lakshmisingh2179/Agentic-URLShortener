@@ -1,0 +1,89 @@
+{
+  "BaseRevision": 1,
+  "SourceArtifactId": "a0e9e0a307f34a7886bdada738a3288f",
+  "SourceHash": "31a59baccfb4e42d59603642c8ce77fdf217d79c30a8dd90a2fcffd1ce335276",
+  "FindingIds": [
+    "protected-alias"
+  ],
+  "Nodes": [
+    {
+      "Id": "requirements",
+      "Role": "analyst",
+      "Task": "Assess the supplied legacy contract and migration risks. Preserve existing short codes and redirect behavior; propose characterization tests before changes.",
+      "DependsOn": [],
+      "Approval": true,
+      "MaxAttempts": 3
+    },
+    {
+      "Id": "design",
+      "Role": "architect",
+      "Task": "Produce architecture, persistence model and API contract.",
+      "DependsOn": [
+        "requirements"
+      ],
+      "Approval": false,
+      "MaxAttempts": 3
+    },
+    {
+      "Id": "implementation",
+      "Role": "developer",
+      "Task": "Produce a proposed C# implementation artifact against the approved contract.",
+      "DependsOn": [
+        "design",
+        "remediate-protected-alias"
+      ],
+      "Approval": false,
+      "MaxAttempts": 3
+    },
+    {
+      "Id": "security",
+      "Role": "security-reviewer",
+      "Task": "Review URL validation, redirect abuse, authorization and persistence threats.",
+      "DependsOn": [
+        "design",
+        "remediate-protected-alias"
+      ],
+      "Approval": false,
+      "MaxAttempts": 3
+    },
+    {
+      "Id": "tests",
+      "Role": "test-engineer",
+      "Task": "Review the implementation patch, then build and run baseline, red regression and green regression in the constrained workspace.",
+      "DependsOn": [
+        "implementation",
+        "security"
+      ],
+      "Approval": true,
+      "MaxAttempts": 3
+    },
+    {
+      "Id": "release",
+      "Role": "release-reviewer",
+      "Task": "Produce a release checklist and rollback plan. This artifact is a simulated release, not a deployment.",
+      "DependsOn": [
+        "tests"
+      ],
+      "Approval": true,
+      "MaxAttempts": 3
+    },
+    {
+      "Id": "remediate-protected-alias",
+      "Role": "remediation-planner",
+      "Task": "Resolve finding protected-alias: The operational health alias is not protected from new user allocation.\nRequired work: Reserve health alongside admin, preserve existing stored aliases, and run case-insensitive rejection and backward-compatibility regressions.\nExplain validation evidence and remaining limitations.",
+      "DependsOn": [
+        "design"
+      ],
+      "Approval": false,
+      "MaxAttempts": 3
+    }
+  ],
+  "Engineering": {
+    "Id": "REQ-ALIAS-SEC",
+    "ReservedAliases": [
+      "admin",
+      "health"
+    ]
+  },
+  "Reason": "Agent findings require remediation and a fresh security review; no critical/high waiver is allowed"
+}

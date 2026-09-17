@@ -1,0 +1,4 @@
+{
+  "scenario": "brownfield",
+  "context": "Legacy contract fixture: GET /s/legacy01 returns 302 Location https://example.com/legacy; code matching is case-sensitive; missing codes return 404; links have no expiry and aliases are immutable. Existing record: {code: legacy01, url: https://example.com/legacy, clicks: 7}. Propose adding optional expiry and authenticated creation while preserving legacy codes, URLs and click totals. First produce compatibility tests and a migration/rollback plan. This supplied fixture is the full legacy context; no repository has been scanned and no migration has been performed. A human must approve this scope before analysis."
+}

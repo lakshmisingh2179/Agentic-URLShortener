@@ -1,0 +1,26 @@
+--- a/src/Shortener.Core/LinkService.cs
++++ b/src/Shortener.Core/LinkService.cs
+@@ -18,1 +18,3 @@
+-        return store.Change(db =>
++        if (alias is not null && new[] { "admin" }.Contains(alias, StringComparer.OrdinalIgnoreCase))
++            throw new ArgumentException("Alias is reserved");
++        return store.Change(db =>
+--- a/tests/Shortener.Tests/Program.cs
++++ b/tests/Shortener.Tests/Program.cs
+@@ -528,1 +528,15 @@
+-// ENGINEERING_REGRESSION_INSERTION_POINT
++Test("Brownfield reserved-alias regression", () =>
++{
++    using var f = new Fixture();
++    foreach (var alias in new[] { "admin" })
++    {
++        Throws<ArgumentException>(() => f.Links.Create("https://example.com", alias));
++        Throws<ArgumentException>(() => f.Links.Create("https://example.com", alias.ToUpperInvariant()));
++    }
++    // Existing persisted aliases, including newly reserved names, must still resolve.
++    f.Store.Change(db => { db.Links.Add("admin", new Link {
++        Code = "admin", Url = "https://example.com/legacy", Clicks = 7 }); return true; });
++    Check(f.Links.Resolve("admin")?.Clicks == 8);
++    Check(f.Links.Create("https://example.com", "public").Code == "public");
++});
++// ENGINEERING_REGRESSION_INSERTION_POINT

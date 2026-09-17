@@ -1,0 +1,221 @@
+--- a/src/Shortener.Core/Models.cs
++++ b/src/Shortener.Core/Models.cs
+@@ -19,6 +19,7 @@
+     public DateTimeOffset? IncidentStartedAt { get; set; }
+     public bool UseFallback { get; set; }
+     public int FallbackAttempts { get; set; }
++    public FallbackIdentity? ApprovedFallback { get; set; }
+ }
+ public sealed record PlanProposal(string Reason, int BaseRevision, NodeSpec[] Nodes);
+ public sealed record EngineeringRequirement(string Id, string[] ReservedAliases);
+@@ -37,6 +38,13 @@
+ public sealed record FindingsProposal(int BaseRevision, string SourceArtifactId, string SourceHash,
+     string[] FindingIds, NodeSpec[] Nodes, EngineeringRequirement? Engineering, string Reason);
+ public sealed record FallbackProposal(int Revision, string NodeId, string Agent, string Model, string Reason);
++public sealed record FallbackIdentity(string Agent, string Model)
++{
++    public bool Matches(IAgent? configured) => configured is not null &&
++        !string.IsNullOrWhiteSpace(Agent) && !string.IsNullOrWhiteSpace(Model) &&
++        string.Equals(Agent, configured.Identity, StringComparison.Ordinal) &&
++        string.Equals(Model, configured.Model, StringComparison.Ordinal);
++}
+ public sealed class Workflow
+ {
+     public string Id { get; set; } = Guid.NewGuid().ToString("N");
+--- a/src/Shortener.Core/Agents.cs
++++ b/src/Shortener.Core/Agents.cs
+@@ -6,7 +6,8 @@
+ 
+ public sealed record AgentRequest(string RunId, int Revision, string Context, NodeSpec Node,
+     Dictionary<string, string> Dependencies, string IdempotencyKey, EngineeringRequirement? Engineering = null,
+-    ScopeContract? Contract = null, bool ValidateBaseline = false, bool UseFallback = false);
++    ScopeContract? Contract = null, bool ValidateBaseline = false, bool UseFallback = false,
++    FallbackIdentity? ApprovedFallback = null);
+ public interface IAgent
+ {
+     string Identity => GetType().Name;
+--- a/src/Shortener.Core/WorkflowService.cs
++++ b/src/Shortener.Core/WorkflowService.cs
+@@ -6,7 +6,7 @@
+ {
+     public Workflow Create(string scenario, string context, string actor, EngineeringRequirement? engineering = null, bool validateBaseline = false)
+     {
+-        if (string.IsNullOrWhiteSpace(context) || context.Length > 16000) throw new ArgumentException("Context must contain 1–16000 characters");
++        if (string.IsNullOrWhiteSpace(context) || context.Length > 16000) throw new ArgumentException("Context must contain 1â€“16000 characters");
+         var specs = Scenarios.Create(scenario);
+         if (engineering is not null || validateBaseline)
+         {
+@@ -105,7 +105,8 @@
+                     ? new WorkNode { Spec = s, Status = old.Status, Attempts = old.Attempts, Approved = old.Approved,
+                         Output = old.Output, Error = old.Error, RetryAt = old.RetryAt, DurationMs = old.DurationMs,
+                         ArtifactId = old.ArtifactId, RecoveryStartedAt = old.RecoveryStartedAt,
+-                        IncidentStartedAt = old.IncidentStartedAt, UseFallback = old.UseFallback, FallbackAttempts = old.FallbackAttempts }
++                        IncidentStartedAt = old.IncidentStartedAt, UseFallback = old.UseFallback, FallbackAttempts = old.FallbackAttempts,
++                        ApprovedFallback = old.ApprovedFallback }
+                     : new WorkNode { Spec = s }).ToList();
+                 r.Revision++;
+             }
+@@ -161,7 +162,7 @@
+     }
+     private static void RequireReason(string reason)
+     {
+-        if (string.IsNullOrWhiteSpace(reason) || reason.Length > 4000) throw new ArgumentException("A reason of 1–4000 characters is required");
++        if (string.IsNullOrWhiteSpace(reason) || reason.Length > 4000) throw new ArgumentException("A reason of 1â€“4000 characters is required");
+     }
+     public Workflow Clarify(string id, int revision, Dictionary<string, string> answers, string actor) => store.Change(db =>
+     {
+@@ -207,7 +208,12 @@
+             var r = db.Runs[id];
+             if (r.Status != RunStatus.Paused || r.FallbackProposal is not { } p || revision != r.Revision ||
+                 r.Nodes.Any(n => n.Status == NodeStatus.Running)) throw new Conflict("No current quiescent fallback proposal");
+-            if (accept) { r.Nodes.Single(n => n.Spec.Id == p.NodeId).UseFallback = true; r.Status = RunStatus.Active; }
++            if (accept)
++            {
++                var node = r.Nodes.Single(n => n.Spec.Id == p.NodeId);
++                node.ApprovedFallback = new(p.Agent, p.Model);
++                node.UseFallback = true; r.Status = RunStatus.Active;
++            }
+             else r.Status = RunStatus.RollingBack;
+             db.Log(id, actor, accept ? "fallback-approved" : "fallback-rejected", JsonSerializer.Serialize(new { revision, p.NodeId, p.Agent, p.Model, reason }));
+             r.FallbackProposal = null; return r;
+--- a/src/Shortener.Core/Engine.cs
++++ b/src/Shortener.Core/Engine.cs
+@@ -48,6 +48,18 @@
+                         r.Status = RunStatus.RolledBack; db.Log(r.Id, "engine", "rolled-back", "Artifact compensation complete");
+                     }
+                     if (r.Status != RunStatus.Active) continue;
++                    // Approval survives restart as a concrete identity, never just a boolean.
++                    // Preflight the run before claiming any new work or consuming an attempt.
++                    var mismatched = r.Nodes.FirstOrDefault(n => n.Status == NodeStatus.Pending && n.UseFallback &&
++                        n.ApprovedFallback?.Matches(fallback) != true);
++                    if (mismatched is not null)
++                    {
++                        mismatched.Status = NodeStatus.Failed;
++                        mismatched.Error = nameof(FallbackIdentityMismatchException);
++                        r.Status = RunStatus.RollingBack;
++                        LogFallbackMismatch(db, r, mismatched);
++                        continue;
++                    }
+                     if (r.Nodes.All(n => n.Status == NodeStatus.Succeeded))
+                     {
+                         r.Status = RunStatus.Completed; db.Log(r.Id, "engine", "completed", "All nodes succeeded"); continue;
+@@ -63,7 +75,7 @@
+                         result.Add(new(r.Id, r.Revision, r.Context, n.Spec,
+                             n.Spec.DependsOn.ToDictionary(id => id, id => r.Nodes.Single(x => x.Spec.Id == id).Output!),
+                             $"{r.Id}:{r.Revision}:{n.Spec.Id}:{(n.UseFallback ? "fallback" : "primary")}", r.Engineering,
+-                            r.Contract, r.ValidateBaseline, n.UseFallback));
++                            r.Contract, r.ValidateBaseline, n.UseFallback, n.ApprovedFallback));
+                     }
+                 }
+                 return result;
+@@ -78,11 +90,14 @@
+         string? output = null;
+         Exception? error = null;
+         SecurityReport? security = null;
+-        var executor = job.UseFallback ? fallback ?? throw new InvalidOperationException("Configured fallback missing after restart") : agent;
++        var executor = job.UseFallback ? fallback ?? agent : agent;
+         using var timeout = CancellationTokenSource.CreateLinkedTokenSource(cancellation);
+         timeout.CancelAfter(TimeSpan.FromSeconds((job.Engineering is not null || job.ValidateBaseline) && job.Node.Id == "tests" ? 300 : Math.Clamp(timeoutSeconds, 1, 300)));
+         try
+         {
++            // Defense in depth if a custom adapter changes identity after the claim.
++            if (job.UseFallback && job.ApprovedFallback?.Matches(fallback) != true)
++                throw new FallbackIdentityMismatchException();
+             output = executor is EngineeringAgent
+                 ? await executor.ExecuteAsync(job, timeout.Token)
+                 : await executor.ExecuteAsync(job, timeout.Token).WaitAsync(timeout.Token);
+@@ -134,6 +149,7 @@
+             }
+             else
+             {
++                if (error is FallbackIdentityMismatchException) LogFallbackMismatch(db, r, n);
+                 if (error is EngineeringValidationException validation)
+                 {
+                     n.Output = validation.Report;
+@@ -177,4 +193,11 @@
+                 artifact.RequirementHash, artifact.Agent, artifact.Model, artifact.InputHashes, artifact.Sha256, success }));
+         return artifact;
+     }
++    private void LogFallbackMismatch(Database db, Workflow run, WorkNode node) =>
++        db.Log(run.Id, "engine", "fallback-identity-mismatch", System.Text.Json.JsonSerializer.Serialize(new {
++            revision = run.Revision, nodeId = node.Spec.Id, approved = node.ApprovedFallback,
++            configured = fallback is null ? null : new FallbackIdentity(fallback.Identity, fallback.Model),
++            action = "No fallback call authorized; rollback required" }));
+ }
++
++sealed class FallbackIdentityMismatchException : Exception;
+--- a/tests/Shortener.Tests/Program.cs
++++ b/tests/Shortener.Tests/Program.cs
+@@ -471,6 +471,60 @@
+     f.Service.Approve(r.Id, "requirements", 1, true, "answers reviewed", "approver");
+     Check(Trace.RequirementHash(f.Service.Get(r.Id)) != before);
+ });
++foreach (var change in new[] { "model", "agent", "missing", "legacy-unbound" })
++    AsyncTest($"Restart blocks fallback identity change: {change}", async () =>
++    {
++        using var f = new Fixture();
++        var r = f.Service.Create("greenfield", "scope", "operator");
++        var original = new CountingIdentityAgent("approved-agent", "model-a");
++        var engine = new Engine(f.Store, new FailingAgent(true), fallback: original);
++        for (var i = 0; i < 3; i++) { await engine.TickAsync(); f.Store.Change(d => d.Runs[r.Id].Nodes[0].RetryAt = DateTimeOffset.MinValue); }
++        f.Service.DecideFallback(r.Id, 1, true, "Approve exact model-a choice", "approver");
++        Check(f.Service.Get(r.Id).Nodes[0].ApprovedFallback == new FallbackIdentity("approved-agent", "model-a"));
++        if (change == "legacy-unbound") f.Store.Change(d => d.Runs[r.Id].Nodes[0].ApprovedFallback = null);
++        f.Store.Dispose(); using var reopened = new JsonStore(f.Directory);
++        var alternate = change switch {
++            "model" => new CountingIdentityAgent("approved-agent", "model-b"),
++            "agent" => new CountingIdentityAgent("different-agent", "model-a"),
++            "missing" => null,
++            _ => new CountingIdentityAgent("approved-agent", "model-a") };
++        var primary = new CountingIdentityAgent("primary", "primary-model");
++        var restarted = new Engine(reopened, primary, fallback: alternate); restarted.Recover();
++        await restarted.TickAsync();
++        Check((alternate?.Calls ?? 0) == 0 && original.Calls == 0 && primary.Calls == 0);
++        Check(reopened.Read(d => d.Runs[r.Id].Nodes[0].FallbackAttempts) == 0);
++        Check(reopened.Read(d => d.Runs[r.Id].Nodes[0].Attempts) == 3);
++        Check(reopened.Read(d => d.Audit.Any(a => a.Action == "fallback-identity-mismatch")));
++        await restarted.TickAsync(); Check(reopened.Read(d => d.Runs[r.Id].Status) == RunStatus.RolledBack);
++    });
++AsyncTest("Restart permits the exact persisted approved fallback identity", async () =>
++{
++    using var f = new Fixture(); var r = f.Service.Create("greenfield", "scope", "operator");
++    var engine = new Engine(f.Store, new FailingAgent(true), fallback: new CountingIdentityAgent("approved-agent", "model-a"));
++    for (var i = 0; i < 3; i++) { await engine.TickAsync(); f.Store.Change(d => d.Runs[r.Id].Nodes[0].RetryAt = DateTimeOffset.MinValue); }
++    f.Service.DecideFallback(r.Id, 1, true, "Approved choice", "approver");
++    f.Store.Dispose(); using var reopened = new JsonStore(f.Directory);
++    var alternate = new CountingIdentityAgent("approved-agent", "model-a");
++    var restarted = new Engine(reopened, new FailingAgent(true), fallback: alternate); restarted.Recover();
++    await restarted.TickAsync();
++    Check(alternate.Calls == 1 && reopened.Read(d => d.Runs[r.Id].Nodes[0].Status) == NodeStatus.Succeeded);
++    Check(reopened.Read(d => d.Runs[r.Id].Nodes[0].FallbackAttempts) == 1);
++    var artifact = reopened.Read(d => d.Runs[r.Id].Artifacts.Last());
++    Check(artifact.Agent == "approved-agent" && artifact.Model == "model-a");
++});
++AsyncTest("Approval after restart binds the original proposal, not new configuration", async () =>
++{
++    using var f = new Fixture(); var r = f.Service.Create("greenfield", "scope", "operator");
++    var engine = new Engine(f.Store, new FailingAgent(true), fallback: new CountingIdentityAgent("approved-agent", "model-a"));
++    for (var i = 0; i < 3; i++) { await engine.TickAsync(); f.Store.Change(d => d.Runs[r.Id].Nodes[0].RetryAt = DateTimeOffset.MinValue); }
++    f.Store.Dispose(); using var reopened = new JsonStore(f.Directory);
++    var service = new WorkflowService(reopened);
++    service.DecideFallback(r.Id, 1, true, "Approve original proposal", "approver");
++    Check(service.Get(r.Id).Nodes[0].ApprovedFallback == new FallbackIdentity("approved-agent", "model-a"));
++    var changed = new CountingIdentityAgent("approved-agent", "model-b");
++    await new Engine(reopened, new FailingAgent(true), fallback: changed).TickAsync();
++    Check(changed.Calls == 0 && service.Get(r.Id).Status == RunStatus.RollingBack);
++});
+ // ENGINEERING_REGRESSION_INSERTION_POINT
+ var failures = 0;
+ foreach (var test in tests)
+@@ -539,3 +593,11 @@
+             Quality.RequirementHash(request), "pass", [new("alias-gap", "critical", "open", "health alias is not reserved", "Add health policy coverage and verify existing records still resolve")] )));
+     }
+ }
++sealed class CountingIdentityAgent(string identity, string model) : IAgent
++{
++    public string Identity => identity;
++    public string Model => model;
++    public int Calls { get; private set; }
++    public Task<string> ExecuteAsync(AgentRequest request, CancellationToken cancellation)
++    { Calls++; return new DemoAgent().ExecuteAsync(request, cancellation); }
++}

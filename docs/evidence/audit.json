@@ -1,0 +1,1482 @@
+[
+  {
+    "Sequence": 1,
+    "At": "2026-09-14T23:57:48.3724362+00:00",
+    "RunId": "6e9663b15a9448ceba7f745f7606dac9",
+    "Actor": "demo-operator",
+    "Action": "created",
+    "Detail": "{\u0022scenario\u0022:\u0022brownfield\u0022,\u0022context\u0022:\u0022REQ-ALIAS-001: Reserve admin case-insensitively for new aliases. Existing stored aliases must continue to resolve.\u0022,\u0022engineering\u0022:{\u0022Id\u0022:\u0022REQ-ALIAS-001\u0022,\u0022ReservedAliases\u0022:[\u0022admin\u0022]},\u0022requirementHash\u0022:\u00224e4156d22a4b58c7389562f3eb908b92fae2b1a918eae8e1c8c2232b344228ea\u0022,\u0022nodes\u0022:[{\u0022Id\u0022:\u0022requirements\u0022,\u0022Role\u0022:\u0022analyst\u0022,\u0022Task\u0022:\u0022Assess the supplied legacy contract and migration risks. Preserve existing short codes and redirect behavior; propose characterization tests before changes.\u0022,\u0022DependsOn\u0022:[],\u0022Approval\u0022:true,\u0022MaxAttempts\u0022:3},{\u0022Id\u0022:\u0022design\u0022,\u0022Role\u0022:\u0022architect\u0022,\u0022Task\u0022:\u0022Produce architecture, persistence model and API contract.\u0022,\u0022DependsOn\u0022:[\u0022requirements\u0022],\u0022Approval\u0022:false,\u0022MaxAttempts\u0022:3},{\u0022Id\u0022:\u0022implementation\u0022,\u0022Role\u0022:\u0022developer\u0022,\u0022Task\u0022:\u0022Produce a proposed C# implementation artifact against the approved contract.\u0022,\u0022DependsOn\u0022:[\u0022design\u0022],\u0022Approval\u0022:false,\u0022MaxAttempts\u0022:3},{\u0022Id\u0022:\u0022security\u0022,\u0022Role\u0022:\u0022security-reviewer\u0022,\u0022Task\u0022:\u0022Review URL validation, redirect abuse, authorization and persistence threats.\u0022,\u0022DependsOn\u0022:[\u0022design\u0022],\u0022Approval\u0022:false,\u0022MaxAttempts\u0022:3},{\u0022Id\u0022:\u0022tests\u0022,\u0022Role\u0022:\u0022test-engineer\u0022,\u0022Task\u0022:\u0022Review the implementation patch, then build and run baseline, red regression and green regression in the constrained workspace.\u0022,\u0022DependsOn\u0022:[\u0022implementation\u0022,\u0022security\u0022],\u0022Approval\u0022:true,\u0022MaxAttempts\u0022:3},{\u0022Id\u0022:\u0022release\u0022,\u0022Role\u0022:\u0022release-reviewer\u0022,\u0022Task\u0022:\u0022Produce a release checklist and rollback plan. This artifact is a simulated release, not a deployment.\u0022,\u0022DependsOn\u0022:[\u0022tests\u0022],\u0022Approval\u0022:true,\u0022MaxAttempts\u0022:3}],\u0022revision\u0022:1}",
+    "PreviousHash": "",
+    "Hash": "23847db692868ceb798ed151936e773859c4c0c8620864181bfb65616c1bd787"
+  },
+  {
+    "Sequence": 2,
+    "At": "2026-09-14T23:57:48.418523+00:00",
+    "RunId": "6e9663b15a9448ceba7f745f7606dac9",
+    "Actor": "demo-approver",
+    "Action": "gate-approved",
+    "Detail": "{\u0022revision\u0022:1,\u0022nodeId\u0022:\u0022requirements\u0022,\u0022reason\u0022:\u0022Explicit offline simulated approval\u0022,\u0022requirementHash\u0022:\u00224e4156d22a4b58c7389562f3eb908b92fae2b1a918eae8e1c8c2232b344228ea\u0022,\u0022artifactHashes\u0022:{}}",
+    "PreviousHash": "23847db692868ceb798ed151936e773859c4c0c8620864181bfb65616c1bd787",
+    "Hash": "100a5c31963b10795f13eb18d2828a2d6a0234f4b017d7cdab4704aa754ac56b"
+  },
+  {
+    "Sequence": 3,
+    "At": "2026-09-14T23:57:48.4240469+00:00",
+    "RunId": "6e9663b15a9448ceba7f745f7606dac9",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "requirements; attempt=1; revision=1",
+    "PreviousHash": "100a5c31963b10795f13eb18d2828a2d6a0234f4b017d7cdab4704aa754ac56b",
+    "Hash": "134c852e2d2825566f80a2416babc3c20dd207652a139d24b37ba1f12edb8e4e"
+  },
+  {
+    "Sequence": 4,
+    "At": "2026-09-14T23:57:48.5510298+00:00",
+    "RunId": "6e9663b15a9448ceba7f745f7606dac9",
+    "Actor": "engine",
+    "Action": "node-succeeded",
+    "Detail": "{\u0022nodeId\u0022:\u0022requirements\u0022,\u0022Id\u0022:\u00222c8f8c428017454db253375bbcf91848\u0022,\u0022Revision\u0022:1,\u0022RequirementHash\u0022:\u00224e4156d22a4b58c7389562f3eb908b92fae2b1a918eae8e1c8c2232b344228ea\u0022,\u0022Agent\u0022:\u0022EngineeringAgent/DemoAgent\u0022,\u0022Model\u0022:\u0022none\u0022,\u0022InputHashes\u0022:{},\u0022Sha256\u0022:\u002267e7c00fbd959a3307f0ac249091fadf768fd44ca670d56604e790d73617c6cf\u0022,\u0022success\u0022:true}",
+    "PreviousHash": "134c852e2d2825566f80a2416babc3c20dd207652a139d24b37ba1f12edb8e4e",
+    "Hash": "c83bfbc5712d65bbe6cecfe000ce8e954c818cd522211885b4eb49f284c35f6e"
+  },
+  {
+    "Sequence": 5,
+    "At": "2026-09-14T23:57:48.7171439+00:00",
+    "RunId": "6e9663b15a9448ceba7f745f7606dac9",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "design; attempt=1; revision=1",
+    "PreviousHash": "c83bfbc5712d65bbe6cecfe000ce8e954c818cd522211885b4eb49f284c35f6e",
+    "Hash": "543615dfc9a2d198400159d0f052114e51624b28b39cc53799f4aacf5a7d989f"
+  },
+  {
+    "Sequence": 6,
+    "At": "2026-09-14T23:57:48.8156362+00:00",
+    "RunId": "6e9663b15a9448ceba7f745f7606dac9",
+    "Actor": "engine",
+    "Action": "node-succeeded",
+    "Detail": "{\u0022nodeId\u0022:\u0022design\u0022,\u0022Id\u0022:\u0022e2f6fb7f3e264dc7a2294a765b16c0f6\u0022,\u0022Revision\u0022:1,\u0022RequirementHash\u0022:\u00224e4156d22a4b58c7389562f3eb908b92fae2b1a918eae8e1c8c2232b344228ea\u0022,\u0022Agent\u0022:\u0022EngineeringAgent/DemoAgent\u0022,\u0022Model\u0022:\u0022none\u0022,\u0022InputHashes\u0022:{\u0022requirements\u0022:\u002267e7c00fbd959a3307f0ac249091fadf768fd44ca670d56604e790d73617c6cf\u0022},\u0022Sha256\u0022:\u002225098889204cac14bd26b5209353037b278155acbd23ca1df1b5c8a0dc477d76\u0022,\u0022success\u0022:true}",
+    "PreviousHash": "543615dfc9a2d198400159d0f052114e51624b28b39cc53799f4aacf5a7d989f",
+    "Hash": "d49ee8e1377b910236ec3755010c6704bade9d56d0f2d5304ea8561aa63fef0d"
+  },
+  {
+    "Sequence": 7,
+    "At": "2026-09-14T23:57:48.9815451+00:00",
+    "RunId": "6e9663b15a9448ceba7f745f7606dac9",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "implementation; attempt=1; revision=1",
+    "PreviousHash": "d49ee8e1377b910236ec3755010c6704bade9d56d0f2d5304ea8561aa63fef0d",
+    "Hash": "e94df52600c99c0d0693a73fd51ca7c73a5a7502a5d47cf6e6b14ba3b1114f83"
+  },
+  {
+    "Sequence": 8,
+    "At": "2026-09-14T23:57:48.9816908+00:00",
+    "RunId": "6e9663b15a9448ceba7f745f7606dac9",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "security; attempt=1; revision=1",
+    "PreviousHash": "e94df52600c99c0d0693a73fd51ca7c73a5a7502a5d47cf6e6b14ba3b1114f83",
+    "Hash": "87a9b662e7c309fdddb960fd7147851e7d012f523cb2a418e7b5f002d7b368f6"
+  },
+  {
+    "Sequence": 9,
+    "At": "2026-09-14T23:57:49.0877772+00:00",
+    "RunId": "6e9663b15a9448ceba7f745f7606dac9",
+    "Actor": "engine",
+    "Action": "node-succeeded",
+    "Detail": "{\u0022nodeId\u0022:\u0022implementation\u0022,\u0022Id\u0022:\u00224c995c2118f84c8fbd2c136b345eff5d\u0022,\u0022Revision\u0022:1,\u0022RequirementHash\u0022:\u00224e4156d22a4b58c7389562f3eb908b92fae2b1a918eae8e1c8c2232b344228ea\u0022,\u0022Agent\u0022:\u0022EngineeringAgent/DemoAgent\u0022,\u0022Model\u0022:\u0022none\u0022,\u0022InputHashes\u0022:{\u0022design\u0022:\u002225098889204cac14bd26b5209353037b278155acbd23ca1df1b5c8a0dc477d76\u0022},\u0022Sha256\u0022:\u00220eb6075b8fa7d1bfe66ecf12368b6dc8c0630dc9e49c08fc34786d8de0555184\u0022,\u0022success\u0022:true}",
+    "PreviousHash": "87a9b662e7c309fdddb960fd7147851e7d012f523cb2a418e7b5f002d7b368f6",
+    "Hash": "0c4f2f8b47386e3998180af9d588ecade3b3436acf564c95ca86e9f769367fb4"
+  },
+  {
+    "Sequence": 10,
+    "At": "2026-09-14T23:57:49.1848073+00:00",
+    "RunId": "6e9663b15a9448ceba7f745f7606dac9",
+    "Actor": "engine",
+    "Action": "node-succeeded",
+    "Detail": "{\u0022nodeId\u0022:\u0022security\u0022,\u0022Id\u0022:\u002233d303285e0e46cebcf929a13dc1ad16\u0022,\u0022Revision\u0022:1,\u0022RequirementHash\u0022:\u00224e4156d22a4b58c7389562f3eb908b92fae2b1a918eae8e1c8c2232b344228ea\u0022,\u0022Agent\u0022:\u0022EngineeringAgent/DemoAgent\u0022,\u0022Model\u0022:\u0022none\u0022,\u0022InputHashes\u0022:{\u0022design\u0022:\u002225098889204cac14bd26b5209353037b278155acbd23ca1df1b5c8a0dc477d76\u0022},\u0022Sha256\u0022:\u0022a53105d75e94352ead4ddae89dca7f99eeae26298a84c89097bf8cdba6b1b570\u0022,\u0022success\u0022:true}",
+    "PreviousHash": "0c4f2f8b47386e3998180af9d588ecade3b3436acf564c95ca86e9f769367fb4",
+    "Hash": "af1dd1965c985dccfce9646733e7aa2262977724ad7d97f5d42d6821c6d4937b"
+  },
+  {
+    "Sequence": 11,
+    "At": "2026-09-14T23:57:49.3503541+00:00",
+    "RunId": "6e9663b15a9448ceba7f745f7606dac9",
+    "Actor": "demo-approver",
+    "Action": "gate-approved",
+    "Detail": "{\u0022revision\u0022:1,\u0022nodeId\u0022:\u0022tests\u0022,\u0022reason\u0022:\u0022Explicit offline simulated approval\u0022,\u0022requirementHash\u0022:\u00224e4156d22a4b58c7389562f3eb908b92fae2b1a918eae8e1c8c2232b344228ea\u0022,\u0022artifactHashes\u0022:{\u0022implementation\u0022:\u00220eb6075b8fa7d1bfe66ecf12368b6dc8c0630dc9e49c08fc34786d8de0555184\u0022,\u0022security\u0022:\u0022a53105d75e94352ead4ddae89dca7f99eeae26298a84c89097bf8cdba6b1b570\u0022}}",
+    "PreviousHash": "af1dd1965c985dccfce9646733e7aa2262977724ad7d97f5d42d6821c6d4937b",
+    "Hash": "9b519fe9547f48f6997fe1af6fd57ce76c36b695ea193f22dda71b381ab03085"
+  },
+  {
+    "Sequence": 12,
+    "At": "2026-09-14T23:57:49.3542153+00:00",
+    "RunId": "6e9663b15a9448ceba7f745f7606dac9",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "tests; attempt=1; revision=1",
+    "PreviousHash": "9b519fe9547f48f6997fe1af6fd57ce76c36b695ea193f22dda71b381ab03085",
+    "Hash": "ab840d29a4fda0793959ef03d210861b1206d6ad9117a25043202d2d3acc6ce0"
+  },
+  {
+    "Sequence": 13,
+    "At": "2026-09-15T00:03:26.5907219+00:00",
+    "RunId": "6e9663b15a9448ceba7f745f7606dac9",
+    "Actor": "engine",
+    "Action": "node-succeeded",
+    "Detail": "{\u0022nodeId\u0022:\u0022tests\u0022,\u0022Id\u0022:\u0022d8c1dc99cfce4b12ab52b58da968f733\u0022,\u0022Revision\u0022:1,\u0022RequirementHash\u0022:\u00224e4156d22a4b58c7389562f3eb908b92fae2b1a918eae8e1c8c2232b344228ea\u0022,\u0022Agent\u0022:\u0022EngineeringAgent/DemoAgent\u0022,\u0022Model\u0022:\u0022none\u0022,\u0022InputHashes\u0022:{\u0022implementation\u0022:\u00220eb6075b8fa7d1bfe66ecf12368b6dc8c0630dc9e49c08fc34786d8de0555184\u0022,\u0022security\u0022:\u0022a53105d75e94352ead4ddae89dca7f99eeae26298a84c89097bf8cdba6b1b570\u0022},\u0022Sha256\u0022:\u00220a837e9cf5bcb083f0686728ed73a126ede4ae53a7d56cc296cb6819a248c656\u0022,\u0022success\u0022:true}",
+    "PreviousHash": "ab840d29a4fda0793959ef03d210861b1206d6ad9117a25043202d2d3acc6ce0",
+    "Hash": "4b80709ce75b0587c33b56a8dfd491b68c5732878648ca00c19c53d38032a654"
+  },
+  {
+    "Sequence": 14,
+    "At": "2026-09-15T00:03:26.761653+00:00",
+    "RunId": "6e9663b15a9448ceba7f745f7606dac9",
+    "Actor": "demo-approver",
+    "Action": "gate-approved",
+    "Detail": "{\u0022revision\u0022:1,\u0022nodeId\u0022:\u0022release\u0022,\u0022reason\u0022:\u0022Explicit offline simulated approval\u0022,\u0022requirementHash\u0022:\u00224e4156d22a4b58c7389562f3eb908b92fae2b1a918eae8e1c8c2232b344228ea\u0022,\u0022artifactHashes\u0022:{\u0022tests\u0022:\u00220a837e9cf5bcb083f0686728ed73a126ede4ae53a7d56cc296cb6819a248c656\u0022}}",
+    "PreviousHash": "4b80709ce75b0587c33b56a8dfd491b68c5732878648ca00c19c53d38032a654",
+    "Hash": "1867040ac04625abc666893a7e3bd4d1c865580fe173117ca5be58a8d38568d4"
+  },
+  {
+    "Sequence": 15,
+    "At": "2026-09-15T00:03:26.7741152+00:00",
+    "RunId": "6e9663b15a9448ceba7f745f7606dac9",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "release; attempt=1; revision=1",
+    "PreviousHash": "1867040ac04625abc666893a7e3bd4d1c865580fe173117ca5be58a8d38568d4",
+    "Hash": "520072b11c54a68bc4deea06208775088eb1cb1e790a6881843537d01bb11a33"
+  },
+  {
+    "Sequence": 16,
+    "At": "2026-09-15T00:03:26.8697513+00:00",
+    "RunId": "6e9663b15a9448ceba7f745f7606dac9",
+    "Actor": "engine",
+    "Action": "node-succeeded",
+    "Detail": "{\u0022nodeId\u0022:\u0022release\u0022,\u0022Id\u0022:\u0022cbbaaa85380c411191f06635a96d18a2\u0022,\u0022Revision\u0022:1,\u0022RequirementHash\u0022:\u00224e4156d22a4b58c7389562f3eb908b92fae2b1a918eae8e1c8c2232b344228ea\u0022,\u0022Agent\u0022:\u0022EngineeringAgent/DemoAgent\u0022,\u0022Model\u0022:\u0022none\u0022,\u0022InputHashes\u0022:{\u0022tests\u0022:\u00220a837e9cf5bcb083f0686728ed73a126ede4ae53a7d56cc296cb6819a248c656\u0022},\u0022Sha256\u0022:\u0022ed99e5066fbc9d236b9ce7daa3ee94299cb24b5e505c376a619bd870d8be3d92\u0022,\u0022success\u0022:true}",
+    "PreviousHash": "520072b11c54a68bc4deea06208775088eb1cb1e790a6881843537d01bb11a33",
+    "Hash": "4048e6d9793e3fc45fd64b8f6d69f992422091e62d535b171bebc3c4607d008c"
+  },
+  {
+    "Sequence": 17,
+    "At": "2026-09-15T00:03:27.0351923+00:00",
+    "RunId": "6e9663b15a9448ceba7f745f7606dac9",
+    "Actor": "engine",
+    "Action": "completed",
+    "Detail": "All nodes succeeded",
+    "PreviousHash": "4048e6d9793e3fc45fd64b8f6d69f992422091e62d535b171bebc3c4607d008c",
+    "Hash": "768b9d5da928542fe49c5338f4ef005f8d9b47f3a36fd99cbf15dd855efaba6b"
+  },
+  {
+    "Sequence": 18,
+    "At": "2026-09-15T00:03:27.2123703+00:00",
+    "RunId": "6e9663b15a9448ceba7f745f7606dac9",
+    "Actor": "demo-operator",
+    "Action": "requirement-change-proposed",
+    "Detail": "{\u0022Context\u0022:\u0022REQ-ALIAS-001 changed: reserve both admin and health case-insensitively for new aliases; preserve existing records.\u0022,\u0022Engineering\u0022:{\u0022Id\u0022:\u0022REQ-ALIAS-001\u0022,\u0022ReservedAliases\u0022:[\u0022admin\u0022,\u0022health\u0022]},\u0022Reason\u0022:\u0022Upstream scope expanded after revision 1 validated and was approved\u0022,\u0022BaseRevision\u0022:1,\u0022PreviousStatus\u0022:6}",
+    "PreviousHash": "768b9d5da928542fe49c5338f4ef005f8d9b47f3a36fd99cbf15dd855efaba6b",
+    "Hash": "56588eaca1d98eab8ba4da2b8d42a5805d6d271b10ebb849f7d2959f8d0b5276"
+  },
+  {
+    "Sequence": 19,
+    "At": "2026-09-15T00:03:27.2241817+00:00",
+    "RunId": "6e9663b15a9448ceba7f745f7606dac9",
+    "Actor": "demo-approver",
+    "Action": "requirement-change-approved",
+    "Detail": "{\u0022revision\u0022:2,\u0022reason\u0022:\u0022Explicit offline simulated approval\u0022,\u0022requirementHash\u0022:\u00221178319c5340289e573c3c4b2d27173f0591b9af060e2c5984e6335a72ccdf37\u0022,\u0022invalidated\u0022:[{\u0022Id\u0022:\u0022requirements\u0022,\u0022ArtifactId\u0022:\u00222c8f8c428017454db253375bbcf91848\u0022,\u0022Approved\u0022:true,\u0022Attempts\u0022:1},{\u0022Id\u0022:\u0022design\u0022,\u0022ArtifactId\u0022:\u0022e2f6fb7f3e264dc7a2294a765b16c0f6\u0022,\u0022Approved\u0022:false,\u0022Attempts\u0022:1},{\u0022Id\u0022:\u0022implementation\u0022,\u0022ArtifactId\u0022:\u00224c995c2118f84c8fbd2c136b345eff5d\u0022,\u0022Approved\u0022:false,\u0022Attempts\u0022:1},{\u0022Id\u0022:\u0022security\u0022,\u0022ArtifactId\u0022:\u002233d303285e0e46cebcf929a13dc1ad16\u0022,\u0022Approved\u0022:false,\u0022Attempts\u0022:1},{\u0022Id\u0022:\u0022tests\u0022,\u0022ArtifactId\u0022:\u0022d8c1dc99cfce4b12ab52b58da968f733\u0022,\u0022Approved\u0022:true,\u0022Attempts\u0022:1},{\u0022Id\u0022:\u0022release\u0022,\u0022ArtifactId\u0022:\u0022cbbaaa85380c411191f06635a96d18a2\u0022,\u0022Approved\u0022:true,\u0022Attempts\u0022:1}]}",
+    "PreviousHash": "56588eaca1d98eab8ba4da2b8d42a5805d6d271b10ebb849f7d2959f8d0b5276",
+    "Hash": "11ce0106943b7842fea6d78040918ad5cff00be9248a34a37e902e06631c771e"
+  },
+  {
+    "Sequence": 20,
+    "At": "2026-09-15T00:03:27.2356923+00:00",
+    "RunId": "6e9663b15a9448ceba7f745f7606dac9",
+    "Actor": "demo-approver",
+    "Action": "gate-approved",
+    "Detail": "{\u0022revision\u0022:2,\u0022nodeId\u0022:\u0022requirements\u0022,\u0022reason\u0022:\u0022Explicit offline simulated approval\u0022,\u0022requirementHash\u0022:\u00221178319c5340289e573c3c4b2d27173f0591b9af060e2c5984e6335a72ccdf37\u0022,\u0022artifactHashes\u0022:{}}",
+    "PreviousHash": "11ce0106943b7842fea6d78040918ad5cff00be9248a34a37e902e06631c771e",
+    "Hash": "6fe89edd3721c0a330ba9789fd3e618072b08ec8aec82e96a4c97f14572b4bb3"
+  },
+  {
+    "Sequence": 21,
+    "At": "2026-09-15T00:03:27.2513659+00:00",
+    "RunId": "6e9663b15a9448ceba7f745f7606dac9",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "requirements; attempt=1; revision=2",
+    "PreviousHash": "6fe89edd3721c0a330ba9789fd3e618072b08ec8aec82e96a4c97f14572b4bb3",
+    "Hash": "b588be94663eeb78a89a5568b88bd5dc60ca5aaed83f798ee64be97ff4e4fd69"
+  },
+  {
+    "Sequence": 22,
+    "At": "2026-09-15T00:03:27.3681492+00:00",
+    "RunId": "6e9663b15a9448ceba7f745f7606dac9",
+    "Actor": "engine",
+    "Action": "node-succeeded",
+    "Detail": "{\u0022nodeId\u0022:\u0022requirements\u0022,\u0022Id\u0022:\u0022266dc57928544f38b9183d0791b3470c\u0022,\u0022Revision\u0022:2,\u0022RequirementHash\u0022:\u00221178319c5340289e573c3c4b2d27173f0591b9af060e2c5984e6335a72ccdf37\u0022,\u0022Agent\u0022:\u0022EngineeringAgent/DemoAgent\u0022,\u0022Model\u0022:\u0022none\u0022,\u0022InputHashes\u0022:{},\u0022Sha256\u0022:\u00220fc8b3e37f4c23e5f0ff01df051b5a5d14b16de2fe28d5ba1b984704fafc9cc4\u0022,\u0022success\u0022:true}",
+    "PreviousHash": "b588be94663eeb78a89a5568b88bd5dc60ca5aaed83f798ee64be97ff4e4fd69",
+    "Hash": "6d8e490601cabc21ee97359969e71a27faea65429113af20ce83c0ca0f9f6783"
+  },
+  {
+    "Sequence": 23,
+    "At": "2026-09-15T00:03:27.5316821+00:00",
+    "RunId": "6e9663b15a9448ceba7f745f7606dac9",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "design; attempt=1; revision=2",
+    "PreviousHash": "6d8e490601cabc21ee97359969e71a27faea65429113af20ce83c0ca0f9f6783",
+    "Hash": "5442c38a0d20d22e6ee011670f4b5de3ae606b02984b5f05cbebb8aeaab625ff"
+  },
+  {
+    "Sequence": 24,
+    "At": "2026-09-15T00:03:27.6159255+00:00",
+    "RunId": "6e9663b15a9448ceba7f745f7606dac9",
+    "Actor": "engine",
+    "Action": "node-succeeded",
+    "Detail": "{\u0022nodeId\u0022:\u0022design\u0022,\u0022Id\u0022:\u002263cb67377096412f9c0a764656f6d50b\u0022,\u0022Revision\u0022:2,\u0022RequirementHash\u0022:\u00221178319c5340289e573c3c4b2d27173f0591b9af060e2c5984e6335a72ccdf37\u0022,\u0022Agent\u0022:\u0022EngineeringAgent/DemoAgent\u0022,\u0022Model\u0022:\u0022none\u0022,\u0022InputHashes\u0022:{\u0022requirements\u0022:\u00220fc8b3e37f4c23e5f0ff01df051b5a5d14b16de2fe28d5ba1b984704fafc9cc4\u0022},\u0022Sha256\u0022:\u00221f284a359b83bcd3515a0a6303e63414db2eb80170f4f0276127a5fde0249c44\u0022,\u0022success\u0022:true}",
+    "PreviousHash": "5442c38a0d20d22e6ee011670f4b5de3ae606b02984b5f05cbebb8aeaab625ff",
+    "Hash": "56ed2bfe442ec7182c049ae86910db77cd2277fd07b5675b14a55db05218cf65"
+  },
+  {
+    "Sequence": 25,
+    "At": "2026-09-15T00:03:27.7813054+00:00",
+    "RunId": "6e9663b15a9448ceba7f745f7606dac9",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "implementation; attempt=1; revision=2",
+    "PreviousHash": "56ed2bfe442ec7182c049ae86910db77cd2277fd07b5675b14a55db05218cf65",
+    "Hash": "45bcfbf2faf3c3fb0b4d93a8d85091cf324eca768ef783cd04f8fb341009d9ef"
+  },
+  {
+    "Sequence": 26,
+    "At": "2026-09-15T00:03:27.7813686+00:00",
+    "RunId": "6e9663b15a9448ceba7f745f7606dac9",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "security; attempt=1; revision=2",
+    "PreviousHash": "45bcfbf2faf3c3fb0b4d93a8d85091cf324eca768ef783cd04f8fb341009d9ef",
+    "Hash": "0c1c894bdf464e6ea843f22697367dc5aa5b18171cf59d2fe388b5fd0b529af3"
+  },
+  {
+    "Sequence": 27,
+    "At": "2026-09-15T00:03:27.8937745+00:00",
+    "RunId": "6e9663b15a9448ceba7f745f7606dac9",
+    "Actor": "engine",
+    "Action": "node-succeeded",
+    "Detail": "{\u0022nodeId\u0022:\u0022implementation\u0022,\u0022Id\u0022:\u0022f0901d0c29c3477e85eab504d19b4ffa\u0022,\u0022Revision\u0022:2,\u0022RequirementHash\u0022:\u00221178319c5340289e573c3c4b2d27173f0591b9af060e2c5984e6335a72ccdf37\u0022,\u0022Agent\u0022:\u0022EngineeringAgent/DemoAgent\u0022,\u0022Model\u0022:\u0022none\u0022,\u0022InputHashes\u0022:{\u0022design\u0022:\u00221f284a359b83bcd3515a0a6303e63414db2eb80170f4f0276127a5fde0249c44\u0022},\u0022Sha256\u0022:\u002225df5d0ab2a083e42f5362377d04ff2d8f6d9a03db53fc7382790d0b6983405d\u0022,\u0022success\u0022:true}",
+    "PreviousHash": "0c1c894bdf464e6ea843f22697367dc5aa5b18171cf59d2fe388b5fd0b529af3",
+    "Hash": "e24a8674fabc2b90bb0c1cfd7962b9bb35c463115a9df2a342e69cf3fc1c2ed2"
+  },
+  {
+    "Sequence": 28,
+    "At": "2026-09-15T00:03:27.9827798+00:00",
+    "RunId": "6e9663b15a9448ceba7f745f7606dac9",
+    "Actor": "engine",
+    "Action": "node-succeeded",
+    "Detail": "{\u0022nodeId\u0022:\u0022security\u0022,\u0022Id\u0022:\u00228d71622aeb0f4873893f77b8b36316d0\u0022,\u0022Revision\u0022:2,\u0022RequirementHash\u0022:\u00221178319c5340289e573c3c4b2d27173f0591b9af060e2c5984e6335a72ccdf37\u0022,\u0022Agent\u0022:\u0022EngineeringAgent/DemoAgent\u0022,\u0022Model\u0022:\u0022none\u0022,\u0022InputHashes\u0022:{\u0022design\u0022:\u00221f284a359b83bcd3515a0a6303e63414db2eb80170f4f0276127a5fde0249c44\u0022},\u0022Sha256\u0022:\u0022b462696d6a3b364df46351a334a23a72c8cf6e4654fdee5ee30538edd4fbbafa\u0022,\u0022success\u0022:true}",
+    "PreviousHash": "e24a8674fabc2b90bb0c1cfd7962b9bb35c463115a9df2a342e69cf3fc1c2ed2",
+    "Hash": "17c05fe645b92ac860a8fd19d121a27452db74f2c5333981a6dab211a2bc5795"
+  },
+  {
+    "Sequence": 29,
+    "At": "2026-09-15T00:03:28.1468876+00:00",
+    "RunId": "6e9663b15a9448ceba7f745f7606dac9",
+    "Actor": "demo-approver",
+    "Action": "gate-approved",
+    "Detail": "{\u0022revision\u0022:2,\u0022nodeId\u0022:\u0022tests\u0022,\u0022reason\u0022:\u0022Explicit offline simulated approval\u0022,\u0022requirementHash\u0022:\u00221178319c5340289e573c3c4b2d27173f0591b9af060e2c5984e6335a72ccdf37\u0022,\u0022artifactHashes\u0022:{\u0022implementation\u0022:\u002225df5d0ab2a083e42f5362377d04ff2d8f6d9a03db53fc7382790d0b6983405d\u0022,\u0022security\u0022:\u0022b462696d6a3b364df46351a334a23a72c8cf6e4654fdee5ee30538edd4fbbafa\u0022}}",
+    "PreviousHash": "17c05fe645b92ac860a8fd19d121a27452db74f2c5333981a6dab211a2bc5795",
+    "Hash": "5761eceb5218e0ada9fb521492ad4b06128d8198faec8dadf097c52325ff45b5"
+  },
+  {
+    "Sequence": 30,
+    "At": "2026-09-15T00:03:28.15281+00:00",
+    "RunId": "6e9663b15a9448ceba7f745f7606dac9",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "tests; attempt=1; revision=2",
+    "PreviousHash": "5761eceb5218e0ada9fb521492ad4b06128d8198faec8dadf097c52325ff45b5",
+    "Hash": "bbebed23952d9ea833602b3a42d6407395161df8c9f88afb498218232cefdfba"
+  },
+  {
+    "Sequence": 31,
+    "At": "2026-09-15T00:04:28.4024343+00:00",
+    "RunId": "6e9663b15a9448ceba7f745f7606dac9",
+    "Actor": "engine",
+    "Action": "node-succeeded",
+    "Detail": "{\u0022nodeId\u0022:\u0022tests\u0022,\u0022Id\u0022:\u00226362a08a804e4db2bd0b5481708a8ad1\u0022,\u0022Revision\u0022:2,\u0022RequirementHash\u0022:\u00221178319c5340289e573c3c4b2d27173f0591b9af060e2c5984e6335a72ccdf37\u0022,\u0022Agent\u0022:\u0022EngineeringAgent/DemoAgent\u0022,\u0022Model\u0022:\u0022none\u0022,\u0022InputHashes\u0022:{\u0022implementation\u0022:\u002225df5d0ab2a083e42f5362377d04ff2d8f6d9a03db53fc7382790d0b6983405d\u0022,\u0022security\u0022:\u0022b462696d6a3b364df46351a334a23a72c8cf6e4654fdee5ee30538edd4fbbafa\u0022},\u0022Sha256\u0022:\u002267a0d98078c7e11d5b271544791b572e4abf101209da1e6c76c85c6a2d72b7f0\u0022,\u0022success\u0022:true}",
+    "PreviousHash": "bbebed23952d9ea833602b3a42d6407395161df8c9f88afb498218232cefdfba",
+    "Hash": "f893034a4426ddaa7801b2e1fc8e87947996600e2a1ec78d5b965508082cdc28"
+  },
+  {
+    "Sequence": 32,
+    "At": "2026-09-15T00:04:28.5739831+00:00",
+    "RunId": "6e9663b15a9448ceba7f745f7606dac9",
+    "Actor": "demo-approver",
+    "Action": "gate-approved",
+    "Detail": "{\u0022revision\u0022:2,\u0022nodeId\u0022:\u0022release\u0022,\u0022reason\u0022:\u0022Explicit offline simulated approval\u0022,\u0022requirementHash\u0022:\u00221178319c5340289e573c3c4b2d27173f0591b9af060e2c5984e6335a72ccdf37\u0022,\u0022artifactHashes\u0022:{\u0022tests\u0022:\u002267a0d98078c7e11d5b271544791b572e4abf101209da1e6c76c85c6a2d72b7f0\u0022}}",
+    "PreviousHash": "f893034a4426ddaa7801b2e1fc8e87947996600e2a1ec78d5b965508082cdc28",
+    "Hash": "8e7ee8981181cfe7be56fefe0d0d6c25cd61a26b622e9fe8af2b829d554552ce"
+  },
+  {
+    "Sequence": 33,
+    "At": "2026-09-15T00:04:28.5867938+00:00",
+    "RunId": "6e9663b15a9448ceba7f745f7606dac9",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "release; attempt=1; revision=2",
+    "PreviousHash": "8e7ee8981181cfe7be56fefe0d0d6c25cd61a26b622e9fe8af2b829d554552ce",
+    "Hash": "3bd921b9828c7644e20add857a104f0e9e677cd2092cf8ce4e9e63ba326cbaf7"
+  },
+  {
+    "Sequence": 34,
+    "At": "2026-09-15T00:04:28.6837392+00:00",
+    "RunId": "6e9663b15a9448ceba7f745f7606dac9",
+    "Actor": "engine",
+    "Action": "node-succeeded",
+    "Detail": "{\u0022nodeId\u0022:\u0022release\u0022,\u0022Id\u0022:\u0022627464bba9e14b68bc16890b32078ff0\u0022,\u0022Revision\u0022:2,\u0022RequirementHash\u0022:\u00221178319c5340289e573c3c4b2d27173f0591b9af060e2c5984e6335a72ccdf37\u0022,\u0022Agent\u0022:\u0022EngineeringAgent/DemoAgent\u0022,\u0022Model\u0022:\u0022none\u0022,\u0022InputHashes\u0022:{\u0022tests\u0022:\u002267a0d98078c7e11d5b271544791b572e4abf101209da1e6c76c85c6a2d72b7f0\u0022},\u0022Sha256\u0022:\u00221c84ae1c597420d4390d87f71d81bb4ca7a2f6e218c170fc013b675427a4bb72\u0022,\u0022success\u0022:true}",
+    "PreviousHash": "3bd921b9828c7644e20add857a104f0e9e677cd2092cf8ce4e9e63ba326cbaf7",
+    "Hash": "e882472020c896756ad09a3dd42e247e230ebaba239a8cf3a9588cf3136ad79e"
+  },
+  {
+    "Sequence": 35,
+    "At": "2026-09-15T00:04:28.849271+00:00",
+    "RunId": "6e9663b15a9448ceba7f745f7606dac9",
+    "Actor": "engine",
+    "Action": "completed",
+    "Detail": "All nodes succeeded",
+    "PreviousHash": "e882472020c896756ad09a3dd42e247e230ebaba239a8cf3a9588cf3136ad79e",
+    "Hash": "836b7323d26a4c78bf445048e61698171df1bfb7798d31ff845ddc18b52f42ce"
+  },
+  {
+    "Sequence": 36,
+    "At": "2026-09-15T00:04:29.1049643+00:00",
+    "RunId": "81bed72eb1b349d08ee940b66cbcce42",
+    "Actor": "demo-operator",
+    "Action": "created",
+    "Detail": "{\u0022scenario\u0022:\u0022greenfield\u0022,\u0022context\u0022:\u0022Deliver the included from-scratch C# API: operator-created links, optional expiry, unique aliases, 302 redirects and persistent counts; validate every acceptance criterion.\u0022,\u0022engineering\u0022:null,\u0022requirementHash\u0022:\u0022a6d6493a6d76f605733dbeaa1bf8790f15866b73928e7517b6d0e2215bc82647\u0022,\u0022nodes\u0022:[{\u0022Id\u0022:\u0022requirements\u0022,\u0022Role\u0022:\u0022analyst\u0022,\u0022Task\u0022:\u0022Specify HTTP URL shortening, expiry, redirects and abuse controls.\u0022,\u0022DependsOn\u0022:[],\u0022Approval\u0022:false,\u0022MaxAttempts\u0022:3},{\u0022Id\u0022:\u0022design\u0022,\u0022Role\u0022:\u0022architect\u0022,\u0022Task\u0022:\u0022Produce architecture, persistence model and API contract.\u0022,\u0022DependsOn\u0022:[\u0022requirements\u0022],\u0022Approval\u0022:false,\u0022MaxAttempts\u0022:3},{\u0022Id\u0022:\u0022implementation\u0022,\u0022Role\u0022:\u0022developer\u0022,\u0022Task\u0022:\u0022Produce a proposed C# implementation artifact against the approved contract.\u0022,\u0022DependsOn\u0022:[\u0022design\u0022],\u0022Approval\u0022:false,\u0022MaxAttempts\u0022:3},{\u0022Id\u0022:\u0022security\u0022,\u0022Role\u0022:\u0022security-reviewer\u0022,\u0022Task\u0022:\u0022Review URL validation, redirect abuse, authorization and persistence threats.\u0022,\u0022DependsOn\u0022:[\u0022design\u0022],\u0022Approval\u0022:false,\u0022MaxAttempts\u0022:3},{\u0022Id\u0022:\u0022tests\u0022,\u0022Role\u0022:\u0022test-engineer\u0022,\u0022Task\u0022:\u0022Review the implementation patch, then build and run baseline, red regression and green regression in the constrained workspace.\u0022,\u0022DependsOn\u0022:[\u0022implementation\u0022,\u0022security\u0022],\u0022Approval\u0022:true,\u0022MaxAttempts\u0022:3},{\u0022Id\u0022:\u0022release\u0022,\u0022Role\u0022:\u0022release-reviewer\u0022,\u0022Task\u0022:\u0022Produce a release checklist and rollback plan. This artifact is a simulated release, not a deployment.\u0022,\u0022DependsOn\u0022:[\u0022tests\u0022],\u0022Approval\u0022:true,\u0022MaxAttempts\u0022:3}],\u0022revision\u0022:1}",
+    "PreviousHash": "836b7323d26a4c78bf445048e61698171df1bfb7798d31ff845ddc18b52f42ce",
+    "Hash": "27b3fd5c2f96a25fb4e1a23e4acc5ead4ceb032f2dec3e2d3efea26eb11a7692"
+  },
+  {
+    "Sequence": 37,
+    "At": "2026-09-15T00:04:29.1093219+00:00",
+    "RunId": "81bed72eb1b349d08ee940b66cbcce42",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "requirements; attempt=1; revision=1",
+    "PreviousHash": "27b3fd5c2f96a25fb4e1a23e4acc5ead4ceb032f2dec3e2d3efea26eb11a7692",
+    "Hash": "23f6a2f0dd829dac2abd4d36abcee60748e198fc40bb53c284a95f7355c3d966"
+  },
+  {
+    "Sequence": 38,
+    "At": "2026-09-15T00:04:29.1991844+00:00",
+    "RunId": "81bed72eb1b349d08ee940b66cbcce42",
+    "Actor": "engine",
+    "Action": "node-succeeded",
+    "Detail": "{\u0022nodeId\u0022:\u0022requirements\u0022,\u0022Id\u0022:\u0022cb65a99515ec477795fca7704d94c32d\u0022,\u0022Revision\u0022:1,\u0022RequirementHash\u0022:\u0022a6d6493a6d76f605733dbeaa1bf8790f15866b73928e7517b6d0e2215bc82647\u0022,\u0022Agent\u0022:\u0022EngineeringAgent/DemoAgent\u0022,\u0022Model\u0022:\u0022none\u0022,\u0022InputHashes\u0022:{},\u0022Sha256\u0022:\u0022d1e649f03be9d85d4ec98c31b2db0636488184d618f6d170895dccaf47097ad3\u0022,\u0022success\u0022:true}",
+    "PreviousHash": "23f6a2f0dd829dac2abd4d36abcee60748e198fc40bb53c284a95f7355c3d966",
+    "Hash": "ab7316a1e3386273fd6a7dbb7fcfc862bf32f398c0fc6f3371a643c42a44e081"
+  },
+  {
+    "Sequence": 39,
+    "At": "2026-09-15T00:04:29.3508784+00:00",
+    "RunId": "81bed72eb1b349d08ee940b66cbcce42",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "design; attempt=1; revision=1",
+    "PreviousHash": "ab7316a1e3386273fd6a7dbb7fcfc862bf32f398c0fc6f3371a643c42a44e081",
+    "Hash": "9ca5efaf5d2146678ed4d2f084b4d643075423ccc178dd42a02ebc0f557b7fff"
+  },
+  {
+    "Sequence": 40,
+    "At": "2026-09-15T00:04:29.4477289+00:00",
+    "RunId": "81bed72eb1b349d08ee940b66cbcce42",
+    "Actor": "engine",
+    "Action": "node-succeeded",
+    "Detail": "{\u0022nodeId\u0022:\u0022design\u0022,\u0022Id\u0022:\u0022a5ba06886fc74d34b891c541b583ba9f\u0022,\u0022Revision\u0022:1,\u0022RequirementHash\u0022:\u0022a6d6493a6d76f605733dbeaa1bf8790f15866b73928e7517b6d0e2215bc82647\u0022,\u0022Agent\u0022:\u0022EngineeringAgent/DemoAgent\u0022,\u0022Model\u0022:\u0022none\u0022,\u0022InputHashes\u0022:{\u0022requirements\u0022:\u0022d1e649f03be9d85d4ec98c31b2db0636488184d618f6d170895dccaf47097ad3\u0022},\u0022Sha256\u0022:\u0022a28d7c87fca6b172097cbf65473dd45e28493311c3191deb680e0389bfa269ed\u0022,\u0022success\u0022:true}",
+    "PreviousHash": "9ca5efaf5d2146678ed4d2f084b4d643075423ccc178dd42a02ebc0f557b7fff",
+    "Hash": "a9b03926d3e5b24efe6a2f69167475ef4937d93c5c61d18f2a4e78f66413c04b"
+  },
+  {
+    "Sequence": 41,
+    "At": "2026-09-15T00:04:29.6007685+00:00",
+    "RunId": "81bed72eb1b349d08ee940b66cbcce42",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "implementation; attempt=1; revision=1",
+    "PreviousHash": "a9b03926d3e5b24efe6a2f69167475ef4937d93c5c61d18f2a4e78f66413c04b",
+    "Hash": "3f8ff01c4be92074d88c35021b0c3fa520044651184fa180dc5c20b8b0e9241b"
+  },
+  {
+    "Sequence": 42,
+    "At": "2026-09-15T00:04:29.6008277+00:00",
+    "RunId": "81bed72eb1b349d08ee940b66cbcce42",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "security; attempt=1; revision=1",
+    "PreviousHash": "3f8ff01c4be92074d88c35021b0c3fa520044651184fa180dc5c20b8b0e9241b",
+    "Hash": "80a93d1af9839901b7a57d98f28baa788246f2945cc70990afa3f57008996530"
+  },
+  {
+    "Sequence": 43,
+    "At": "2026-09-15T00:04:29.7004012+00:00",
+    "RunId": "81bed72eb1b349d08ee940b66cbcce42",
+    "Actor": "engine",
+    "Action": "node-succeeded",
+    "Detail": "{\u0022nodeId\u0022:\u0022implementation\u0022,\u0022Id\u0022:\u0022a39b8d22b30f41899886e78817a00609\u0022,\u0022Revision\u0022:1,\u0022RequirementHash\u0022:\u0022a6d6493a6d76f605733dbeaa1bf8790f15866b73928e7517b6d0e2215bc82647\u0022,\u0022Agent\u0022:\u0022EngineeringAgent/DemoAgent\u0022,\u0022Model\u0022:\u0022none\u0022,\u0022InputHashes\u0022:{\u0022design\u0022:\u0022a28d7c87fca6b172097cbf65473dd45e28493311c3191deb680e0389bfa269ed\u0022},\u0022Sha256\u0022:\u0022b4cf01fd4024757f407d6d46a4c90ec1e0bd97c9f9789d2a8ebebfc1d83621d3\u0022,\u0022success\u0022:true}",
+    "PreviousHash": "80a93d1af9839901b7a57d98f28baa788246f2945cc70990afa3f57008996530",
+    "Hash": "22534cd8dcab5325c32371e9dd6043367dfe39ed2653c1a1431dfb54ffabe4d6"
+  },
+  {
+    "Sequence": 44,
+    "At": "2026-09-15T00:04:29.7080459+00:00",
+    "RunId": "81bed72eb1b349d08ee940b66cbcce42",
+    "Actor": "engine",
+    "Action": "node-succeeded",
+    "Detail": "{\u0022nodeId\u0022:\u0022security\u0022,\u0022Id\u0022:\u002277b40b38285b4095a66aed1eb6f3f47e\u0022,\u0022Revision\u0022:1,\u0022RequirementHash\u0022:\u0022a6d6493a6d76f605733dbeaa1bf8790f15866b73928e7517b6d0e2215bc82647\u0022,\u0022Agent\u0022:\u0022EngineeringAgent/DemoAgent\u0022,\u0022Model\u0022:\u0022none\u0022,\u0022InputHashes\u0022:{\u0022design\u0022:\u0022a28d7c87fca6b172097cbf65473dd45e28493311c3191deb680e0389bfa269ed\u0022},\u0022Sha256\u0022:\u00229304b1e97d40f21c73ef0ee3a9d289aef7644895d40f56ef75ea7e0d60b03769\u0022,\u0022success\u0022:true}",
+    "PreviousHash": "22534cd8dcab5325c32371e9dd6043367dfe39ed2653c1a1431dfb54ffabe4d6",
+    "Hash": "93d390a9da7f0ee36ad321bfa794a848fa8e6a78ff69c618413efcc6631bb4d9"
+  },
+  {
+    "Sequence": 45,
+    "At": "2026-09-15T00:04:29.8806056+00:00",
+    "RunId": "81bed72eb1b349d08ee940b66cbcce42",
+    "Actor": "demo-approver",
+    "Action": "gate-approved",
+    "Detail": "{\u0022revision\u0022:1,\u0022nodeId\u0022:\u0022tests\u0022,\u0022reason\u0022:\u0022Explicit offline simulated approval\u0022,\u0022requirementHash\u0022:\u0022a6d6493a6d76f605733dbeaa1bf8790f15866b73928e7517b6d0e2215bc82647\u0022,\u0022artifactHashes\u0022:{\u0022implementation\u0022:\u0022b4cf01fd4024757f407d6d46a4c90ec1e0bd97c9f9789d2a8ebebfc1d83621d3\u0022,\u0022security\u0022:\u00229304b1e97d40f21c73ef0ee3a9d289aef7644895d40f56ef75ea7e0d60b03769\u0022}}",
+    "PreviousHash": "93d390a9da7f0ee36ad321bfa794a848fa8e6a78ff69c618413efcc6631bb4d9",
+    "Hash": "16e9f93dfdc11d2dd45952c2cdd83e6a0de5a9e5c52f60f0383f31db3ed85344"
+  },
+  {
+    "Sequence": 46,
+    "At": "2026-09-15T00:04:29.8862421+00:00",
+    "RunId": "81bed72eb1b349d08ee940b66cbcce42",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "tests; attempt=1; revision=1",
+    "PreviousHash": "16e9f93dfdc11d2dd45952c2cdd83e6a0de5a9e5c52f60f0383f31db3ed85344",
+    "Hash": "9c809e51f8b17c2660dec1217440c996b8289f9d55c1ce43eb5761686feda1ff"
+  },
+  {
+    "Sequence": 47,
+    "At": "2026-09-15T00:04:54.3176743+00:00",
+    "RunId": "81bed72eb1b349d08ee940b66cbcce42",
+    "Actor": "engine",
+    "Action": "node-succeeded",
+    "Detail": "{\u0022nodeId\u0022:\u0022tests\u0022,\u0022Id\u0022:\u0022e9f5a7facd1446af90bc1c6b482da95e\u0022,\u0022Revision\u0022:1,\u0022RequirementHash\u0022:\u0022a6d6493a6d76f605733dbeaa1bf8790f15866b73928e7517b6d0e2215bc82647\u0022,\u0022Agent\u0022:\u0022EngineeringAgent/DemoAgent\u0022,\u0022Model\u0022:\u0022none\u0022,\u0022InputHashes\u0022:{\u0022implementation\u0022:\u0022b4cf01fd4024757f407d6d46a4c90ec1e0bd97c9f9789d2a8ebebfc1d83621d3\u0022,\u0022security\u0022:\u00229304b1e97d40f21c73ef0ee3a9d289aef7644895d40f56ef75ea7e0d60b03769\u0022},\u0022Sha256\u0022:\u0022a84d9785a6859ab626519f286f92341c51deaf9ff7a9822f06deca0e8f240841\u0022,\u0022success\u0022:true}",
+    "PreviousHash": "9c809e51f8b17c2660dec1217440c996b8289f9d55c1ce43eb5761686feda1ff",
+    "Hash": "25ce96a1769f1df0e31cdbfd5f55d7c8adcd0bd97ad6ada35b9cb46e02623603"
+  },
+  {
+    "Sequence": 48,
+    "At": "2026-09-15T00:04:54.4739275+00:00",
+    "RunId": "81bed72eb1b349d08ee940b66cbcce42",
+    "Actor": "demo-approver",
+    "Action": "gate-approved",
+    "Detail": "{\u0022revision\u0022:1,\u0022nodeId\u0022:\u0022release\u0022,\u0022reason\u0022:\u0022Explicit offline simulated approval\u0022,\u0022requirementHash\u0022:\u0022a6d6493a6d76f605733dbeaa1bf8790f15866b73928e7517b6d0e2215bc82647\u0022,\u0022artifactHashes\u0022:{\u0022tests\u0022:\u0022a84d9785a6859ab626519f286f92341c51deaf9ff7a9822f06deca0e8f240841\u0022}}",
+    "PreviousHash": "25ce96a1769f1df0e31cdbfd5f55d7c8adcd0bd97ad6ada35b9cb46e02623603",
+    "Hash": "2790d3a682e9a9b1c7d475d675fa10428a6b9309a947d8f3009a2e915e003a94"
+  },
+  {
+    "Sequence": 49,
+    "At": "2026-09-15T00:04:54.4854122+00:00",
+    "RunId": "81bed72eb1b349d08ee940b66cbcce42",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "release; attempt=1; revision=1",
+    "PreviousHash": "2790d3a682e9a9b1c7d475d675fa10428a6b9309a947d8f3009a2e915e003a94",
+    "Hash": "4f9fa07beb849b188eb63e3b378162ab4a7c03239dd40b6a9ba67d5d498883a5"
+  },
+  {
+    "Sequence": 50,
+    "At": "2026-09-15T00:04:54.577657+00:00",
+    "RunId": "81bed72eb1b349d08ee940b66cbcce42",
+    "Actor": "engine",
+    "Action": "node-succeeded",
+    "Detail": "{\u0022nodeId\u0022:\u0022release\u0022,\u0022Id\u0022:\u0022c64b76331cfb4bd7b7907d7817f02582\u0022,\u0022Revision\u0022:1,\u0022RequirementHash\u0022:\u0022a6d6493a6d76f605733dbeaa1bf8790f15866b73928e7517b6d0e2215bc82647\u0022,\u0022Agent\u0022:\u0022EngineeringAgent/DemoAgent\u0022,\u0022Model\u0022:\u0022none\u0022,\u0022InputHashes\u0022:{\u0022tests\u0022:\u0022a84d9785a6859ab626519f286f92341c51deaf9ff7a9822f06deca0e8f240841\u0022},\u0022Sha256\u0022:\u002204c314c93291ba129906087a08aa4627f30d0941e0e4e938214866bbafee3f88\u0022,\u0022success\u0022:true}",
+    "PreviousHash": "4f9fa07beb849b188eb63e3b378162ab4a7c03239dd40b6a9ba67d5d498883a5",
+    "Hash": "dc7bf3122de89b07087f216fc9f838ba50fce3f0561eae99e9d40aebed5fefde"
+  },
+  {
+    "Sequence": 51,
+    "At": "2026-09-15T00:04:54.7356843+00:00",
+    "RunId": "81bed72eb1b349d08ee940b66cbcce42",
+    "Actor": "engine",
+    "Action": "completed",
+    "Detail": "All nodes succeeded",
+    "PreviousHash": "dc7bf3122de89b07087f216fc9f838ba50fce3f0561eae99e9d40aebed5fefde",
+    "Hash": "ba917eee3366ae41ef5ced6531bf8bdf44f896b625555d3a68608620813b97ea"
+  },
+  {
+    "Sequence": 52,
+    "At": "2026-09-15T00:04:54.92353+00:00",
+    "RunId": "35024a937fb74b868074694958d4de4e",
+    "Actor": "demo-operator",
+    "Action": "created",
+    "Detail": "{\u0022scenario\u0022:\u0022ambiguous\u0022,\u0022context\u0022:\u0022Make links short and track usage. Creation policy, expiry and alias semantics must be resolved before any agent executes.\u0022,\u0022engineering\u0022:null,\u0022requirementHash\u0022:\u00222b817aedb19a65ad1dc801c0cdb4922abcc027135e2338941816f43ec8ace265\u0022,\u0022nodes\u0022:[{\u0022Id\u0022:\u0022requirements\u0022,\u0022Role\u0022:\u0022analyst\u0022,\u0022Task\u0022:\u0022List unresolved retention, identity, custom alias and traffic requirements. Use only the human-approved context and explicitly label remaining assumptions.\u0022,\u0022DependsOn\u0022:[],\u0022Approval\u0022:true,\u0022MaxAttempts\u0022:3},{\u0022Id\u0022:\u0022design\u0022,\u0022Role\u0022:\u0022architect\u0022,\u0022Task\u0022:\u0022Produce architecture, persistence model and API contract.\u0022,\u0022DependsOn\u0022:[\u0022requirements\u0022],\u0022Approval\u0022:false,\u0022MaxAttempts\u0022:3},{\u0022Id\u0022:\u0022implementation\u0022,\u0022Role\u0022:\u0022developer\u0022,\u0022Task\u0022:\u0022Produce a proposed C# implementation artifact against the approved contract.\u0022,\u0022DependsOn\u0022:[\u0022design\u0022],\u0022Approval\u0022:false,\u0022MaxAttempts\u0022:3},{\u0022Id\u0022:\u0022security\u0022,\u0022Role\u0022:\u0022security-reviewer\u0022,\u0022Task\u0022:\u0022Review URL validation, redirect abuse, authorization and persistence threats.\u0022,\u0022DependsOn\u0022:[\u0022design\u0022],\u0022Approval\u0022:false,\u0022MaxAttempts\u0022:3},{\u0022Id\u0022:\u0022tests\u0022,\u0022Role\u0022:\u0022test-engineer\u0022,\u0022Task\u0022:\u0022Review the implementation patch, then build and run baseline, red regression and green regression in the constrained workspace.\u0022,\u0022DependsOn\u0022:[\u0022implementation\u0022,\u0022security\u0022],\u0022Approval\u0022:true,\u0022MaxAttempts\u0022:3},{\u0022Id\u0022:\u0022release\u0022,\u0022Role\u0022:\u0022release-reviewer\u0022,\u0022Task\u0022:\u0022Produce a release checklist and rollback plan. This artifact is a simulated release, not a deployment.\u0022,\u0022DependsOn\u0022:[\u0022tests\u0022],\u0022Approval\u0022:true,\u0022MaxAttempts\u0022:3}],\u0022revision\u0022:1}",
+    "PreviousHash": "ba917eee3366ae41ef5ced6531bf8bdf44f896b625555d3a68608620813b97ea",
+    "Hash": "7097eb0455af73535e321d120f4ea394738dd071ac89beff6a81de46961cb165"
+  },
+  {
+    "Sequence": 53,
+    "At": "2026-09-15T00:04:54.9507634+00:00",
+    "RunId": "35024a937fb74b868074694958d4de4e",
+    "Actor": "demo-operator",
+    "Action": "scope-clarified",
+    "Detail": "{\u0022revision\u0022:1,\u0022answers\u0022:{\u0022creation\u0022:\u0022operator-only\u0022,\u0022retention\u0022:\u0022optional-expiry\u0022,\u0022aliases\u0022:\u0022case-sensitive\u0022},\u0022requirementHash\u0022:\u0022fc12bdb450fae8f5167112d45c41f118808fb4499159cda1120b135a289a8822\u0022}",
+    "PreviousHash": "7097eb0455af73535e321d120f4ea394738dd071ac89beff6a81de46961cb165",
+    "Hash": "3905d32181f45d67342a1c35c1f16584add21e827a9e400216c88dee8b61f633"
+  },
+  {
+    "Sequence": 54,
+    "At": "2026-09-15T00:04:54.962925+00:00",
+    "RunId": "35024a937fb74b868074694958d4de4e",
+    "Actor": "demo-approver",
+    "Action": "gate-approved",
+    "Detail": "{\u0022revision\u0022:1,\u0022nodeId\u0022:\u0022requirements\u0022,\u0022reason\u0022:\u0022Explicit offline simulated approval\u0022,\u0022requirementHash\u0022:\u0022fc12bdb450fae8f5167112d45c41f118808fb4499159cda1120b135a289a8822\u0022,\u0022artifactHashes\u0022:{}}",
+    "PreviousHash": "3905d32181f45d67342a1c35c1f16584add21e827a9e400216c88dee8b61f633",
+    "Hash": "a2fd4e832d2a30280016ddbda64178300f370c3fedb33341d7cebac926a1c8cf"
+  },
+  {
+    "Sequence": 55,
+    "At": "2026-09-15T00:04:54.9684212+00:00",
+    "RunId": "35024a937fb74b868074694958d4de4e",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "requirements; attempt=1; revision=1",
+    "PreviousHash": "a2fd4e832d2a30280016ddbda64178300f370c3fedb33341d7cebac926a1c8cf",
+    "Hash": "e0fbddd3ed44706b69a0c08af5f9612e29b4069d1f650c7b33127879fa432c2f"
+  },
+  {
+    "Sequence": 56,
+    "At": "2026-09-15T00:04:55.0598683+00:00",
+    "RunId": "35024a937fb74b868074694958d4de4e",
+    "Actor": "engine",
+    "Action": "node-succeeded",
+    "Detail": "{\u0022nodeId\u0022:\u0022requirements\u0022,\u0022Id\u0022:\u00224f348acab2734b6cb1cd1bceb8718fa3\u0022,\u0022Revision\u0022:1,\u0022RequirementHash\u0022:\u0022fc12bdb450fae8f5167112d45c41f118808fb4499159cda1120b135a289a8822\u0022,\u0022Agent\u0022:\u0022EngineeringAgent/DemoAgent\u0022,\u0022Model\u0022:\u0022none\u0022,\u0022InputHashes\u0022:{},\u0022Sha256\u0022:\u0022893877eab367c1a803bab5e58ed69b9389ae83af072f2ac4a1af244f066d3a09\u0022,\u0022success\u0022:true}",
+    "PreviousHash": "e0fbddd3ed44706b69a0c08af5f9612e29b4069d1f650c7b33127879fa432c2f",
+    "Hash": "b2193aa7fe523f65bc541bdb3de5aba745cc99840fc1136a955d0c303eaea992"
+  },
+  {
+    "Sequence": 57,
+    "At": "2026-09-15T00:04:55.2155446+00:00",
+    "RunId": "35024a937fb74b868074694958d4de4e",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "design; attempt=1; revision=1",
+    "PreviousHash": "b2193aa7fe523f65bc541bdb3de5aba745cc99840fc1136a955d0c303eaea992",
+    "Hash": "568b53d197c066f70b6a91ff270702b831c106fb129d9bef8c9c16360e2fc2ea"
+  },
+  {
+    "Sequence": 58,
+    "At": "2026-09-15T00:04:55.3089566+00:00",
+    "RunId": "35024a937fb74b868074694958d4de4e",
+    "Actor": "engine",
+    "Action": "node-succeeded",
+    "Detail": "{\u0022nodeId\u0022:\u0022design\u0022,\u0022Id\u0022:\u00225d5429616c1f4fa389e36fdd393af92e\u0022,\u0022Revision\u0022:1,\u0022RequirementHash\u0022:\u0022fc12bdb450fae8f5167112d45c41f118808fb4499159cda1120b135a289a8822\u0022,\u0022Agent\u0022:\u0022EngineeringAgent/DemoAgent\u0022,\u0022Model\u0022:\u0022none\u0022,\u0022InputHashes\u0022:{\u0022requirements\u0022:\u0022893877eab367c1a803bab5e58ed69b9389ae83af072f2ac4a1af244f066d3a09\u0022},\u0022Sha256\u0022:\u002268f97bec8dc598a518af326b24b6bee8d5c0ab3c9baa7999b25732695e160914\u0022,\u0022success\u0022:true}",
+    "PreviousHash": "568b53d197c066f70b6a91ff270702b831c106fb129d9bef8c9c16360e2fc2ea",
+    "Hash": "5f04abcee02d244b6768bd76d1df0394a9380e20a0cbb660ee8c03afcc434bb3"
+  },
+  {
+    "Sequence": 59,
+    "At": "2026-09-15T00:04:55.4630056+00:00",
+    "RunId": "35024a937fb74b868074694958d4de4e",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "implementation; attempt=1; revision=1",
+    "PreviousHash": "5f04abcee02d244b6768bd76d1df0394a9380e20a0cbb660ee8c03afcc434bb3",
+    "Hash": "7b81267cb08dc663c9106a8ffc9fa3b20f0ece942d5aa8c1c65dc6c6ae46ae74"
+  },
+  {
+    "Sequence": 60,
+    "At": "2026-09-15T00:04:55.4630677+00:00",
+    "RunId": "35024a937fb74b868074694958d4de4e",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "security; attempt=1; revision=1",
+    "PreviousHash": "7b81267cb08dc663c9106a8ffc9fa3b20f0ece942d5aa8c1c65dc6c6ae46ae74",
+    "Hash": "c759c9eb13a136dba8a7e72c435d4c7dd3f3595823d3fb3bb85e6ab0eb3c05d5"
+  },
+  {
+    "Sequence": 61,
+    "At": "2026-09-15T00:04:55.5443298+00:00",
+    "RunId": "35024a937fb74b868074694958d4de4e",
+    "Actor": "engine",
+    "Action": "node-succeeded",
+    "Detail": "{\u0022nodeId\u0022:\u0022implementation\u0022,\u0022Id\u0022:\u0022ee0cfa3cf5604caaba206a5c3286e128\u0022,\u0022Revision\u0022:1,\u0022RequirementHash\u0022:\u0022fc12bdb450fae8f5167112d45c41f118808fb4499159cda1120b135a289a8822\u0022,\u0022Agent\u0022:\u0022EngineeringAgent/DemoAgent\u0022,\u0022Model\u0022:\u0022none\u0022,\u0022InputHashes\u0022:{\u0022design\u0022:\u002268f97bec8dc598a518af326b24b6bee8d5c0ab3c9baa7999b25732695e160914\u0022},\u0022Sha256\u0022:\u00225188546af354e0f9f03a8c07ac6db7630fe8a885ee841a81b0643c0346fb808c\u0022,\u0022success\u0022:true}",
+    "PreviousHash": "c759c9eb13a136dba8a7e72c435d4c7dd3f3595823d3fb3bb85e6ab0eb3c05d5",
+    "Hash": "f53e693d897352d060745fe92887600cbbc6c564f7cee256892972837732cda3"
+  },
+  {
+    "Sequence": 62,
+    "At": "2026-09-15T00:04:55.5504143+00:00",
+    "RunId": "35024a937fb74b868074694958d4de4e",
+    "Actor": "engine",
+    "Action": "node-succeeded",
+    "Detail": "{\u0022nodeId\u0022:\u0022security\u0022,\u0022Id\u0022:\u0022b6899ebdf8a340b7ad5bb4390e1cb872\u0022,\u0022Revision\u0022:1,\u0022RequirementHash\u0022:\u0022fc12bdb450fae8f5167112d45c41f118808fb4499159cda1120b135a289a8822\u0022,\u0022Agent\u0022:\u0022EngineeringAgent/DemoAgent\u0022,\u0022Model\u0022:\u0022none\u0022,\u0022InputHashes\u0022:{\u0022design\u0022:\u002268f97bec8dc598a518af326b24b6bee8d5c0ab3c9baa7999b25732695e160914\u0022},\u0022Sha256\u0022:\u0022c09e05fa91d05008e741ea431bbdd720a30ad396bc366e9b121983470cc07d72\u0022,\u0022success\u0022:true}",
+    "PreviousHash": "f53e693d897352d060745fe92887600cbbc6c564f7cee256892972837732cda3",
+    "Hash": "ea518435f6d17bd12839183676866f334b1252eb50402e0bd15f2880671202b7"
+  },
+  {
+    "Sequence": 63,
+    "At": "2026-09-15T00:04:55.7117944+00:00",
+    "RunId": "35024a937fb74b868074694958d4de4e",
+    "Actor": "demo-approver",
+    "Action": "gate-approved",
+    "Detail": "{\u0022revision\u0022:1,\u0022nodeId\u0022:\u0022tests\u0022,\u0022reason\u0022:\u0022Explicit offline simulated approval\u0022,\u0022requirementHash\u0022:\u0022fc12bdb450fae8f5167112d45c41f118808fb4499159cda1120b135a289a8822\u0022,\u0022artifactHashes\u0022:{\u0022implementation\u0022:\u00225188546af354e0f9f03a8c07ac6db7630fe8a885ee841a81b0643c0346fb808c\u0022,\u0022security\u0022:\u0022c09e05fa91d05008e741ea431bbdd720a30ad396bc366e9b121983470cc07d72\u0022}}",
+    "PreviousHash": "ea518435f6d17bd12839183676866f334b1252eb50402e0bd15f2880671202b7",
+    "Hash": "fe6010a216d0a6a4def31b08e3bd3a6f266a5d89b6e63460b761867374e89b3e"
+  },
+  {
+    "Sequence": 64,
+    "At": "2026-09-15T00:04:55.7184315+00:00",
+    "RunId": "35024a937fb74b868074694958d4de4e",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "tests; attempt=1; revision=1",
+    "PreviousHash": "fe6010a216d0a6a4def31b08e3bd3a6f266a5d89b6e63460b761867374e89b3e",
+    "Hash": "b618e0ca4ef9e47b30603ba2bd3041b6e234f6af9bf3c819d844e43363b3f992"
+  },
+  {
+    "Sequence": 65,
+    "At": "2026-09-15T00:05:20.2836237+00:00",
+    "RunId": "35024a937fb74b868074694958d4de4e",
+    "Actor": "engine",
+    "Action": "node-succeeded",
+    "Detail": "{\u0022nodeId\u0022:\u0022tests\u0022,\u0022Id\u0022:\u0022840e55b8c8b54fdda7872f2f34ddc559\u0022,\u0022Revision\u0022:1,\u0022RequirementHash\u0022:\u0022fc12bdb450fae8f5167112d45c41f118808fb4499159cda1120b135a289a8822\u0022,\u0022Agent\u0022:\u0022EngineeringAgent/DemoAgent\u0022,\u0022Model\u0022:\u0022none\u0022,\u0022InputHashes\u0022:{\u0022implementation\u0022:\u00225188546af354e0f9f03a8c07ac6db7630fe8a885ee841a81b0643c0346fb808c\u0022,\u0022security\u0022:\u0022c09e05fa91d05008e741ea431bbdd720a30ad396bc366e9b121983470cc07d72\u0022},\u0022Sha256\u0022:\u002202f813b30e731772b98120f9728bc34e4a4c90b821b0bec2caf433ebf1be3662\u0022,\u0022success\u0022:true}",
+    "PreviousHash": "b618e0ca4ef9e47b30603ba2bd3041b6e234f6af9bf3c819d844e43363b3f992",
+    "Hash": "dd45d9d4198c7fbb48221d9115a08cf53b41f44ea280c72a55a5fcca31d0ef59"
+  },
+  {
+    "Sequence": 66,
+    "At": "2026-09-15T00:05:20.4459909+00:00",
+    "RunId": "35024a937fb74b868074694958d4de4e",
+    "Actor": "demo-approver",
+    "Action": "gate-approved",
+    "Detail": "{\u0022revision\u0022:1,\u0022nodeId\u0022:\u0022release\u0022,\u0022reason\u0022:\u0022Explicit offline simulated approval\u0022,\u0022requirementHash\u0022:\u0022fc12bdb450fae8f5167112d45c41f118808fb4499159cda1120b135a289a8822\u0022,\u0022artifactHashes\u0022:{\u0022tests\u0022:\u002202f813b30e731772b98120f9728bc34e4a4c90b821b0bec2caf433ebf1be3662\u0022}}",
+    "PreviousHash": "dd45d9d4198c7fbb48221d9115a08cf53b41f44ea280c72a55a5fcca31d0ef59",
+    "Hash": "f81003008b803b21949528f59ec40b290f791e87aa7d92bfbb4f4c755ca87d7d"
+  },
+  {
+    "Sequence": 67,
+    "At": "2026-09-15T00:05:20.4527505+00:00",
+    "RunId": "35024a937fb74b868074694958d4de4e",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "release; attempt=1; revision=1",
+    "PreviousHash": "f81003008b803b21949528f59ec40b290f791e87aa7d92bfbb4f4c755ca87d7d",
+    "Hash": "482d8178e30faf02095e650bdc3d1e5cfea657d9bab3e5d9ff38634d8065956a"
+  },
+  {
+    "Sequence": 68,
+    "At": "2026-09-15T00:05:20.559311+00:00",
+    "RunId": "35024a937fb74b868074694958d4de4e",
+    "Actor": "engine",
+    "Action": "node-succeeded",
+    "Detail": "{\u0022nodeId\u0022:\u0022release\u0022,\u0022Id\u0022:\u0022104827f2aab143ddae07dc507551ba77\u0022,\u0022Revision\u0022:1,\u0022RequirementHash\u0022:\u0022fc12bdb450fae8f5167112d45c41f118808fb4499159cda1120b135a289a8822\u0022,\u0022Agent\u0022:\u0022EngineeringAgent/DemoAgent\u0022,\u0022Model\u0022:\u0022none\u0022,\u0022InputHashes\u0022:{\u0022tests\u0022:\u002202f813b30e731772b98120f9728bc34e4a4c90b821b0bec2caf433ebf1be3662\u0022},\u0022Sha256\u0022:\u0022d2454d1f80bdfc6357bf43baa49615467148cadd121b6a916d0f92d6c50bad94\u0022,\u0022success\u0022:true}",
+    "PreviousHash": "482d8178e30faf02095e650bdc3d1e5cfea657d9bab3e5d9ff38634d8065956a",
+    "Hash": "84a9887fbeaaca28c1d17dea2398007ff010fb7125601bb2cb3dea726534321e"
+  },
+  {
+    "Sequence": 69,
+    "At": "2026-09-15T00:05:20.726658+00:00",
+    "RunId": "35024a937fb74b868074694958d4de4e",
+    "Actor": "engine",
+    "Action": "completed",
+    "Detail": "All nodes succeeded",
+    "PreviousHash": "84a9887fbeaaca28c1d17dea2398007ff010fb7125601bb2cb3dea726534321e",
+    "Hash": "5ea15f4115077e06624a2b21a11f87b662c1362db0bd82a22910e3cefd38f95f"
+  },
+  {
+    "Sequence": 70,
+    "At": "2026-09-15T00:05:20.9093215+00:00",
+    "RunId": "c4726b7f52e04573977251b622e8634a",
+    "Actor": "demo-operator",
+    "Action": "created",
+    "Detail": "{\u0022scenario\u0022:\u0022brownfield\u0022,\u0022context\u0022:\u0022Security exercise: reserve admin; a review may discover a missing protected operational alias.\u0022,\u0022engineering\u0022:{\u0022Id\u0022:\u0022REQ-ALIAS-SEC\u0022,\u0022ReservedAliases\u0022:[\u0022admin\u0022]},\u0022requirementHash\u0022:\u0022a8d4d0226172d368fcff74b6775f87cf74e1e6bb3ce4ef4b21e81d12994d96bd\u0022,\u0022nodes\u0022:[{\u0022Id\u0022:\u0022requirements\u0022,\u0022Role\u0022:\u0022analyst\u0022,\u0022Task\u0022:\u0022Assess the supplied legacy contract and migration risks. Preserve existing short codes and redirect behavior; propose characterization tests before changes.\u0022,\u0022DependsOn\u0022:[],\u0022Approval\u0022:true,\u0022MaxAttempts\u0022:3},{\u0022Id\u0022:\u0022design\u0022,\u0022Role\u0022:\u0022architect\u0022,\u0022Task\u0022:\u0022Produce architecture, persistence model and API contract.\u0022,\u0022DependsOn\u0022:[\u0022requirements\u0022],\u0022Approval\u0022:false,\u0022MaxAttempts\u0022:3},{\u0022Id\u0022:\u0022implementation\u0022,\u0022Role\u0022:\u0022developer\u0022,\u0022Task\u0022:\u0022Produce a proposed C# implementation artifact against the approved contract.\u0022,\u0022DependsOn\u0022:[\u0022design\u0022],\u0022Approval\u0022:false,\u0022MaxAttempts\u0022:3},{\u0022Id\u0022:\u0022security\u0022,\u0022Role\u0022:\u0022security-reviewer\u0022,\u0022Task\u0022:\u0022Review URL validation, redirect abuse, authorization and persistence threats.\u0022,\u0022DependsOn\u0022:[\u0022design\u0022],\u0022Approval\u0022:false,\u0022MaxAttempts\u0022:3},{\u0022Id\u0022:\u0022tests\u0022,\u0022Role\u0022:\u0022test-engineer\u0022,\u0022Task\u0022:\u0022Review the implementation patch, then build and run baseline, red regression and green regression in the constrained workspace.\u0022,\u0022DependsOn\u0022:[\u0022implementation\u0022,\u0022security\u0022],\u0022Approval\u0022:true,\u0022MaxAttempts\u0022:3},{\u0022Id\u0022:\u0022release\u0022,\u0022Role\u0022:\u0022release-reviewer\u0022,\u0022Task\u0022:\u0022Produce a release checklist and rollback plan. This artifact is a simulated release, not a deployment.\u0022,\u0022DependsOn\u0022:[\u0022tests\u0022],\u0022Approval\u0022:true,\u0022MaxAttempts\u0022:3}],\u0022revision\u0022:1}",
+    "PreviousHash": "5ea15f4115077e06624a2b21a11f87b662c1362db0bd82a22910e3cefd38f95f",
+    "Hash": "b7f5c40cd84ecfabcf874d3f22c406e87ffc839252edb7c0c000b9124a454d6d"
+  },
+  {
+    "Sequence": 71,
+    "At": "2026-09-15T00:05:20.9477164+00:00",
+    "RunId": "c4726b7f52e04573977251b622e8634a",
+    "Actor": "demo-approver",
+    "Action": "gate-approved",
+    "Detail": "{\u0022revision\u0022:1,\u0022nodeId\u0022:\u0022requirements\u0022,\u0022reason\u0022:\u0022Explicit offline simulated approval\u0022,\u0022requirementHash\u0022:\u0022a8d4d0226172d368fcff74b6775f87cf74e1e6bb3ce4ef4b21e81d12994d96bd\u0022,\u0022artifactHashes\u0022:{}}",
+    "PreviousHash": "b7f5c40cd84ecfabcf874d3f22c406e87ffc839252edb7c0c000b9124a454d6d",
+    "Hash": "f0db45d444111dc2712b01379e91e7d83c20b88c0959de297343d2c4e15c8bbd"
+  },
+  {
+    "Sequence": 72,
+    "At": "2026-09-15T00:05:20.9514462+00:00",
+    "RunId": "c4726b7f52e04573977251b622e8634a",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "requirements; attempt=1; revision=1",
+    "PreviousHash": "f0db45d444111dc2712b01379e91e7d83c20b88c0959de297343d2c4e15c8bbd",
+    "Hash": "b130b8613d3c491602fe3531d62366b60dbd596f605735d6fb49b75028c89856"
+  },
+  {
+    "Sequence": 73,
+    "At": "2026-09-15T00:05:21.0559546+00:00",
+    "RunId": "c4726b7f52e04573977251b622e8634a",
+    "Actor": "engine",
+    "Action": "node-succeeded",
+    "Detail": "{\u0022nodeId\u0022:\u0022requirements\u0022,\u0022Id\u0022:\u0022a43a9fb7f7034222aea248957dd7b2fc\u0022,\u0022Revision\u0022:1,\u0022RequirementHash\u0022:\u0022a8d4d0226172d368fcff74b6775f87cf74e1e6bb3ce4ef4b21e81d12994d96bd\u0022,\u0022Agent\u0022:\u0022EngineeringAgent/FindingDrivenAgent\u0022,\u0022Model\u0022:\u0022none\u0022,\u0022InputHashes\u0022:{},\u0022Sha256\u0022:\u00228ddbfec6028862ed5826331528db46e8e46e341b27ad5f9f33b2dce32e4c2ffc\u0022,\u0022success\u0022:true}",
+    "PreviousHash": "b130b8613d3c491602fe3531d62366b60dbd596f605735d6fb49b75028c89856",
+    "Hash": "7503ac481adca0bcbe678b92ace321c5606db068f92965aea9bbb09fb15d2cae"
+  },
+  {
+    "Sequence": 74,
+    "At": "2026-09-15T00:05:21.2250199+00:00",
+    "RunId": "c4726b7f52e04573977251b622e8634a",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "design; attempt=1; revision=1",
+    "PreviousHash": "7503ac481adca0bcbe678b92ace321c5606db068f92965aea9bbb09fb15d2cae",
+    "Hash": "326e4de8e6ef0250beb4b40258e69e9c24b4aae9172ef699c3d61f05e1165b8d"
+  },
+  {
+    "Sequence": 75,
+    "At": "2026-09-15T00:05:21.3229127+00:00",
+    "RunId": "c4726b7f52e04573977251b622e8634a",
+    "Actor": "engine",
+    "Action": "node-succeeded",
+    "Detail": "{\u0022nodeId\u0022:\u0022design\u0022,\u0022Id\u0022:\u00220299abdc276d45d79ad93df9e43a45b0\u0022,\u0022Revision\u0022:1,\u0022RequirementHash\u0022:\u0022a8d4d0226172d368fcff74b6775f87cf74e1e6bb3ce4ef4b21e81d12994d96bd\u0022,\u0022Agent\u0022:\u0022EngineeringAgent/FindingDrivenAgent\u0022,\u0022Model\u0022:\u0022none\u0022,\u0022InputHashes\u0022:{\u0022requirements\u0022:\u00228ddbfec6028862ed5826331528db46e8e46e341b27ad5f9f33b2dce32e4c2ffc\u0022},\u0022Sha256\u0022:\u0022d280c20f0432fa6c33acee8facba805cec3607f8db2f26be3c80821a95fbbb50\u0022,\u0022success\u0022:true}",
+    "PreviousHash": "326e4de8e6ef0250beb4b40258e69e9c24b4aae9172ef699c3d61f05e1165b8d",
+    "Hash": "c7ae3bf71e3cc375e0e2e0c3777e206f2c295129bbd5287db1674925b52eb00f"
+  },
+  {
+    "Sequence": 76,
+    "At": "2026-09-15T00:05:21.4936912+00:00",
+    "RunId": "c4726b7f52e04573977251b622e8634a",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "implementation; attempt=1; revision=1",
+    "PreviousHash": "c7ae3bf71e3cc375e0e2e0c3777e206f2c295129bbd5287db1674925b52eb00f",
+    "Hash": "30fc163a1f13434843cdab896af39f5bf594b5a051b0a50648c4fc630031c298"
+  },
+  {
+    "Sequence": 77,
+    "At": "2026-09-15T00:05:21.4937494+00:00",
+    "RunId": "c4726b7f52e04573977251b622e8634a",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "security; attempt=1; revision=1",
+    "PreviousHash": "30fc163a1f13434843cdab896af39f5bf594b5a051b0a50648c4fc630031c298",
+    "Hash": "330d0828ca703c6f27ce6416053160cf8a0eb4484900c7598e586e3d9fd8f595"
+  },
+  {
+    "Sequence": 78,
+    "At": "2026-09-15T00:05:21.5713963+00:00",
+    "RunId": "c4726b7f52e04573977251b622e8634a",
+    "Actor": "engine",
+    "Action": "node-succeeded",
+    "Detail": "{\u0022nodeId\u0022:\u0022implementation\u0022,\u0022Id\u0022:\u002241303379f5ba47ca9176d728ef9cac33\u0022,\u0022Revision\u0022:1,\u0022RequirementHash\u0022:\u0022a8d4d0226172d368fcff74b6775f87cf74e1e6bb3ce4ef4b21e81d12994d96bd\u0022,\u0022Agent\u0022:\u0022EngineeringAgent/FindingDrivenAgent\u0022,\u0022Model\u0022:\u0022none\u0022,\u0022InputHashes\u0022:{\u0022design\u0022:\u0022d280c20f0432fa6c33acee8facba805cec3607f8db2f26be3c80821a95fbbb50\u0022},\u0022Sha256\u0022:\u0022cb2c443f03b431795d6e473aa421be34f50c0807ca98df0f91b390b17362f162\u0022,\u0022success\u0022:true}",
+    "PreviousHash": "330d0828ca703c6f27ce6416053160cf8a0eb4484900c7598e586e3d9fd8f595",
+    "Hash": "0bb6e50d365a25d5ba389fc6f7f7779b6528490302ead5382d5e1f3234aab582"
+  },
+  {
+    "Sequence": 79,
+    "At": "2026-09-15T00:05:21.5797223+00:00",
+    "RunId": "c4726b7f52e04573977251b622e8634a",
+    "Actor": "engine",
+    "Action": "validation-failed",
+    "Detail": "{\u0022nodeId\u0022:\u0022security\u0022,\u0022Id\u0022:\u0022a0e9e0a307f34a7886bdada738a3288f\u0022,\u0022Revision\u0022:1,\u0022RequirementHash\u0022:\u0022a8d4d0226172d368fcff74b6775f87cf74e1e6bb3ce4ef4b21e81d12994d96bd\u0022,\u0022Agent\u0022:\u0022EngineeringAgent/FindingDrivenAgent\u0022,\u0022Model\u0022:\u0022none\u0022,\u0022InputHashes\u0022:{\u0022design\u0022:\u0022d280c20f0432fa6c33acee8facba805cec3607f8db2f26be3c80821a95fbbb50\u0022},\u0022Sha256\u0022:\u002231a59baccfb4e42d59603642c8ce77fdf217d79c30a8dd90a2fcffd1ce335276\u0022,\u0022success\u0022:false}",
+    "PreviousHash": "0bb6e50d365a25d5ba389fc6f7f7779b6528490302ead5382d5e1f3234aab582",
+    "Hash": "a58e4553a6b75cec276092a23b4a6bbce520e972e68f2da9c9b9a7770c31beab"
+  },
+  {
+    "Sequence": 80,
+    "At": "2026-09-15T00:05:21.5816754+00:00",
+    "RunId": "c4726b7f52e04573977251b622e8634a",
+    "Actor": "engine",
+    "Action": "security-blocked-replan-proposed",
+    "Detail": "{\u0022BaseRevision\u0022:1,\u0022SourceArtifactId\u0022:\u0022a0e9e0a307f34a7886bdada738a3288f\u0022,\u0022SourceHash\u0022:\u002231a59baccfb4e42d59603642c8ce77fdf217d79c30a8dd90a2fcffd1ce335276\u0022,\u0022FindingIds\u0022:[\u0022protected-alias\u0022],\u0022Nodes\u0022:[{\u0022Id\u0022:\u0022requirements\u0022,\u0022Role\u0022:\u0022analyst\u0022,\u0022Task\u0022:\u0022Assess the supplied legacy contract and migration risks. Preserve existing short codes and redirect behavior; propose characterization tests before changes.\u0022,\u0022DependsOn\u0022:[],\u0022Approval\u0022:true,\u0022MaxAttempts\u0022:3},{\u0022Id\u0022:\u0022design\u0022,\u0022Role\u0022:\u0022architect\u0022,\u0022Task\u0022:\u0022Produce architecture, persistence model and API contract.\u0022,\u0022DependsOn\u0022:[\u0022requirements\u0022],\u0022Approval\u0022:false,\u0022MaxAttempts\u0022:3},{\u0022Id\u0022:\u0022implementation\u0022,\u0022Role\u0022:\u0022developer\u0022,\u0022Task\u0022:\u0022Produce a proposed C# implementation artifact against the approved contract.\u0022,\u0022DependsOn\u0022:[\u0022design\u0022,\u0022remediate-protected-alias\u0022],\u0022Approval\u0022:false,\u0022MaxAttempts\u0022:3},{\u0022Id\u0022:\u0022security\u0022,\u0022Role\u0022:\u0022security-reviewer\u0022,\u0022Task\u0022:\u0022Review URL validation, redirect abuse, authorization and persistence threats.\u0022,\u0022DependsOn\u0022:[\u0022design\u0022,\u0022remediate-protected-alias\u0022],\u0022Approval\u0022:false,\u0022MaxAttempts\u0022:3},{\u0022Id\u0022:\u0022tests\u0022,\u0022Role\u0022:\u0022test-engineer\u0022,\u0022Task\u0022:\u0022Review the implementation patch, then build and run baseline, red regression and green regression in the constrained workspace.\u0022,\u0022DependsOn\u0022:[\u0022implementation\u0022,\u0022security\u0022],\u0022Approval\u0022:true,\u0022MaxAttempts\u0022:3},{\u0022Id\u0022:\u0022release\u0022,\u0022Role\u0022:\u0022release-reviewer\u0022,\u0022Task\u0022:\u0022Produce a release checklist and rollback plan. This artifact is a simulated release, not a deployment.\u0022,\u0022DependsOn\u0022:[\u0022tests\u0022],\u0022Approval\u0022:true,\u0022MaxAttempts\u0022:3},{\u0022Id\u0022:\u0022remediate-protected-alias\u0022,\u0022Role\u0022:\u0022remediation-planner\u0022,\u0022Task\u0022:\u0022Resolve finding protected-alias: The operational health alias is not protected from new user allocation.\\nRequired work: Reserve health alongside admin, preserve existing stored aliases, and run case-insensitive rejection and backward-compatibility regressions.\\nExplain validation evidence and remaining limitations.\u0022,\u0022DependsOn\u0022:[\u0022design\u0022],\u0022Approval\u0022:false,\u0022MaxAttempts\u0022:3}],\u0022Engineering\u0022:{\u0022Id\u0022:\u0022REQ-ALIAS-SEC\u0022,\u0022ReservedAliases\u0022:[\u0022admin\u0022,\u0022health\u0022]},\u0022Reason\u0022:\u0022Agent findings require remediation and a fresh security review; no critical/high waiver is allowed\u0022}",
+    "PreviousHash": "a58e4553a6b75cec276092a23b4a6bbce520e972e68f2da9c9b9a7770c31beab",
+    "Hash": "f5387e0eaa06085834865269201e19402b9a0c65c9d46387315fdcd3490ebf7f"
+  },
+  {
+    "Sequence": 81,
+    "At": "2026-09-15T00:05:21.7432242+00:00",
+    "RunId": "c4726b7f52e04573977251b622e8634a",
+    "Actor": "demo-approver",
+    "Action": "findings-plan-approved",
+    "Detail": "{\u0022revision\u0022:2,\u0022reason\u0022:\u0022Explicit review of findings-derived plan\u0022,\u0022SourceArtifactId\u0022:\u0022a0e9e0a307f34a7886bdada738a3288f\u0022,\u0022SourceHash\u0022:\u002231a59baccfb4e42d59603642c8ce77fdf217d79c30a8dd90a2fcffd1ce335276\u0022,\u0022FindingIds\u0022:[\u0022protected-alias\u0022],\u0022requirementHash\u0022:\u00223d9f211a058e2e7143df3ef2ced78f493357f34fad827aa25028e7121bf90f0e\u0022}",
+    "PreviousHash": "f5387e0eaa06085834865269201e19402b9a0c65c9d46387315fdcd3490ebf7f",
+    "Hash": "2dffc38c4d156a350c13f5d781558885d67f74d6dfb178ee6f1ca2f2edd4185d"
+  },
+  {
+    "Sequence": 82,
+    "At": "2026-09-15T00:05:21.7496752+00:00",
+    "RunId": "c4726b7f52e04573977251b622e8634a",
+    "Actor": "demo-approver",
+    "Action": "gate-approved",
+    "Detail": "{\u0022revision\u0022:2,\u0022nodeId\u0022:\u0022requirements\u0022,\u0022reason\u0022:\u0022Explicit offline simulated approval\u0022,\u0022requirementHash\u0022:\u00223d9f211a058e2e7143df3ef2ced78f493357f34fad827aa25028e7121bf90f0e\u0022,\u0022artifactHashes\u0022:{}}",
+    "PreviousHash": "2dffc38c4d156a350c13f5d781558885d67f74d6dfb178ee6f1ca2f2edd4185d",
+    "Hash": "3aecc3d1f6e5036e283eabd9d5c899dc48239cad787b2ca03bf10af0511df10f"
+  },
+  {
+    "Sequence": 83,
+    "At": "2026-09-15T00:05:21.7641354+00:00",
+    "RunId": "c4726b7f52e04573977251b622e8634a",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "requirements; attempt=1; revision=2",
+    "PreviousHash": "3aecc3d1f6e5036e283eabd9d5c899dc48239cad787b2ca03bf10af0511df10f",
+    "Hash": "e2454a9873e82f82abc2925ccbd8a150ccdc0fa7ee58b1ebd9cfe31837d6a795"
+  },
+  {
+    "Sequence": 84,
+    "At": "2026-09-15T00:05:21.8544326+00:00",
+    "RunId": "c4726b7f52e04573977251b622e8634a",
+    "Actor": "engine",
+    "Action": "node-succeeded",
+    "Detail": "{\u0022nodeId\u0022:\u0022requirements\u0022,\u0022Id\u0022:\u00221e664c27ca0d4c5d97eb08a42de733da\u0022,\u0022Revision\u0022:2,\u0022RequirementHash\u0022:\u00223d9f211a058e2e7143df3ef2ced78f493357f34fad827aa25028e7121bf90f0e\u0022,\u0022Agent\u0022:\u0022EngineeringAgent/FindingDrivenAgent\u0022,\u0022Model\u0022:\u0022none\u0022,\u0022InputHashes\u0022:{},\u0022Sha256\u0022:\u00220c8dad78c077db2b9c9fbac0009c1839174601ce33dcfadf6eff67bbb2606be4\u0022,\u0022success\u0022:true}",
+    "PreviousHash": "e2454a9873e82f82abc2925ccbd8a150ccdc0fa7ee58b1ebd9cfe31837d6a795",
+    "Hash": "7a24fbf5a83aabcc0894837f47625c19951a72dd02c4df083b05dc833b5799c2"
+  },
+  {
+    "Sequence": 85,
+    "At": "2026-09-15T00:05:22.0084155+00:00",
+    "RunId": "c4726b7f52e04573977251b622e8634a",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "design; attempt=1; revision=2",
+    "PreviousHash": "7a24fbf5a83aabcc0894837f47625c19951a72dd02c4df083b05dc833b5799c2",
+    "Hash": "7cde8f5909bb09c023fc98940ea8c60409eeff20e9e964cf872bf88d1adfeb3f"
+  },
+  {
+    "Sequence": 86,
+    "At": "2026-09-15T00:05:22.105164+00:00",
+    "RunId": "c4726b7f52e04573977251b622e8634a",
+    "Actor": "engine",
+    "Action": "node-succeeded",
+    "Detail": "{\u0022nodeId\u0022:\u0022design\u0022,\u0022Id\u0022:\u00229b5e8a5f09cd439f93bd849421585d0c\u0022,\u0022Revision\u0022:2,\u0022RequirementHash\u0022:\u00223d9f211a058e2e7143df3ef2ced78f493357f34fad827aa25028e7121bf90f0e\u0022,\u0022Agent\u0022:\u0022EngineeringAgent/FindingDrivenAgent\u0022,\u0022Model\u0022:\u0022none\u0022,\u0022InputHashes\u0022:{\u0022requirements\u0022:\u00220c8dad78c077db2b9c9fbac0009c1839174601ce33dcfadf6eff67bbb2606be4\u0022},\u0022Sha256\u0022:\u002226b46ce49125c539a36653030a33bc45d21d1b9e4b0d2685bac4ffb3f2a8f97d\u0022,\u0022success\u0022:true}",
+    "PreviousHash": "7cde8f5909bb09c023fc98940ea8c60409eeff20e9e964cf872bf88d1adfeb3f",
+    "Hash": "bad123996dc5e059c3dc6d0b5a9ad200f0c586fd21dab16d6e7c796089e2a294"
+  },
+  {
+    "Sequence": 87,
+    "At": "2026-09-15T00:05:22.2716629+00:00",
+    "RunId": "c4726b7f52e04573977251b622e8634a",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "remediate-protected-alias; attempt=1; revision=2",
+    "PreviousHash": "bad123996dc5e059c3dc6d0b5a9ad200f0c586fd21dab16d6e7c796089e2a294",
+    "Hash": "47769739532f97bae47504241904ae263fd0a9489b28aeacd2153eec605599a4"
+  },
+  {
+    "Sequence": 88,
+    "At": "2026-09-15T00:05:22.3727004+00:00",
+    "RunId": "c4726b7f52e04573977251b622e8634a",
+    "Actor": "engine",
+    "Action": "node-succeeded",
+    "Detail": "{\u0022nodeId\u0022:\u0022remediate-protected-alias\u0022,\u0022Id\u0022:\u0022ec2cdc037c884f57b0cd47537cee256d\u0022,\u0022Revision\u0022:2,\u0022RequirementHash\u0022:\u00223d9f211a058e2e7143df3ef2ced78f493357f34fad827aa25028e7121bf90f0e\u0022,\u0022Agent\u0022:\u0022EngineeringAgent/FindingDrivenAgent\u0022,\u0022Model\u0022:\u0022none\u0022,\u0022InputHashes\u0022:{\u0022design\u0022:\u002226b46ce49125c539a36653030a33bc45d21d1b9e4b0d2685bac4ffb3f2a8f97d\u0022},\u0022Sha256\u0022:\u00220a807410cf4add32535549a3a549fdda45bb9f9a0c98f5990396e6079a24196c\u0022,\u0022success\u0022:true}",
+    "PreviousHash": "47769739532f97bae47504241904ae263fd0a9489b28aeacd2153eec605599a4",
+    "Hash": "f74dd2b41809ae4a25db0bc3b4223ad3aa298f3de8ff9d445e9e739aeccf4aab"
+  },
+  {
+    "Sequence": 89,
+    "At": "2026-09-15T00:05:22.5216708+00:00",
+    "RunId": "c4726b7f52e04573977251b622e8634a",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "implementation; attempt=1; revision=2",
+    "PreviousHash": "f74dd2b41809ae4a25db0bc3b4223ad3aa298f3de8ff9d445e9e739aeccf4aab",
+    "Hash": "217b48b33c4a6404ae3abd39c43a78dd3d1ebb2bf834f3dee67b72ef7dfc60e4"
+  },
+  {
+    "Sequence": 90,
+    "At": "2026-09-15T00:05:22.5217113+00:00",
+    "RunId": "c4726b7f52e04573977251b622e8634a",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "security; attempt=1; revision=2",
+    "PreviousHash": "217b48b33c4a6404ae3abd39c43a78dd3d1ebb2bf834f3dee67b72ef7dfc60e4",
+    "Hash": "8c370e469cf20d67ebabe98cee1d396cd782cb4f75921f7834c57250738a9c12"
+  },
+  {
+    "Sequence": 91,
+    "At": "2026-09-15T00:05:22.6283379+00:00",
+    "RunId": "c4726b7f52e04573977251b622e8634a",
+    "Actor": "engine",
+    "Action": "node-succeeded",
+    "Detail": "{\u0022nodeId\u0022:\u0022implementation\u0022,\u0022Id\u0022:\u00227756a2cdcfe449e9b924207b879eb978\u0022,\u0022Revision\u0022:2,\u0022RequirementHash\u0022:\u00223d9f211a058e2e7143df3ef2ced78f493357f34fad827aa25028e7121bf90f0e\u0022,\u0022Agent\u0022:\u0022EngineeringAgent/FindingDrivenAgent\u0022,\u0022Model\u0022:\u0022none\u0022,\u0022InputHashes\u0022:{\u0022design\u0022:\u002226b46ce49125c539a36653030a33bc45d21d1b9e4b0d2685bac4ffb3f2a8f97d\u0022,\u0022remediate-protected-alias\u0022:\u00220a807410cf4add32535549a3a549fdda45bb9f9a0c98f5990396e6079a24196c\u0022},\u0022Sha256\u0022:\u00227bf57942287dad05a01ba23336335904d63827abd8b5154cf07356cceb529320\u0022,\u0022success\u0022:true}",
+    "PreviousHash": "8c370e469cf20d67ebabe98cee1d396cd782cb4f75921f7834c57250738a9c12",
+    "Hash": "8d7e698037f2d410d0e1d63da18df7b1978d86ab62f5c6fddce96663406fccea"
+  },
+  {
+    "Sequence": 92,
+    "At": "2026-09-15T00:05:22.7186563+00:00",
+    "RunId": "c4726b7f52e04573977251b622e8634a",
+    "Actor": "engine",
+    "Action": "node-succeeded",
+    "Detail": "{\u0022nodeId\u0022:\u0022security\u0022,\u0022Id\u0022:\u0022906159bc672746ac89b1ccfb69e293b1\u0022,\u0022Revision\u0022:2,\u0022RequirementHash\u0022:\u00223d9f211a058e2e7143df3ef2ced78f493357f34fad827aa25028e7121bf90f0e\u0022,\u0022Agent\u0022:\u0022EngineeringAgent/FindingDrivenAgent\u0022,\u0022Model\u0022:\u0022none\u0022,\u0022InputHashes\u0022:{\u0022design\u0022:\u002226b46ce49125c539a36653030a33bc45d21d1b9e4b0d2685bac4ffb3f2a8f97d\u0022,\u0022remediate-protected-alias\u0022:\u00220a807410cf4add32535549a3a549fdda45bb9f9a0c98f5990396e6079a24196c\u0022},\u0022Sha256\u0022:\u0022a9ae2072798881a30c7f5e6ba122f7e95c7763adb046b6e954be2ca1401bf939\u0022,\u0022success\u0022:true}",
+    "PreviousHash": "8d7e698037f2d410d0e1d63da18df7b1978d86ab62f5c6fddce96663406fccea",
+    "Hash": "e5fa2850074cf84635b44b36384c00201fad5267463f9f19fb6259a3dbdd1219"
+  },
+  {
+    "Sequence": 93,
+    "At": "2026-09-15T00:05:22.8738659+00:00",
+    "RunId": "c4726b7f52e04573977251b622e8634a",
+    "Actor": "demo-approver",
+    "Action": "gate-approved",
+    "Detail": "{\u0022revision\u0022:2,\u0022nodeId\u0022:\u0022tests\u0022,\u0022reason\u0022:\u0022Explicit offline simulated approval\u0022,\u0022requirementHash\u0022:\u00223d9f211a058e2e7143df3ef2ced78f493357f34fad827aa25028e7121bf90f0e\u0022,\u0022artifactHashes\u0022:{\u0022implementation\u0022:\u00227bf57942287dad05a01ba23336335904d63827abd8b5154cf07356cceb529320\u0022,\u0022security\u0022:\u0022a9ae2072798881a30c7f5e6ba122f7e95c7763adb046b6e954be2ca1401bf939\u0022}}",
+    "PreviousHash": "e5fa2850074cf84635b44b36384c00201fad5267463f9f19fb6259a3dbdd1219",
+    "Hash": "8b8710bc1bca5fcdffec619f7f1c4026ea7357593758d376cad700e903a2a498"
+  },
+  {
+    "Sequence": 94,
+    "At": "2026-09-15T00:05:22.8828341+00:00",
+    "RunId": "c4726b7f52e04573977251b622e8634a",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "tests; attempt=1; revision=2",
+    "PreviousHash": "8b8710bc1bca5fcdffec619f7f1c4026ea7357593758d376cad700e903a2a498",
+    "Hash": "f1e3cc026b554ff0018e601e233d2d8ce4186ba79e159a0a6148da0885be608a"
+  },
+  {
+    "Sequence": 95,
+    "At": "2026-09-15T00:06:21.7236884+00:00",
+    "RunId": "c4726b7f52e04573977251b622e8634a",
+    "Actor": "engine",
+    "Action": "node-succeeded",
+    "Detail": "{\u0022nodeId\u0022:\u0022tests\u0022,\u0022Id\u0022:\u002206cfdc905d094a5b852f8685ed87f195\u0022,\u0022Revision\u0022:2,\u0022RequirementHash\u0022:\u00223d9f211a058e2e7143df3ef2ced78f493357f34fad827aa25028e7121bf90f0e\u0022,\u0022Agent\u0022:\u0022EngineeringAgent/FindingDrivenAgent\u0022,\u0022Model\u0022:\u0022none\u0022,\u0022InputHashes\u0022:{\u0022implementation\u0022:\u00227bf57942287dad05a01ba23336335904d63827abd8b5154cf07356cceb529320\u0022,\u0022security\u0022:\u0022a9ae2072798881a30c7f5e6ba122f7e95c7763adb046b6e954be2ca1401bf939\u0022},\u0022Sha256\u0022:\u0022baa36a63ec154bd0a2f58cf9a91d664b93ad80606f08449d0d3e65ee3f72f97d\u0022,\u0022success\u0022:true}",
+    "PreviousHash": "f1e3cc026b554ff0018e601e233d2d8ce4186ba79e159a0a6148da0885be608a",
+    "Hash": "0568b28b812faea0b8d446541764debcb003f62e36cb3912d01e69660a5a1b46"
+  },
+  {
+    "Sequence": 96,
+    "At": "2026-09-15T00:06:21.8950416+00:00",
+    "RunId": "c4726b7f52e04573977251b622e8634a",
+    "Actor": "demo-approver",
+    "Action": "gate-approved",
+    "Detail": "{\u0022revision\u0022:2,\u0022nodeId\u0022:\u0022release\u0022,\u0022reason\u0022:\u0022Explicit offline simulated approval\u0022,\u0022requirementHash\u0022:\u00223d9f211a058e2e7143df3ef2ced78f493357f34fad827aa25028e7121bf90f0e\u0022,\u0022artifactHashes\u0022:{\u0022tests\u0022:\u0022baa36a63ec154bd0a2f58cf9a91d664b93ad80606f08449d0d3e65ee3f72f97d\u0022}}",
+    "PreviousHash": "0568b28b812faea0b8d446541764debcb003f62e36cb3912d01e69660a5a1b46",
+    "Hash": "9209073a6db010b0b70f214ec4e1c9569fdbea4de0c7ea40cb5e956cedcc143c"
+  },
+  {
+    "Sequence": 97,
+    "At": "2026-09-15T00:06:21.9027493+00:00",
+    "RunId": "c4726b7f52e04573977251b622e8634a",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "release; attempt=1; revision=2",
+    "PreviousHash": "9209073a6db010b0b70f214ec4e1c9569fdbea4de0c7ea40cb5e956cedcc143c",
+    "Hash": "e362306f131309899e300e6caf8275783039492b96b173a9542430e18750a31f"
+  },
+  {
+    "Sequence": 98,
+    "At": "2026-09-15T00:06:22.0112888+00:00",
+    "RunId": "c4726b7f52e04573977251b622e8634a",
+    "Actor": "engine",
+    "Action": "node-succeeded",
+    "Detail": "{\u0022nodeId\u0022:\u0022release\u0022,\u0022Id\u0022:\u0022f16723dd514a401bbe94d7cf5fbb69f0\u0022,\u0022Revision\u0022:2,\u0022RequirementHash\u0022:\u00223d9f211a058e2e7143df3ef2ced78f493357f34fad827aa25028e7121bf90f0e\u0022,\u0022Agent\u0022:\u0022EngineeringAgent/FindingDrivenAgent\u0022,\u0022Model\u0022:\u0022none\u0022,\u0022InputHashes\u0022:{\u0022tests\u0022:\u0022baa36a63ec154bd0a2f58cf9a91d664b93ad80606f08449d0d3e65ee3f72f97d\u0022},\u0022Sha256\u0022:\u002280c4154620d31db3d6fa20d299afc4b994ff418009eece6fae1b8812b0d70f9b\u0022,\u0022success\u0022:true}",
+    "PreviousHash": "e362306f131309899e300e6caf8275783039492b96b173a9542430e18750a31f",
+    "Hash": "610395e5912a7c5dbd495015a4cb02912a49baf9879e4dfef95b242872ac8683"
+  },
+  {
+    "Sequence": 99,
+    "At": "2026-09-15T00:06:22.186655+00:00",
+    "RunId": "c4726b7f52e04573977251b622e8634a",
+    "Actor": "engine",
+    "Action": "completed",
+    "Detail": "All nodes succeeded",
+    "PreviousHash": "610395e5912a7c5dbd495015a4cb02912a49baf9879e4dfef95b242872ac8683",
+    "Hash": "a7259c4f5ab5e2aaf387751f8d2bfcd8c56245740d5f25b99aca63751042def1"
+  },
+  {
+    "Sequence": 100,
+    "At": "2026-09-15T00:06:22.3637487+00:00",
+    "RunId": "9532b2e7e3134fa4bdcb58dead57d943",
+    "Actor": "demo-operator",
+    "Action": "created",
+    "Detail": "{\u0022scenario\u0022:\u0022greenfield\u0022,\u0022context\u0022:\u0022Explicit fallback exercise: primary requirements provider unavailable; require approval before the alternate executes.\u0022,\u0022engineering\u0022:null,\u0022requirementHash\u0022:\u0022a7f9e01da4e9523246b86a6337dc9becf207094a26e87016c968433bd09d2837\u0022,\u0022nodes\u0022:[{\u0022Id\u0022:\u0022requirements\u0022,\u0022Role\u0022:\u0022analyst\u0022,\u0022Task\u0022:\u0022Specify HTTP URL shortening, expiry, redirects and abuse controls.\u0022,\u0022DependsOn\u0022:[],\u0022Approval\u0022:false,\u0022MaxAttempts\u0022:3},{\u0022Id\u0022:\u0022design\u0022,\u0022Role\u0022:\u0022architect\u0022,\u0022Task\u0022:\u0022Produce architecture, persistence model and API contract.\u0022,\u0022DependsOn\u0022:[\u0022requirements\u0022],\u0022Approval\u0022:false,\u0022MaxAttempts\u0022:3},{\u0022Id\u0022:\u0022implementation\u0022,\u0022Role\u0022:\u0022developer\u0022,\u0022Task\u0022:\u0022Produce a proposed C# implementation artifact against the approved contract.\u0022,\u0022DependsOn\u0022:[\u0022design\u0022],\u0022Approval\u0022:false,\u0022MaxAttempts\u0022:3},{\u0022Id\u0022:\u0022security\u0022,\u0022Role\u0022:\u0022security-reviewer\u0022,\u0022Task\u0022:\u0022Review URL validation, redirect abuse, authorization and persistence threats.\u0022,\u0022DependsOn\u0022:[\u0022design\u0022],\u0022Approval\u0022:false,\u0022MaxAttempts\u0022:3},{\u0022Id\u0022:\u0022tests\u0022,\u0022Role\u0022:\u0022test-engineer\u0022,\u0022Task\u0022:\u0022Produce test cases and identify validation gaps from implementation and security findings. Do not claim to have executed code.\u0022,\u0022DependsOn\u0022:[\u0022implementation\u0022,\u0022security\u0022],\u0022Approval\u0022:false,\u0022MaxAttempts\u0022:3},{\u0022Id\u0022:\u0022release\u0022,\u0022Role\u0022:\u0022release-reviewer\u0022,\u0022Task\u0022:\u0022Produce a release checklist and rollback plan. This artifact is a simulated release, not a deployment.\u0022,\u0022DependsOn\u0022:[\u0022tests\u0022],\u0022Approval\u0022:true,\u0022MaxAttempts\u0022:3}],\u0022revision\u0022:1}",
+    "PreviousHash": "a7259c4f5ab5e2aaf387751f8d2bfcd8c56245740d5f25b99aca63751042def1",
+    "Hash": "376a1eddf36f1fa5369601823774ab1ee74f7b085b33b7dc1903b5742904e7c3"
+  },
+  {
+    "Sequence": 101,
+    "At": "2026-09-15T00:06:22.3746374+00:00",
+    "RunId": "9532b2e7e3134fa4bdcb58dead57d943",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "requirements; attempt=1; revision=1",
+    "PreviousHash": "376a1eddf36f1fa5369601823774ab1ee74f7b085b33b7dc1903b5742904e7c3",
+    "Hash": "c28d6299a7fccea365a7cd06ae62a9a261a06fc01f19dcd43a48c26f918c1f2e"
+  },
+  {
+    "Sequence": 102,
+    "At": "2026-09-15T00:06:22.3808395+00:00",
+    "RunId": "9532b2e7e3134fa4bdcb58dead57d943",
+    "Actor": "engine",
+    "Action": "retry-scheduled",
+    "Detail": "requirements; AI HTTP status: ServiceUnavailable; at=2026-09-15T00:06:23.3806179\u002B00:00",
+    "PreviousHash": "c28d6299a7fccea365a7cd06ae62a9a261a06fc01f19dcd43a48c26f918c1f2e",
+    "Hash": "c15fcec6c97e77f1ddfcff4f9fac7110b437a3fabb31bd26d60ee709be6cc84c"
+  },
+  {
+    "Sequence": 103,
+    "At": "2026-09-15T00:06:23.5048841+00:00",
+    "RunId": "9532b2e7e3134fa4bdcb58dead57d943",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "requirements; attempt=2; revision=1",
+    "PreviousHash": "c15fcec6c97e77f1ddfcff4f9fac7110b437a3fabb31bd26d60ee709be6cc84c",
+    "Hash": "62d7625dcc97849114a7c87682f1e651e43939c707be664010bced13e723adf0"
+  },
+  {
+    "Sequence": 104,
+    "At": "2026-09-15T00:06:23.5128443+00:00",
+    "RunId": "9532b2e7e3134fa4bdcb58dead57d943",
+    "Actor": "engine",
+    "Action": "retry-scheduled",
+    "Detail": "requirements; AI HTTP status: ServiceUnavailable; at=2026-09-15T00:06:25.5128289\u002B00:00",
+    "PreviousHash": "62d7625dcc97849114a7c87682f1e651e43939c707be664010bced13e723adf0",
+    "Hash": "e520cfaf88e825b19c382c648d78bb00599c36c28bc19f477b43a56310c0e922"
+  },
+  {
+    "Sequence": 105,
+    "At": "2026-09-15T00:06:25.6665376+00:00",
+    "RunId": "9532b2e7e3134fa4bdcb58dead57d943",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "requirements; attempt=3; revision=1",
+    "PreviousHash": "e520cfaf88e825b19c382c648d78bb00599c36c28bc19f477b43a56310c0e922",
+    "Hash": "4bcc29614a75ac507c432000421302ba79848f66e2856e08c4ecc690638da7f9"
+  },
+  {
+    "Sequence": 106,
+    "At": "2026-09-15T00:06:25.6810628+00:00",
+    "RunId": "9532b2e7e3134fa4bdcb58dead57d943",
+    "Actor": "engine",
+    "Action": "fallback-proposed",
+    "Detail": "{\u0022Revision\u0022:1,\u0022NodeId\u0022:\u0022requirements\u0022,\u0022Agent\u0022:\u0022DemoAgent\u0022,\u0022Model\u0022:\u0022none\u0022,\u0022Reason\u0022:\u0022Primary retry budget exhausted; one fallback attempt requires approval\u0022}",
+    "PreviousHash": "4bcc29614a75ac507c432000421302ba79848f66e2856e08c4ecc690638da7f9",
+    "Hash": "00ecc3ab1840e3906294280a8c3c1ce849c7e033b526f791c7ecd17effdc6aa8"
+  },
+  {
+    "Sequence": 107,
+    "At": "2026-09-15T00:06:25.8543932+00:00",
+    "RunId": "9532b2e7e3134fa4bdcb58dead57d943",
+    "Actor": "demo-approver",
+    "Action": "fallback-approved",
+    "Detail": "{\u0022revision\u0022:1,\u0022NodeId\u0022:\u0022requirements\u0022,\u0022Agent\u0022:\u0022DemoAgent\u0022,\u0022Model\u0022:\u0022none\u0022,\u0022reason\u0022:\u0022Explicitly approve alternate provider for one bounded attempt\u0022}",
+    "PreviousHash": "00ecc3ab1840e3906294280a8c3c1ce849c7e033b526f791c7ecd17effdc6aa8",
+    "Hash": "e7769cd0cca28abb408e2df78a8b4c74fb096da8ed3525981b736a797e5613f3"
+  },
+  {
+    "Sequence": 108,
+    "At": "2026-09-15T00:06:25.8654035+00:00",
+    "RunId": "9532b2e7e3134fa4bdcb58dead57d943",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "requirements; attempt=3; revision=1",
+    "PreviousHash": "e7769cd0cca28abb408e2df78a8b4c74fb096da8ed3525981b736a797e5613f3",
+    "Hash": "25a5c911d10ae7dae41adb83d9f75ef96d9e52796c3c802b65d6808c6f060b4a"
+  },
+  {
+    "Sequence": 109,
+    "At": "2026-09-15T00:06:25.9559957+00:00",
+    "RunId": "9532b2e7e3134fa4bdcb58dead57d943",
+    "Actor": "engine",
+    "Action": "node-succeeded",
+    "Detail": "{\u0022nodeId\u0022:\u0022requirements\u0022,\u0022Id\u0022:\u0022be121246e7f744448f9272dd284198b0\u0022,\u0022Revision\u0022:1,\u0022RequirementHash\u0022:\u0022a7f9e01da4e9523246b86a6337dc9becf207094a26e87016c968433bd09d2837\u0022,\u0022Agent\u0022:\u0022DemoAgent\u0022,\u0022Model\u0022:\u0022none\u0022,\u0022InputHashes\u0022:{},\u0022Sha256\u0022:\u002278493fc924bb1c239d292062128630c0490d962f0ec15c7bca1803ba3dcef58f\u0022,\u0022success\u0022:true}",
+    "PreviousHash": "25a5c911d10ae7dae41adb83d9f75ef96d9e52796c3c802b65d6808c6f060b4a",
+    "Hash": "fc1cd5bbe3b9fd5023b3658068e29ee22916eaec1b565467c3a1cd083e09e59a"
+  },
+  {
+    "Sequence": 110,
+    "At": "2026-09-15T00:06:25.9583253+00:00",
+    "RunId": "9532b2e7e3134fa4bdcb58dead57d943",
+    "Actor": "engine",
+    "Action": "incident-recovered",
+    "Detail": "{\u0022nodeId\u0022:\u0022requirements\u0022,\u0022recoveryMs\u0022:3575.456,\u0022fallback\u0022:true}",
+    "PreviousHash": "fc1cd5bbe3b9fd5023b3658068e29ee22916eaec1b565467c3a1cd083e09e59a",
+    "Hash": "cbf229ee68eb7070e0857c43d05873d24daf44934fc01f889b77292abf7f2ebe"
+  },
+  {
+    "Sequence": 111,
+    "At": "2026-09-15T00:06:26.1285263+00:00",
+    "RunId": "9532b2e7e3134fa4bdcb58dead57d943",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "design; attempt=1; revision=1",
+    "PreviousHash": "cbf229ee68eb7070e0857c43d05873d24daf44934fc01f889b77292abf7f2ebe",
+    "Hash": "94075f81a02b5ac9d86cd8b8493c1f9327aa61842c9f178b66f993a13e7717d1"
+  },
+  {
+    "Sequence": 112,
+    "At": "2026-09-15T00:06:26.219009+00:00",
+    "RunId": "9532b2e7e3134fa4bdcb58dead57d943",
+    "Actor": "engine",
+    "Action": "node-succeeded",
+    "Detail": "{\u0022nodeId\u0022:\u0022design\u0022,\u0022Id\u0022:\u00229ef3b174124c43ad931c1509bbdc98a3\u0022,\u0022Revision\u0022:1,\u0022RequirementHash\u0022:\u0022a7f9e01da4e9523246b86a6337dc9becf207094a26e87016c968433bd09d2837\u0022,\u0022Agent\u0022:\u0022PrimaryOutageAgent\u0022,\u0022Model\u0022:\u0022none\u0022,\u0022InputHashes\u0022:{\u0022requirements\u0022:\u002278493fc924bb1c239d292062128630c0490d962f0ec15c7bca1803ba3dcef58f\u0022},\u0022Sha256\u0022:\u00229a5fbaf25be7685c0381849768b673d30933972a443870d0b60123f89d52942b\u0022,\u0022success\u0022:true}",
+    "PreviousHash": "94075f81a02b5ac9d86cd8b8493c1f9327aa61842c9f178b66f993a13e7717d1",
+    "Hash": "3f3f8061116154fd6f04e4f34548b140a9e12ef8ef79b9d7f97f545ebec023bd"
+  },
+  {
+    "Sequence": 113,
+    "At": "2026-09-15T00:06:26.3816254+00:00",
+    "RunId": "9532b2e7e3134fa4bdcb58dead57d943",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "implementation; attempt=1; revision=1",
+    "PreviousHash": "3f3f8061116154fd6f04e4f34548b140a9e12ef8ef79b9d7f97f545ebec023bd",
+    "Hash": "47bcce0978daaaae59c94d7b364f7cfad01fbfb393492752e31ed27a1d0da3d4"
+  },
+  {
+    "Sequence": 114,
+    "At": "2026-09-15T00:06:26.3816505+00:00",
+    "RunId": "9532b2e7e3134fa4bdcb58dead57d943",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "security; attempt=1; revision=1",
+    "PreviousHash": "47bcce0978daaaae59c94d7b364f7cfad01fbfb393492752e31ed27a1d0da3d4",
+    "Hash": "6b87bd6014735b52a75d9128d0f74d1bb4f294ac9095751b33ff0cfac34df8a5"
+  },
+  {
+    "Sequence": 115,
+    "At": "2026-09-15T00:06:26.4720867+00:00",
+    "RunId": "9532b2e7e3134fa4bdcb58dead57d943",
+    "Actor": "engine",
+    "Action": "node-succeeded",
+    "Detail": "{\u0022nodeId\u0022:\u0022implementation\u0022,\u0022Id\u0022:\u0022c0c9f236a95e40bebaca38e6a963707f\u0022,\u0022Revision\u0022:1,\u0022RequirementHash\u0022:\u0022a7f9e01da4e9523246b86a6337dc9becf207094a26e87016c968433bd09d2837\u0022,\u0022Agent\u0022:\u0022PrimaryOutageAgent\u0022,\u0022Model\u0022:\u0022none\u0022,\u0022InputHashes\u0022:{\u0022design\u0022:\u00229a5fbaf25be7685c0381849768b673d30933972a443870d0b60123f89d52942b\u0022},\u0022Sha256\u0022:\u0022411c611563f3132520df00b9bffb06414d7865409e65b3586f9ecd68fa0aa3cf\u0022,\u0022success\u0022:true}",
+    "PreviousHash": "6b87bd6014735b52a75d9128d0f74d1bb4f294ac9095751b33ff0cfac34df8a5",
+    "Hash": "586701dd497631cf6f53421b3e7b326712155c8ed77a186ae6f56b59d9470fd8"
+  },
+  {
+    "Sequence": 116,
+    "At": "2026-09-15T00:06:26.4817318+00:00",
+    "RunId": "9532b2e7e3134fa4bdcb58dead57d943",
+    "Actor": "engine",
+    "Action": "node-succeeded",
+    "Detail": "{\u0022nodeId\u0022:\u0022security\u0022,\u0022Id\u0022:\u0022d360194ecaee47a7a00dc730e73032fb\u0022,\u0022Revision\u0022:1,\u0022RequirementHash\u0022:\u0022a7f9e01da4e9523246b86a6337dc9becf207094a26e87016c968433bd09d2837\u0022,\u0022Agent\u0022:\u0022PrimaryOutageAgent\u0022,\u0022Model\u0022:\u0022none\u0022,\u0022InputHashes\u0022:{\u0022design\u0022:\u00229a5fbaf25be7685c0381849768b673d30933972a443870d0b60123f89d52942b\u0022},\u0022Sha256\u0022:\u0022692c61c9a12679f56ba3438b176fb7a321c9ce025856e159b89552cec960133e\u0022,\u0022success\u0022:true}",
+    "PreviousHash": "586701dd497631cf6f53421b3e7b326712155c8ed77a186ae6f56b59d9470fd8",
+    "Hash": "0503399712136b86289f88057a7ef6901dda89f6c56d2621dbdfa65c7034cc6c"
+  },
+  {
+    "Sequence": 117,
+    "At": "2026-09-15T00:06:26.6460862+00:00",
+    "RunId": "9532b2e7e3134fa4bdcb58dead57d943",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "tests; attempt=1; revision=1",
+    "PreviousHash": "0503399712136b86289f88057a7ef6901dda89f6c56d2621dbdfa65c7034cc6c",
+    "Hash": "d1b385eb74e7215db4352f0364f3878312d7c27aa60f35cfb39c40af2e6df523"
+  },
+  {
+    "Sequence": 118,
+    "At": "2026-09-15T00:06:26.7385157+00:00",
+    "RunId": "9532b2e7e3134fa4bdcb58dead57d943",
+    "Actor": "engine",
+    "Action": "node-succeeded",
+    "Detail": "{\u0022nodeId\u0022:\u0022tests\u0022,\u0022Id\u0022:\u0022106f7205adc142ee91e58d1fc6be7112\u0022,\u0022Revision\u0022:1,\u0022RequirementHash\u0022:\u0022a7f9e01da4e9523246b86a6337dc9becf207094a26e87016c968433bd09d2837\u0022,\u0022Agent\u0022:\u0022PrimaryOutageAgent\u0022,\u0022Model\u0022:\u0022none\u0022,\u0022InputHashes\u0022:{\u0022implementation\u0022:\u0022411c611563f3132520df00b9bffb06414d7865409e65b3586f9ecd68fa0aa3cf\u0022,\u0022security\u0022:\u0022692c61c9a12679f56ba3438b176fb7a321c9ce025856e159b89552cec960133e\u0022},\u0022Sha256\u0022:\u0022838a3032876bf1c022e90995bd0ae8b3100f55b4ed3543f709390875285b8774\u0022,\u0022success\u0022:true}",
+    "PreviousHash": "d1b385eb74e7215db4352f0364f3878312d7c27aa60f35cfb39c40af2e6df523",
+    "Hash": "3cdb3478d92649c270b929af9e478e4916983c57fc27debc2a5101ab6117b7ed"
+  },
+  {
+    "Sequence": 119,
+    "At": "2026-09-15T00:06:26.9121556+00:00",
+    "RunId": "9532b2e7e3134fa4bdcb58dead57d943",
+    "Actor": "demo-approver",
+    "Action": "gate-approved",
+    "Detail": "{\u0022revision\u0022:1,\u0022nodeId\u0022:\u0022release\u0022,\u0022reason\u0022:\u0022Explicit offline simulated approval\u0022,\u0022requirementHash\u0022:\u0022a7f9e01da4e9523246b86a6337dc9becf207094a26e87016c968433bd09d2837\u0022,\u0022artifactHashes\u0022:{\u0022tests\u0022:\u0022838a3032876bf1c022e90995bd0ae8b3100f55b4ed3543f709390875285b8774\u0022}}",
+    "PreviousHash": "3cdb3478d92649c270b929af9e478e4916983c57fc27debc2a5101ab6117b7ed",
+    "Hash": "e5b11259e325ec1638202c7c4622dbbd94239040659b33420e375296fd50fbd1"
+  },
+  {
+    "Sequence": 120,
+    "At": "2026-09-15T00:06:26.9214669+00:00",
+    "RunId": "9532b2e7e3134fa4bdcb58dead57d943",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "release; attempt=1; revision=1",
+    "PreviousHash": "e5b11259e325ec1638202c7c4622dbbd94239040659b33420e375296fd50fbd1",
+    "Hash": "009fd254874f4c4adac91bf6652a25e0c48d4ac9020344e156058aa7138bcac8"
+  },
+  {
+    "Sequence": 121,
+    "At": "2026-09-15T00:06:27.0271175+00:00",
+    "RunId": "9532b2e7e3134fa4bdcb58dead57d943",
+    "Actor": "engine",
+    "Action": "node-succeeded",
+    "Detail": "{\u0022nodeId\u0022:\u0022release\u0022,\u0022Id\u0022:\u0022f6dc162b7c68441da3856bcf5b6e75ef\u0022,\u0022Revision\u0022:1,\u0022RequirementHash\u0022:\u0022a7f9e01da4e9523246b86a6337dc9becf207094a26e87016c968433bd09d2837\u0022,\u0022Agent\u0022:\u0022PrimaryOutageAgent\u0022,\u0022Model\u0022:\u0022none\u0022,\u0022InputHashes\u0022:{\u0022tests\u0022:\u0022838a3032876bf1c022e90995bd0ae8b3100f55b4ed3543f709390875285b8774\u0022},\u0022Sha256\u0022:\u002290bec5cba186ddde1096fb8eb9e56c35b8ca0ff71c2bc62404bd3ba41893faa1\u0022,\u0022success\u0022:true}",
+    "PreviousHash": "009fd254874f4c4adac91bf6652a25e0c48d4ac9020344e156058aa7138bcac8",
+    "Hash": "ec394ceedb8cdaf45e1c9ba25c3ddee4cd3e1e719fe91d0a9b26f548e651e746"
+  },
+  {
+    "Sequence": 122,
+    "At": "2026-09-15T00:06:27.1814894+00:00",
+    "RunId": "9532b2e7e3134fa4bdcb58dead57d943",
+    "Actor": "engine",
+    "Action": "completed",
+    "Detail": "All nodes succeeded",
+    "PreviousHash": "ec394ceedb8cdaf45e1c9ba25c3ddee4cd3e1e719fe91d0a9b26f548e651e746",
+    "Hash": "75ece1bb04b18c4635319c38172e53331b289762d320538e84519d0eb250d5a5"
+  },
+  {
+    "Sequence": 123,
+    "At": "2026-09-15T00:06:27.3454487+00:00",
+    "RunId": "1f01133ae59342d181c751a7de5b7575",
+    "Actor": "demo-operator",
+    "Action": "created",
+    "Detail": "{\u0022scenario\u0022:\u0022greenfield\u0022,\u0022context\u0022:\u0022Injected restart and one transient failure for reliability measurement\u0022,\u0022engineering\u0022:null,\u0022requirementHash\u0022:\u00226b59bd9e0aef0c5e81954583f03f7610e679e457ac959d0338c4e01eea851b62\u0022,\u0022nodes\u0022:[{\u0022Id\u0022:\u0022requirements\u0022,\u0022Role\u0022:\u0022analyst\u0022,\u0022Task\u0022:\u0022Specify HTTP URL shortening, expiry, redirects and abuse controls.\u0022,\u0022DependsOn\u0022:[],\u0022Approval\u0022:false,\u0022MaxAttempts\u0022:3},{\u0022Id\u0022:\u0022design\u0022,\u0022Role\u0022:\u0022architect\u0022,\u0022Task\u0022:\u0022Produce architecture, persistence model and API contract.\u0022,\u0022DependsOn\u0022:[\u0022requirements\u0022],\u0022Approval\u0022:false,\u0022MaxAttempts\u0022:3},{\u0022Id\u0022:\u0022implementation\u0022,\u0022Role\u0022:\u0022developer\u0022,\u0022Task\u0022:\u0022Produce a proposed C# implementation artifact against the approved contract.\u0022,\u0022DependsOn\u0022:[\u0022design\u0022],\u0022Approval\u0022:false,\u0022MaxAttempts\u0022:3},{\u0022Id\u0022:\u0022security\u0022,\u0022Role\u0022:\u0022security-reviewer\u0022,\u0022Task\u0022:\u0022Review URL validation, redirect abuse, authorization and persistence threats.\u0022,\u0022DependsOn\u0022:[\u0022design\u0022],\u0022Approval\u0022:false,\u0022MaxAttempts\u0022:3},{\u0022Id\u0022:\u0022tests\u0022,\u0022Role\u0022:\u0022test-engineer\u0022,\u0022Task\u0022:\u0022Produce test cases and identify validation gaps from implementation and security findings. Do not claim to have executed code.\u0022,\u0022DependsOn\u0022:[\u0022implementation\u0022,\u0022security\u0022],\u0022Approval\u0022:false,\u0022MaxAttempts\u0022:3},{\u0022Id\u0022:\u0022release\u0022,\u0022Role\u0022:\u0022release-reviewer\u0022,\u0022Task\u0022:\u0022Produce a release checklist and rollback plan. This artifact is a simulated release, not a deployment.\u0022,\u0022DependsOn\u0022:[\u0022tests\u0022],\u0022Approval\u0022:true,\u0022MaxAttempts\u0022:3}],\u0022revision\u0022:1}",
+    "PreviousHash": "75ece1bb04b18c4635319c38172e53331b289762d320538e84519d0eb250d5a5",
+    "Hash": "b186c80d3cb0e535308865f002241ebad58af155dc35293a4e9693e6e4f53e6a"
+  },
+  {
+    "Sequence": 124,
+    "At": "2026-09-15T00:06:27.3572311+00:00",
+    "RunId": "1f01133ae59342d181c751a7de5b7575",
+    "Actor": "demo-fault-injector",
+    "Action": "attempt-started",
+    "Detail": "Synthetic interrupted attempt for deterministic recovery exercise",
+    "PreviousHash": "b186c80d3cb0e535308865f002241ebad58af155dc35293a4e9693e6e4f53e6a",
+    "Hash": "e134030fc0c0e0bc7d6dcf9d006e325c1ca7f5b581fd20b9516fc0e926acafbb"
+  },
+  {
+    "Sequence": 125,
+    "At": "2026-09-15T00:06:27.3572583+00:00",
+    "RunId": "1f01133ae59342d181c751a7de5b7575",
+    "Actor": "demo-fault-injector",
+    "Action": "crash-injected",
+    "Detail": "No OS process was killed; persisted Running state is injected",
+    "PreviousHash": "e134030fc0c0e0bc7d6dcf9d006e325c1ca7f5b581fd20b9516fc0e926acafbb",
+    "Hash": "20c7479784844b99fe713ac18f65d68e40c25063514718513412e627d5c225da"
+  },
+  {
+    "Sequence": 126,
+    "At": "2026-09-15T00:06:27.3648132+00:00",
+    "RunId": "1f01133ae59342d181c751a7de5b7575",
+    "Actor": "engine",
+    "Action": "recovered",
+    "Detail": "requirements",
+    "PreviousHash": "20c7479784844b99fe713ac18f65d68e40c25063514718513412e627d5c225da",
+    "Hash": "d7c31b8d5f9cfda2d8c5952525ac8c93968269191f8328cd0c760373af275e2d"
+  },
+  {
+    "Sequence": 127,
+    "At": "2026-09-15T00:06:27.3757589+00:00",
+    "RunId": "1f01133ae59342d181c751a7de5b7575",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "requirements; attempt=2; revision=1",
+    "PreviousHash": "d7c31b8d5f9cfda2d8c5952525ac8c93968269191f8328cd0c760373af275e2d",
+    "Hash": "b638d8317114ef20e9ab126eceb85fe259b86defa3116a15e54e91bfa5703099"
+  },
+  {
+    "Sequence": 128,
+    "At": "2026-09-15T00:06:27.3840536+00:00",
+    "RunId": "1f01133ae59342d181c751a7de5b7575",
+    "Actor": "engine",
+    "Action": "retry-scheduled",
+    "Detail": "requirements; AI HTTP status: ServiceUnavailable; at=2026-09-15T00:06:29.3840452\u002B00:00",
+    "PreviousHash": "b638d8317114ef20e9ab126eceb85fe259b86defa3116a15e54e91bfa5703099",
+    "Hash": "425a969be1def9b5b904397743be3532cf6182d0a3c867025e2a4d5455b1c77d"
+  },
+  {
+    "Sequence": 129,
+    "At": "2026-09-15T00:06:29.5404227+00:00",
+    "RunId": "1f01133ae59342d181c751a7de5b7575",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "requirements; attempt=3; revision=1",
+    "PreviousHash": "425a969be1def9b5b904397743be3532cf6182d0a3c867025e2a4d5455b1c77d",
+    "Hash": "e7bcf4e9343c7415653dbb157f353a10089a6ca7270f8716c2d33d202aca521d"
+  },
+  {
+    "Sequence": 130,
+    "At": "2026-09-15T00:06:29.6361487+00:00",
+    "RunId": "1f01133ae59342d181c751a7de5b7575",
+    "Actor": "engine",
+    "Action": "node-succeeded",
+    "Detail": "{\u0022nodeId\u0022:\u0022requirements\u0022,\u0022Id\u0022:\u00227dd6f406b3654ea9b62caa42afe269c7\u0022,\u0022Revision\u0022:1,\u0022RequirementHash\u0022:\u00226b59bd9e0aef0c5e81954583f03f7610e679e457ac959d0338c4e01eea851b62\u0022,\u0022Agent\u0022:\u0022FailOnceAgent\u0022,\u0022Model\u0022:\u0022none\u0022,\u0022InputHashes\u0022:{},\u0022Sha256\u0022:\u0022d0700f1a74655c7198e63b9af51c0bd823ff7ec3709554a3382ae6e0c02cfb4d\u0022,\u0022success\u0022:true}",
+    "PreviousHash": "e7bcf4e9343c7415653dbb157f353a10089a6ca7270f8716c2d33d202aca521d",
+    "Hash": "bab054d8491c7df7b9121b6391fceb4bcae177926b5b94c658eae33faa7db251"
+  },
+  {
+    "Sequence": 131,
+    "At": "2026-09-15T00:06:29.6361994+00:00",
+    "RunId": "1f01133ae59342d181c751a7de5b7575",
+    "Actor": "engine",
+    "Action": "incident-recovered",
+    "Detail": "{\u0022nodeId\u0022:\u0022requirements\u0022,\u0022recoveryMs\u0022:2252.1147,\u0022fallback\u0022:false}",
+    "PreviousHash": "bab054d8491c7df7b9121b6391fceb4bcae177926b5b94c658eae33faa7db251",
+    "Hash": "3568acde92efa2c5f54fc2244405dfcdfbcdf3a7641ef53444cea59809d8b740"
+  },
+  {
+    "Sequence": 132,
+    "At": "2026-09-15T00:06:29.6379644+00:00",
+    "RunId": "1f01133ae59342d181c751a7de5b7575",
+    "Actor": "engine",
+    "Action": "recovery-completed",
+    "Detail": "{\u0022nodeId\u0022:\u0022requirements\u0022,\u0022recoveryMs\u0022:2271.4253}",
+    "PreviousHash": "3568acde92efa2c5f54fc2244405dfcdfbcdf3a7641ef53444cea59809d8b740",
+    "Hash": "b21f3f3b4ab85c3c3d55e9485738d1dabe9d125c0cc783d278095d75a20176d2"
+  },
+  {
+    "Sequence": 133,
+    "At": "2026-09-15T00:06:29.807103+00:00",
+    "RunId": "1f01133ae59342d181c751a7de5b7575",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "design; attempt=1; revision=1",
+    "PreviousHash": "b21f3f3b4ab85c3c3d55e9485738d1dabe9d125c0cc783d278095d75a20176d2",
+    "Hash": "a4b64d2b1c09e1a87d94602a09461b981875bda152909c5a8ddef4d2c0b9c631"
+  },
+  {
+    "Sequence": 134,
+    "At": "2026-09-15T00:06:29.890985+00:00",
+    "RunId": "1f01133ae59342d181c751a7de5b7575",
+    "Actor": "engine",
+    "Action": "node-succeeded",
+    "Detail": "{\u0022nodeId\u0022:\u0022design\u0022,\u0022Id\u0022:\u0022ecffd8e1af974538a708abcc24f2f0d7\u0022,\u0022Revision\u0022:1,\u0022RequirementHash\u0022:\u00226b59bd9e0aef0c5e81954583f03f7610e679e457ac959d0338c4e01eea851b62\u0022,\u0022Agent\u0022:\u0022FailOnceAgent\u0022,\u0022Model\u0022:\u0022none\u0022,\u0022InputHashes\u0022:{\u0022requirements\u0022:\u0022d0700f1a74655c7198e63b9af51c0bd823ff7ec3709554a3382ae6e0c02cfb4d\u0022},\u0022Sha256\u0022:\u0022fb7f144a89d9f01aca008493f1976243e0c973eab38399b4aae2bf98ed15f961\u0022,\u0022success\u0022:true}",
+    "PreviousHash": "a4b64d2b1c09e1a87d94602a09461b981875bda152909c5a8ddef4d2c0b9c631",
+    "Hash": "c0ef0a629f5fd2564a27883613aef419c3ea1871a26e7042057ea472d1d91e92"
+  },
+  {
+    "Sequence": 135,
+    "At": "2026-09-15T00:06:30.0533525+00:00",
+    "RunId": "1f01133ae59342d181c751a7de5b7575",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "implementation; attempt=1; revision=1",
+    "PreviousHash": "c0ef0a629f5fd2564a27883613aef419c3ea1871a26e7042057ea472d1d91e92",
+    "Hash": "070b5b303ab193d85aa28b2d29589e684c5ad41cc978c19237198249d8bdf2b1"
+  },
+  {
+    "Sequence": 136,
+    "At": "2026-09-15T00:06:30.0533742+00:00",
+    "RunId": "1f01133ae59342d181c751a7de5b7575",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "security; attempt=1; revision=1",
+    "PreviousHash": "070b5b303ab193d85aa28b2d29589e684c5ad41cc978c19237198249d8bdf2b1",
+    "Hash": "297056da414dbe1eb45b9dfcb72e8a003d9dd9d6668c4708e598532b51fe6238"
+  },
+  {
+    "Sequence": 137,
+    "At": "2026-09-15T00:06:30.135409+00:00",
+    "RunId": "1f01133ae59342d181c751a7de5b7575",
+    "Actor": "engine",
+    "Action": "node-succeeded",
+    "Detail": "{\u0022nodeId\u0022:\u0022implementation\u0022,\u0022Id\u0022:\u00221415a42c3b8649679cc4b6532300776f\u0022,\u0022Revision\u0022:1,\u0022RequirementHash\u0022:\u00226b59bd9e0aef0c5e81954583f03f7610e679e457ac959d0338c4e01eea851b62\u0022,\u0022Agent\u0022:\u0022FailOnceAgent\u0022,\u0022Model\u0022:\u0022none\u0022,\u0022InputHashes\u0022:{\u0022design\u0022:\u0022fb7f144a89d9f01aca008493f1976243e0c973eab38399b4aae2bf98ed15f961\u0022},\u0022Sha256\u0022:\u0022cdf3d031a8c52ab4e3fecb7e64cc660a77a0a89adc06d983a5ef99d3a98fd733\u0022,\u0022success\u0022:true}",
+    "PreviousHash": "297056da414dbe1eb45b9dfcb72e8a003d9dd9d6668c4708e598532b51fe6238",
+    "Hash": "7d43723122024d99f1c08d2682de3c2965172e21b81bf9da93cef259ce1f2db0"
+  },
+  {
+    "Sequence": 138,
+    "At": "2026-09-15T00:06:30.1412089+00:00",
+    "RunId": "1f01133ae59342d181c751a7de5b7575",
+    "Actor": "engine",
+    "Action": "node-succeeded",
+    "Detail": "{\u0022nodeId\u0022:\u0022security\u0022,\u0022Id\u0022:\u002248269029d0364955bfedd34dd366727d\u0022,\u0022Revision\u0022:1,\u0022RequirementHash\u0022:\u00226b59bd9e0aef0c5e81954583f03f7610e679e457ac959d0338c4e01eea851b62\u0022,\u0022Agent\u0022:\u0022FailOnceAgent\u0022,\u0022Model\u0022:\u0022none\u0022,\u0022InputHashes\u0022:{\u0022design\u0022:\u0022fb7f144a89d9f01aca008493f1976243e0c973eab38399b4aae2bf98ed15f961\u0022},\u0022Sha256\u0022:\u0022bbc000f35a97ef443de19c27f67dac4992a902247c7c12891f337051d5329cfa\u0022,\u0022success\u0022:true}",
+    "PreviousHash": "7d43723122024d99f1c08d2682de3c2965172e21b81bf9da93cef259ce1f2db0",
+    "Hash": "ec0010995c24a3b68b2d7a4aab5c1a81f9b8d2f3b9bd08a649f9d4e2470bd91a"
+  },
+  {
+    "Sequence": 139,
+    "At": "2026-09-15T00:06:30.3072447+00:00",
+    "RunId": "1f01133ae59342d181c751a7de5b7575",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "tests; attempt=1; revision=1",
+    "PreviousHash": "ec0010995c24a3b68b2d7a4aab5c1a81f9b8d2f3b9bd08a649f9d4e2470bd91a",
+    "Hash": "36c8cccd939a75062df455d56f9b57ab3a1678b83232d963375415964e6ea06b"
+  },
+  {
+    "Sequence": 140,
+    "At": "2026-09-15T00:06:30.4023019+00:00",
+    "RunId": "1f01133ae59342d181c751a7de5b7575",
+    "Actor": "engine",
+    "Action": "node-succeeded",
+    "Detail": "{\u0022nodeId\u0022:\u0022tests\u0022,\u0022Id\u0022:\u00221a994bb5b7a54866ae35af697e903c4b\u0022,\u0022Revision\u0022:1,\u0022RequirementHash\u0022:\u00226b59bd9e0aef0c5e81954583f03f7610e679e457ac959d0338c4e01eea851b62\u0022,\u0022Agent\u0022:\u0022FailOnceAgent\u0022,\u0022Model\u0022:\u0022none\u0022,\u0022InputHashes\u0022:{\u0022implementation\u0022:\u0022cdf3d031a8c52ab4e3fecb7e64cc660a77a0a89adc06d983a5ef99d3a98fd733\u0022,\u0022security\u0022:\u0022bbc000f35a97ef443de19c27f67dac4992a902247c7c12891f337051d5329cfa\u0022},\u0022Sha256\u0022:\u00225f3757eb86f2ea7a4af48300fd6657585e2db1be0c2ac034685a30cf7f90f337\u0022,\u0022success\u0022:true}",
+    "PreviousHash": "36c8cccd939a75062df455d56f9b57ab3a1678b83232d963375415964e6ea06b",
+    "Hash": "f9b87fb8db20c373a50fff636756ffc2487759366ec0496080d9e10816b803cb"
+  },
+  {
+    "Sequence": 141,
+    "At": "2026-09-15T00:06:30.5703498+00:00",
+    "RunId": "1f01133ae59342d181c751a7de5b7575",
+    "Actor": "demo-approver",
+    "Action": "gate-approved",
+    "Detail": "{\u0022revision\u0022:1,\u0022nodeId\u0022:\u0022release\u0022,\u0022reason\u0022:\u0022Explicit offline simulated approval\u0022,\u0022requirementHash\u0022:\u00226b59bd9e0aef0c5e81954583f03f7610e679e457ac959d0338c4e01eea851b62\u0022,\u0022artifactHashes\u0022:{\u0022tests\u0022:\u00225f3757eb86f2ea7a4af48300fd6657585e2db1be0c2ac034685a30cf7f90f337\u0022}}",
+    "PreviousHash": "f9b87fb8db20c373a50fff636756ffc2487759366ec0496080d9e10816b803cb",
+    "Hash": "9bb1326cdf8bcb1f9400881322e1483a20656ebb5f52b594bc458ba874ecfc6e"
+  },
+  {
+    "Sequence": 142,
+    "At": "2026-09-15T00:06:30.5796479+00:00",
+    "RunId": "1f01133ae59342d181c751a7de5b7575",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "release; attempt=1; revision=1",
+    "PreviousHash": "9bb1326cdf8bcb1f9400881322e1483a20656ebb5f52b594bc458ba874ecfc6e",
+    "Hash": "ade3074bf52d117e65a5e099f72b3a468787a8bb5d01e45e8a9c34d0b7d1803a"
+  },
+  {
+    "Sequence": 143,
+    "At": "2026-09-15T00:06:30.6746452+00:00",
+    "RunId": "1f01133ae59342d181c751a7de5b7575",
+    "Actor": "engine",
+    "Action": "node-succeeded",
+    "Detail": "{\u0022nodeId\u0022:\u0022release\u0022,\u0022Id\u0022:\u002271ec4a53e2f84962b77d88c0992ead16\u0022,\u0022Revision\u0022:1,\u0022RequirementHash\u0022:\u00226b59bd9e0aef0c5e81954583f03f7610e679e457ac959d0338c4e01eea851b62\u0022,\u0022Agent\u0022:\u0022FailOnceAgent\u0022,\u0022Model\u0022:\u0022none\u0022,\u0022InputHashes\u0022:{\u0022tests\u0022:\u00225f3757eb86f2ea7a4af48300fd6657585e2db1be0c2ac034685a30cf7f90f337\u0022},\u0022Sha256\u0022:\u0022eb4d02867ba368f55f2c49eb0b74482a61a8b8307d65b9ac1a788a6d7b1184ef\u0022,\u0022success\u0022:true}",
+    "PreviousHash": "ade3074bf52d117e65a5e099f72b3a468787a8bb5d01e45e8a9c34d0b7d1803a",
+    "Hash": "46c61cbaed6b7d646e80bd1e61c88f0c46c7255617f130b40a6068fdcec2016e"
+  },
+  {
+    "Sequence": 144,
+    "At": "2026-09-15T00:06:30.8513549+00:00",
+    "RunId": "1f01133ae59342d181c751a7de5b7575",
+    "Actor": "engine",
+    "Action": "completed",
+    "Detail": "All nodes succeeded",
+    "PreviousHash": "46c61cbaed6b7d646e80bd1e61c88f0c46c7255617f130b40a6068fdcec2016e",
+    "Hash": "89038d3f78a2edf74961fe847749235d72ed0000c2a667756d21e9cf387a3d6a"
+  },
+  {
+    "Sequence": 145,
+    "At": "2026-09-15T00:06:31.0163551+00:00",
+    "RunId": "f7979d11e7bd4151a65b0cad059643bb",
+    "Actor": "demo-operator",
+    "Action": "created",
+    "Detail": "{\u0022scenario\u0022:\u0022greenfield\u0022,\u0022context\u0022:\u0022Injected permanent failure for rollback measurement\u0022,\u0022engineering\u0022:null,\u0022requirementHash\u0022:\u00229c3f5096c554d3cc664f3c5d03f37d23983b57010689012ea85a0e2e76768ddf\u0022,\u0022nodes\u0022:[{\u0022Id\u0022:\u0022requirements\u0022,\u0022Role\u0022:\u0022analyst\u0022,\u0022Task\u0022:\u0022Specify HTTP URL shortening, expiry, redirects and abuse controls.\u0022,\u0022DependsOn\u0022:[],\u0022Approval\u0022:false,\u0022MaxAttempts\u0022:3},{\u0022Id\u0022:\u0022design\u0022,\u0022Role\u0022:\u0022architect\u0022,\u0022Task\u0022:\u0022Produce architecture, persistence model and API contract.\u0022,\u0022DependsOn\u0022:[\u0022requirements\u0022],\u0022Approval\u0022:false,\u0022MaxAttempts\u0022:3},{\u0022Id\u0022:\u0022implementation\u0022,\u0022Role\u0022:\u0022developer\u0022,\u0022Task\u0022:\u0022Produce a proposed C# implementation artifact against the approved contract.\u0022,\u0022DependsOn\u0022:[\u0022design\u0022],\u0022Approval\u0022:false,\u0022MaxAttempts\u0022:3},{\u0022Id\u0022:\u0022security\u0022,\u0022Role\u0022:\u0022security-reviewer\u0022,\u0022Task\u0022:\u0022Review URL validation, redirect abuse, authorization and persistence threats.\u0022,\u0022DependsOn\u0022:[\u0022design\u0022],\u0022Approval\u0022:false,\u0022MaxAttempts\u0022:3},{\u0022Id\u0022:\u0022tests\u0022,\u0022Role\u0022:\u0022test-engineer\u0022,\u0022Task\u0022:\u0022Produce test cases and identify validation gaps from implementation and security findings. Do not claim to have executed code.\u0022,\u0022DependsOn\u0022:[\u0022implementation\u0022,\u0022security\u0022],\u0022Approval\u0022:false,\u0022MaxAttempts\u0022:3},{\u0022Id\u0022:\u0022release\u0022,\u0022Role\u0022:\u0022release-reviewer\u0022,\u0022Task\u0022:\u0022Produce a release checklist and rollback plan. This artifact is a simulated release, not a deployment.\u0022,\u0022DependsOn\u0022:[\u0022tests\u0022],\u0022Approval\u0022:true,\u0022MaxAttempts\u0022:3}],\u0022revision\u0022:1}",
+    "PreviousHash": "89038d3f78a2edf74961fe847749235d72ed0000c2a667756d21e9cf387a3d6a",
+    "Hash": "638b9194a0248db6b5b9cf1389b777fd02184d64d8144bc2da313018f66465ac"
+  },
+  {
+    "Sequence": 146,
+    "At": "2026-09-15T00:06:31.0231326+00:00",
+    "RunId": "f7979d11e7bd4151a65b0cad059643bb",
+    "Actor": "engine",
+    "Action": "attempt-started",
+    "Detail": "requirements; attempt=1; revision=1",
+    "PreviousHash": "638b9194a0248db6b5b9cf1389b777fd02184d64d8144bc2da313018f66465ac",
+    "Hash": "75e8f036791a7715c7ad5cb86b0ed756972ff3491a163dfa3e021ca129abaaa4"
+  },
+  {
+    "Sequence": 147,
+    "At": "2026-09-15T00:06:31.0388462+00:00",
+    "RunId": "f7979d11e7bd4151a65b0cad059643bb",
+    "Actor": "engine",
+    "Action": "node-failed",
+    "Detail": "requirements; AI HTTP status: Unauthorized",
+    "PreviousHash": "75e8f036791a7715c7ad5cb86b0ed756972ff3491a163dfa3e021ca129abaaa4",
+    "Hash": "7b705b1b537bb15901b67893254ae5b06efa2ff84c95faff9bd13d768f8fd75d"
+  },
+  {
+    "Sequence": 148,
+    "At": "2026-09-15T00:06:31.0489456+00:00",
+    "RunId": "f7979d11e7bd4151a65b0cad059643bb",
+    "Actor": "engine",
+    "Action": "rolled-back",
+    "Detail": "Artifact compensation complete",
+    "PreviousHash": "7b705b1b537bb15901b67893254ae5b06efa2ff84c95faff9bd13d768f8fd75d",
+    "Hash": "15d655d169c7e2f8e0918ceb96564f1d586550c199fa493121e8b397ad9a10ef"
+  }
+]
