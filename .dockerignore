@@ -1,0 +1,8 @@
+**/bin
+**/obj
+.git
+.env
+data
+TestResults
+evidence-local
+evidence-docker

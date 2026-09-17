@@ -1,0 +1,20 @@
+services:
+  shortener:
+    build: .
+    ports:
+      - "127.0.0.1:8080:8080"
+    environment:
+      AGENT_MODE: ${AGENT_MODE:-offline}
+      OPERATOR_KEY: ${OPERATOR_KEY:?Set OPERATOR_KEY in .env}
+      APPROVER_KEY: ${APPROVER_KEY:?Set APPROVER_KEY in .env}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      OPENAI_MODEL: ${OPENAI_MODEL:-}
+      OPENAI_FALLBACK_MODEL: ${OPENAI_FALLBACK_MODEL:-}
+      ENABLE_OFFLINE_FALLBACK: ${ENABLE_OFFLINE_FALLBACK:-false}
+    volumes:
+      - shortener-data:/data
+    restart: unless-stopped
+    stop_grace_period: 75s
+volumes:
+  shortener-data:
+  engineering-work:

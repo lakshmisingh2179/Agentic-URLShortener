@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="src/Shortener.Core/Shortener.Core.csproj" />
+  <Project Path="src/Shortener.Api/Shortener.Api.csproj" />
+  <Project Path="tests/Shortener.Tests/Shortener.Tests.csproj" />
+  <Project Path="tools/EngineeringDemo/EngineeringDemo.csproj" />
+</Solution>

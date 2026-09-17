@@ -1,0 +1,19 @@
+services:
+  engineering-demo:
+    build:
+      context: .
+      target: engineering
+    command: ["--auto-approve-offline"]
+    network_mode: none
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    pids_limit: 128
+    mem_limit: 2g
+    cpus: 2
+    tmpfs: [/tmp]
+    volumes:
+      - engineering-work:/work
+      - ./evidence-docker:/evidence
+volumes:
+  engineering-work:

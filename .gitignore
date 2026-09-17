@@ -1,0 +1,7 @@
+bin/
+obj/
+data/
+.env
+*.user
+evidence-local/
+evidence-docker/
